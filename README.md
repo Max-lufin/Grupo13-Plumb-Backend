@@ -50,25 +50,7 @@ npm run dev
 \`\`\`
 *(El servidor se ejecutará en http://localhost:3000)*
 
----
 
-## 🏗️ Arquitectura del Proyecto (MVC)
-El proyecto está construido bajo el patrón **Modelo-Vista-Controlador**, separando estrictamente las responsabilidades:
-
-\`\`\`text
-Grupo13-Plumb-Backend/
-├── database/                   # Script oficial de la Base de Datos (.sql)
-├── src/
-│   ├── config/db.js            # Pool de conexión a MySQL usando Promesas
-│   ├── controllers/            # Lógica de negocio (Extrae params y llama al modelo)
-│   ├── models/                 # Consultas SQL parametrizadas contra inyecciones
-│   ├── routes/                 # Definición de rutas RESTful
-│   └── index.js                # Punto de entrada de la aplicación
-├── .env.example                # Plantilla de entorno (Seguridad)
-└── package.json                # Dependencias del proyecto
-\`\`\`
-
----
 
 ## 📡 Endpoints Principales (13 Consultas de la Rúbrica)
 
