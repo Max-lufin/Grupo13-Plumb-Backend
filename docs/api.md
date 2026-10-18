@@ -1,5 +1,12 @@
 # API REST de Plumb
 
+## Introducción
+
+La API conecta la aplicación web de Plumb con sus bases de datos: publica el catálogo de maestros, recibe las solicitudes de servicio y su ciclo de estados, administra los dos mantenedores (maestros y oficios) y expone dos laboratorios para demostrar las consultas en PostgreSQL y en MongoDB. Está construida con Express 5 y se publica como función serverless en Vercel, en la misma dirección que el frontend.
+
+- Producción: `https://grupo13-plumb.vercel.app/api/v1`
+- Local: `http://localhost:3000/api/v1`
+
 Base: `/api/v1`. Todas las respuestas son JSON y comparten la misma forma:
 
 ```json
@@ -99,7 +106,96 @@ Las escrituras corren en una transacción multi-documento que se aborta.
 | POST | `/nosql/consultas/{Q1..T3}/ejecuciones` | Ejecuta en MongoDB y en PostgreSQL y compara; en lecturas incluye el plan de ejecución |
 | POST | `/nosql/pruebas/{N1..N7}/ejecuciones` | Intenta un documento inválido y devuelve el error del validador |
 
-## Ejemplo
+## Autenticación y autorización
+
+Esta versión no tiene inicio de sesión: es una demostración académica y en la interfaz se elige con qué cliente y maestro actuar («Actúas como»). Por eso ningún endpoint pide credenciales. La etapa siguiente contempla agregar autenticación con sesión o token y separar tres roles: cliente (sus solicitudes), maestro (su bandeja) y administrador (mantenedores y moderación).
+
+## Límites y cuotas
+
+- El cuerpo de cada petición admite hasta 20 KB (`express.json({ limit: '20kb' })`).
+- `GET /ranking` devuelve como máximo 24 maestros y `GET /solicitudes`, 200.
+- Las ejecuciones del laboratorio SQL cortan a los 5 segundos (`statement_timeout`).
+- No hay límite de peticiones por cliente; en producción aplican las cuotas del plan gratuito de Vercel, Neon y MongoDB Atlas.
+
+## Consideraciones de seguridad
+
+- **Inyección:** todo el SQL es parametrizado (`$1`, `$2`…) y las consultas de MongoDB se arman con objetos, nunca concatenando texto del usuario.
+- **Validación en la entrada:** cada cuerpo, parámetro y filtro pasa por un esquema Zod antes de llegar a la base; los datos además los protegen las restricciones de PostgreSQL y el validador `$jsonSchema` de MongoDB.
+- **Cabeceras HTTP:** Helmet agrega `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `X-Frame-Options` y `Referrer-Policy: no-referrer`.
+- **CORS:** solo los orígenes listados en `CORS_ORIGINS`; en producción la app y la API comparten dominio.
+- **Transporte:** HTTPS hacia el navegador y TLS hacia Neon y Atlas.
+- **Credenciales:** las URI de las bases viven en variables de entorno de Vercel, nunca en el repositorio. El usuario de Atlas solo puede leer y escribir la base `plumb`.
+- **Errores:** un error inesperado responde un mensaje genérico; el detalle queda en el registro del servidor y nunca llega al usuario.
+- **Laboratorios:** las escrituras de demostración corren en transacciones que terminan en `ROLLBACK` o `abortTransaction`, así no alteran los datos.
+
+## Ejemplos
+
+### Catálogo con filtros
+
+```http
+GET /api/v1/catalogo?region=6&oficio=1&tarifaMax=20000
+```
+
+```json
+{ "ok": true, "data": [
+  { "rut_maestro": "16178972-0", "nombre": "Claudia Rojas Fuentes", "oficio": "Gasfíter", "region": "Valparaíso",
+    "tarifa_hora": 19500, "experiencia_anios": 9, "disponible": true, "promedio": 4.5, "total_resenas": 2 }
+] }
+```
+
+### Bandeja del maestro
+
+```http
+GET /api/v1/maestros/7765180-2/solicitudes?estado=Pendiente
+```
+
+```json
+{ "ok": true, "data": [
+  { "id_solicitud": 4, "descripcion": "Reparación de llave de paso en la cocina, no corta el agua del todo.",
+    "direccion": "Errázuriz 2210, Valparaíso", "fecha_servicio": "2026-10-13", "fecha_solicitud": "2026-10-08T11:41:00.000Z" }
+] }
+```
+
+### Error de validación (400)
+
+```http
+POST /api/v1/clientes
+Content-Type: application/json
+
+{ "rut_cliente": "12345678-0", "nombre": "A", "email": "x" }
+```
+
+```json
+{ "ok": false, "error": { "codigo": "VALIDACION", "mensaje": "Hay datos que faltan o no tienen el formato esperado.", "detalles": [
+  { "campo": "rut_cliente", "mensaje": "El dígito verificador no corresponde." },
+  { "campo": "nombre", "mensaje": "El nombre debe tener al menos 3 caracteres." },
+  { "campo": "email", "mensaje": "El correo no tiene un formato válido." },
+  { "campo": "fecha_nacimiento", "mensaje": "Falta la fecha de nacimiento." }
+] } }
+```
+
+### Regla de negocio (422) y conflicto (409)
+
+```http
+PATCH /api/v1/solicitudes/1
+Content-Type: application/json
+
+{ "estado": "Pendiente" }
+```
+
+```json
+{ "ok": false, "error": { "codigo": "REGLA_DE_NEGOCIO", "mensaje": "Una solicitud finalizada no puede pasar a pendiente." } }
+```
+
+```http
+DELETE /api/v1/oficios/1
+```
+
+```json
+{ "ok": false, "error": { "codigo": "CONFLICTO", "mensaje": "No se puede eliminar: hay maestros que ejercen este oficio." } }
+```
+
+### Crear una solicitud (201)
 
 ```http
 POST /api/v1/solicitudes
