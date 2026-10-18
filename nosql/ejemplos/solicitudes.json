@@ -1,0 +1,30 @@
+{
+  "_id": {
+    "$oid": "6a8344640000000000000001"
+  },
+  "folio": 1,
+  "cliente": {
+    "_id": "13345441-1",
+    "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+    "_id": "7765180-2",
+    "nombre": "Pedro González Soto"
+  },
+  "descripcion": "Reparación de cañería rota en el baño principal, se filtra hacia el pasillo.",
+  "direccion": "Av. Libertad 1180, Viña del Mar",
+  "fecha_servicio": {
+    "$date": "2026-08-18T00:00:00Z"
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+    "$date": "2026-08-17T17:27:00Z"
+  },
+  "calificacion": {
+    "puntuacion": 5,
+    "comentario": "Excelente trabajo, muy puntual y profesional.",
+    "fecha": {
+      "$date": "2026-08-20T15:41:00Z"
+    }
+  }
+}

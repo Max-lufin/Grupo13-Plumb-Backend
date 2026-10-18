@@ -1,0 +1,68 @@
+{
+  "_id": "7765180-2",
+  "nombre": "Pedro González Soto",
+  "email": "pedro.gonzalez@ejemplo.cl",
+  "telefono": "+56977865048",
+  "fecha_nacimiento": {
+    "$date": {
+      "$numberLong": "-160963200000"
+    }
+  },
+  "oficio": {
+    "_id": {
+      "$oid": "69a57bc00000000000000001"
+    },
+    "nombre": "Gasfíter"
+  },
+  "region": {
+    "_id": 6,
+    "nombre": "Valparaíso"
+  },
+  "tarifa_hora": 22000,
+  "experiencia_anios": 18,
+  "disponible": true,
+  "descripcion": "Gasfíter con certificación SEC para gas. Trabajo con boleta y garantía de 3 meses.",
+  "fecha_registro": {
+    "$date": "2026-07-15T17:27:00Z"
+  },
+  "reputacion": {
+    "promedio": 5,
+    "total": 3,
+    "suma": 15
+  },
+  "resenas_recientes": [
+    {
+      "solicitud_id": {
+        "$oid": "6ab317ac0000000000000066"
+      },
+      "puntuacion": 5,
+      "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+      "cliente": "Valentina",
+      "fecha": {
+        "$date": "2026-10-02T23:41:00Z"
+      }
+    },
+    {
+      "solicitud_id": {
+        "$oid": "6a9c218c0000000000000050"
+      },
+      "puntuacion": 5,
+      "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+      "cliente": "Diego",
+      "fecha": {
+        "$date": "2026-09-08T17:41:00Z"
+      }
+    },
+    {
+      "solicitud_id": {
+        "$oid": "6a8344640000000000000001"
+      },
+      "puntuacion": 5,
+      "comentario": "Excelente trabajo, muy puntual y profesional.",
+      "cliente": "Juan",
+      "fecha": {
+        "$date": "2026-08-20T15:41:00Z"
+      }
+    }
+  ]
+}
