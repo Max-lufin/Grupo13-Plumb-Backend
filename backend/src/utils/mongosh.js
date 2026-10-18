@@ -3,7 +3,7 @@
 // laboratorio es lo mismo que se podría pegar en la consola.
 
 const CLAVE_SIMPLE = /^[A-Za-z_$][\w$]*$/;
-const ANCHO = 72;
+const ANCHO = 60;
 
 // Un valor que todavía no existe al mostrar la operación (lo produce un paso anterior).
 export class Pendiente {
