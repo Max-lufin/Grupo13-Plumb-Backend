@@ -21,5 +21,7 @@ echo "2/2 Copiando la API..."
 cp -r "$RAIZ/backend/api" "$RAIZ/backend/src" "$SALIDA/"
 cp "$RAIZ/backend/package.json" "$RAIZ/backend/package-lock.json" "$SALIDA/"
 cp "$RAIZ/despliegue/vercel.json" "$SALIDA/"
+# Nunca subir credenciales locales (vercel link crea .env.local aquí).
+printf '.env*\n' > "$SALIDA/.vercelignore"
 
 echo "Listo: $SALIDA"
