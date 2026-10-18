@@ -16,6 +16,7 @@ npm run build    # genera dist/
 | `/solicitudes` | Historial del cliente y bandeja del maestro |
 | `/registro` | Registro de clientes, solo mayores de 18 |
 | `/admin` | Mantenedores de maestros y oficios, y moderación |
-| `/consultas` | Laboratorio con las 13 consultas y las pruebas de integridad |
+| `/consultas` | Laboratorio con las 13 consultas (SQL y su MQL) y las pruebas de integridad |
+| `/nosql` | Etapa II: modelo de documentos en MongoDB, consultas comparadas con PostgreSQL y validador |
 
 En producción la API se sirve en el mismo dominio (`/api/v1`), por eso `VITE_API_URL` queda vacía.
