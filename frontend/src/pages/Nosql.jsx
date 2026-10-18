@@ -172,7 +172,10 @@ function Plan({ plan }) {
       <h4>Cómo la resolvió MongoDB</h4>
       <p className="plan__etapas" aria-label={`Etapas: ${[...plan.etapas].reverse().join(', ')}`}>
         {[...plan.etapas].reverse().map((e, i) => (
-          <span key={i} className={`plan__etapa${/IXSCAN/.test(e) ? ' plan__etapa--indice' : ''}`}>{e}</span>
+          <span key={i} className="plan__paso">
+            {i > 0 && <span className="plan__flecha" aria-hidden="true">→</span>}
+            <span className={`plan__etapa${/IXSCAN/.test(e) ? ' plan__etapa--indice' : ''}`}>{e}</span>
+          </span>
         ))}
       </p>
       <dl className="plan__cifras">

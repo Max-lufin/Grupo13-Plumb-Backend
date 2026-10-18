@@ -1589,10 +1589,15 @@
   font-weight: 600;
 }
 
-.plan__etapa + .plan__etapa::before {
-  content: '→';
-  margin: 0 8px 0 -14px;
-  color: var(--tinta-tenue);
+.plan__paso {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plan__flecha {
+  color: var(--tinta-suave);
+  font-weight: 700;
 }
 
 .plan__etapa--indice {
