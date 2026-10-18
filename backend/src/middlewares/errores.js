@@ -71,6 +71,10 @@ export function rutaNoEncontrada(req, res) {
 export function manejarErrores(error, req, res, next) {
   let http = error instanceof ErrorHttp ? error : desdePostgres(error);
 
+  if (!http && /^Mongo(ServerSelection|Network)/.test(error.name)) {
+    http = new ErrorHttp(503, 'SIN_MONGODB', 'No hay conexión con MongoDB en este momento. Intenta de nuevo en unos segundos.');
+  }
+
   if (!http && error.type === 'entity.parse.failed') {
     http = new ErrorHttp(400, 'JSON_INVALIDO', 'El cuerpo de la petición no es un JSON válido.');
   }
