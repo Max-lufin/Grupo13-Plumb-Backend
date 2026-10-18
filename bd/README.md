@@ -1,4 +1,4 @@
-# Grupo13-Plumb-BD
+# bd
 
 Base de datos de Plumb para PostgreSQL 17.
 
