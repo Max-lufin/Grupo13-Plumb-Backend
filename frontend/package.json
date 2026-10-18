@@ -1,0 +1,23 @@
+{
+  "name": "grupo13-plumb-frontend",
+  "version": "2.0.0",
+  "description": "Interfaz web de Plumb, marketplace de oficios. Grupo 13 · ICI324 · Universidad de Valparaíso",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.2.0",
+    "@fontsource/ibm-plex-mono": "^5.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.9.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^7.1.0"
+  }
+}
