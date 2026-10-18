@@ -31,7 +31,7 @@ h4 {
 }
 
 h1 {
-  font-size: var(--t-2xl);
+  font-size: clamp(2rem, 7vw, var(--t-2xl));
   font-stretch: 112%;
   letter-spacing: -0.01em;
 }

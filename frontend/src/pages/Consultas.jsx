@@ -216,7 +216,7 @@ export default function Consultas() {
       <header className="pagina__cabecera">
         <h1>Consultas SQL de la Etapa I</h1>
         <p>
-          Las 13 consultas exigidas se ejecutan aquí contra la base de datos real. Cada una corre dentro de
+          Las 13 consultas de la Etapa I se ejecutan aquí contra la base de datos real. Cada una corre dentro de
           una transacción que termina en ROLLBACK: puedes repetirlas cuantas veces quieras sin cambiar los datos.
           Bajo cada SQL está su traducción a MongoDB; las principales se comparan en vivo en el{' '}
           <Link to="/nosql">modelo NoSQL</Link>.
