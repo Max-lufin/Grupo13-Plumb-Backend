@@ -1,0 +1,49 @@
+@startuml secuencia_solicitud
+!include estilo.iuml
+autonumber "<b>0"
+hide footbox
+
+actor Cliente as U
+participant "Frontend\nPerfilMaestro.jsx" as F
+participant "API Express\nsolicitudes.controller" as C
+participant "Modelo\nSolicitud.crear()" as S
+database "PostgreSQL\nsolicitud, cliente, maestro" as BD
+
+U -> F : Completa la orden de trabajo:\ndescripción, dirección y fecha
+F -> C : POST /api/v1/solicitudes\n{ rut_cliente, rut_maestro, descripcion,\n  direccion, fecha_servicio }
+activate C
+C -> C : validar(esquemas.solicitudNueva)
+alt datos con formato incorrecto
+  C --> F : 400 VALIDACION (campo y mensaje)
+  F --> U : Muestra el error junto al campo
+else formato correcto
+  C -> S : crear(datos)
+  activate S
+  S -> S : ¿fecha_servicio >= hoy?
+  S -> BD : SELECT disponible FROM maestro WHERE rut_maestro = $1
+  activate BD
+  BD --> S : { disponible }
+  deactivate BD
+  alt fecha pasada o maestro sin agenda
+    S --> C : ErrorHttp 422 REGLA_DE_NEGOCIO
+    C --> F : 422 { mensaje }
+    F --> U : Explica por qué no se puede enviar
+  else regla cumplida
+    S -> BD : Consulta 10 (INSERT INTO solicitud ... RETURNING)
+    activate BD
+    note right of BD
+      FK a cliente y a maestro:
+      ambos deben existir.
+      Estado 'Pendiente' por DEFAULT.
+
+    end note
+    BD --> S : { id_solicitud, estado: 'Pendiente', fecha_solicitud }
+    deactivate BD
+    S --> C : solicitud creada
+    deactivate S
+    C --> F : 201 Created + Location: /api/v1/solicitudes/{id}
+    deactivate C
+    F --> U : Timbra el folio N° 000118 y el estado Pendiente
+  end
+end
+@enduml

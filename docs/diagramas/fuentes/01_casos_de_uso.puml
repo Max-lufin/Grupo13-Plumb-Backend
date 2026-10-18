@@ -1,0 +1,47 @@
+@startuml casos_de_uso
+!include estilo.iuml
+!pragma layout smetana
+left to right direction
+
+actor "Visitante" as V
+actor "Cliente" as C
+actor "Maestro" as M
+actor "Administrador" as A
+
+V <|-- C
+
+rectangle "Plumb, marketplace de oficios" {
+  usecase "CU-01\nConsultar catálogo\ncon filtros" as CU01
+  usecase "CU-07\nVer maestros\ndestacados" as CU07
+  usecase "CU-05\nRegistrar cuenta\nde cliente" as CU05
+  usecase "Validar mayoría\nde edad" as VAL
+  usecase "CU-02\nGestionar solicitud\nde servicio" as CU02
+  usecase "CU-06\nCalificar servicio" as CU06
+  usecase "Coordinar\npor chat" as CHAT #FFFFFF;line.dashed
+  usecase "CU-09\nIniciar sesión" as CU09 #FFFFFF;line.dashed
+  usecase "CU-03\nGestionar maestros\n(mantenedor 1)" as CU03
+  usecase "CU-04\nGestionar oficios\n(mantenedor 2)" as CU04
+  usecase "CU-08\nModerar solicitudes\ny reseñas" as CU08
+}
+
+V --> CU01
+V --> CU07
+V --> CU05
+CU05 ..> VAL : <<include>>
+
+C --> CU02
+C --> CU06
+CU06 ..> CU02 : <<extend>>\n(solicitud finalizada)
+CHAT ..> CU02 : <<extend>>
+CU02 ..> CU09 : <<include>>
+
+CU02 <-- M
+CU03 <-- A
+CU04 <-- A
+CU08 <-- A
+
+legend bottom right
+  Borde punteado: caso de uso de la solución general
+  que se implementa en la Etapa II (inicio de sesión y chat).
+endlegend
+@enduml
