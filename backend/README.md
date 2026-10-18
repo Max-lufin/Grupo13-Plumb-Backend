@@ -11,7 +11,7 @@ npm install
 npm run db:init             # crea las tablas y carga los datos (lee ../bd)
 npm run mongo:migrar        # opcional: copia los datos a MongoDB (MONGODB_URI en .env)
 npm run dev                 # http://localhost:3000/api/v1
-npm test                    # 49 pruebas contra las bases reales (las de MongoDB se omiten sin MONGODB_URI)
+npm test                    # 50 pruebas contra las bases reales (las de MongoDB se omiten sin MONGODB_URI)
 ```
 
 ## Estructura

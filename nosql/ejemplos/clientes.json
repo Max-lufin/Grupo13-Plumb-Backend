@@ -4,9 +4,9 @@
   "email": "maria.gonzalez@ejemplo.cl",
   "telefono": null,
   "fecha_nacimiento": {
-    "$date": "1980-01-14T00:00:00Z"
+    "$date": "1980-01-14T00:00:00.000Z"
   },
   "fecha_registro": {
-    "$date": "2026-05-12T13:12:00Z"
+    "$date": "2026-05-12T13:12:00.000Z"
   }
 }
