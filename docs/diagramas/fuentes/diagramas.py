@@ -482,7 +482,7 @@ def modelo_relacional():
 # ---------------------------------------------------------------- Arquitectura
 
 def arquitectura():
-    l = Lienzo(1640, 880, 'Arquitectura y despliegue de Plumb')
+    l = Lienzo(1640, 910, 'Arquitectura y despliegue de Plumb')
 
     def caja(x, y, w, h, titulo, subtitulo, relleno='#FFFFFF', borde=TINTA, color_titulo=TINTA):
         l.add('formas', f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{relleno}" stroke="{borde}" stroke-width="2"/>')
@@ -496,7 +496,8 @@ def arquitectura():
 
     # Zonas
     nube(330, 40, 860, 640, 'Vercel: un proyecto, misma dirección (HTTPS automático)')
-    nube(1230, 40, 380, 640, 'Neon (PostgreSQL gestionado)')
+    nube(1230, 40, 380, 300, 'Neon (PostgreSQL gestionado)')
+    nube(1230, 380, 380, 300, 'MongoDB Atlas (Etapa II)')
 
     # Navegador
     caja(30, 250, 260, 180, 'Navegador', 'Cliente, maestro o administrador', CANARIO_CLARO)
@@ -505,28 +506,33 @@ def arquitectura():
     l.texto(50, 390, 'Nunca habla con la BD.', 15, 700, FOLIO, 'start')
 
     # Frontend
-    caja(370, 90, 380, 190, 'Frontend', 'Grupo13-Plumb-Frontend (React + Vite)')
-    for i, t in enumerate(['Archivos estáticos (dist/) en la CDN', 'Rutas: /, /catalogo, /maestros/:rut,', '/solicitudes, /admin, /consultas',
+    caja(370, 90, 380, 190, 'Frontend', 'frontend/ (React 19 + Vite)')
+    for i, t in enumerate(['Archivos estáticos (dist/) en la CDN', 'Rutas: /, /catalogo, /maestros/:rut, /solicitudes,', '/admin, /consultas, /nosql',
                            'Llama a /api/v1 en la misma dirección']):
         l.texto(390, 178 + i * 24, t, 15, 500 if i < 3 else 700, TINTA, 'start', familia=FUENTE)
 
     # API
-    caja(370, 320, 780, 330, 'API REST', 'Grupo13-Plumb-Backend (Node 22 + Express 5), función serverless en Washington (iad1)', TINTA, TINTA, '#FFFFFF')
+    caja(370, 320, 780, 330, 'API REST', 'backend/ (Node 22 + Express 5), función serverless en Washington (iad1)', TINTA, TINTA, '#FFFFFF')
     capas = [('routes/', 'mapa de la API /api/v1'), ('controllers/', 'leen la petición y eligen la respuesta'),
-             ('validators/', 'forma de los datos → 400'), ('models/', 'SQL parametrizado y reglas → 422'),
+             ('validators/', 'forma de los datos → 400'), ('models/', 'SQL parametrizado, MQL y reglas → 422'),
              ('middlewares/', 'errores de la BD → 409 / 422')]
     for i, (c, d) in enumerate(capas):
         yy = 410 + i * 46
         l.add('formas', f'<rect x="395" y="{yy - 18}" width="730" height="38" rx="4" fill="#2A3383"/>')
         l.texto(412, yy + 1, c, 15, 700, CANARIO, 'start', familia=MONO)
         l.texto(580, yy + 1, d, 15, 500, '#FFFFFF', 'start')
-    l.texto(395, 640, 'Variables: DATABASE_URL, CORS_ORIGINS', 14, 700, CANARIO, 'start')
+    l.texto(395, 640, 'Variables: DATABASE_URL, MONGODB_URI, CORS_ORIGINS', 14, 700, CANARIO, 'start')
 
     # BD
-    caja(1260, 250, 320, 260, 'PostgreSQL 17', 'AWS us-east-2 (Ohio), TLS', AZUL_CLARO)
+    caja(1260, 80, 320, 236, 'PostgreSQL 17', 'AWS us-east-2 (Ohio), TLS', AZUL_CLARO)
     for i, t in enumerate(['6 tablas + 1 vista', 'region, oficio, cliente, maestro,', 'solicitud, calificacion',
-                           'v_reputacion_maestro', 'CHECK, UNIQUE, FK RESTRICT', 'y CASCADE en la BD']):
-        l.texto(1280, 330 + i * 26, t, 15, 700 if i in (0, 4) else 500, TINTA, 'start')
+                           'CHECK, UNIQUE, FK RESTRICT', 'y CASCADE']):
+        l.texto(1280, 160 + i * 26, t, 15, 700 if i in (0, 3) else 500, TINTA, 'start')
+
+    caja(1260, 420, 320, 236, 'MongoDB 8.0', 'AWS us-east-1 (Virginia), clúster M0, TLS', VERDE_CLARO)
+    for i, t in enumerate(['6 colecciones', 'maestros, solicitudes, clientes,', 'oficios, regiones, contadores',
+                           '$jsonSchema, 10 índices y', 'transacciones multi-documento']):
+        l.texto(1280, 500 + i * 26, t, 15, 700 if i in (0, 3) else 500, TINTA, 'start')
 
     # Flujos
     def flecha(x1, y1, x2, y2, num, texto, dx=0, dy=-16, doble=False):
@@ -538,12 +544,14 @@ def arquitectura():
 
     flecha(290, 300, 370, 185, 1, 'Descarga la app', dx=-20, dy=-30)
     flecha(290, 380, 370, 450, 2, 'JSON por HTTPS', dx=-10, dy=-30, doble=True)
-    flecha(1150, 450, 1260, 400, 3, 'SQL por TLS', dx=0, dy=-30, doble=True)
+    flecha(1150, 400, 1260, 230, 3, 'SQL por TLS', dx=10, dy=-10, doble=True)
+    flecha(1150, 560, 1260, 560, 4, 'MQL por TLS', dx=0, dy=-24, doble=True)
 
     # Desarrollo local
-    l.add('fondo', f'<rect x="30" y="720" width="1580" height="130" rx="10" fill="#FFFFFF" stroke="{PAUTA}" stroke-width="2"/>')
+    l.add('fondo', f'<rect x="30" y="720" width="1580" height="160" rx="10" fill="#FFFFFF" stroke="{PAUTA}" stroke-width="2"/>')
     l.texto(54, 752, 'En desarrollo (equipo de cada integrante)', 17, 800, TINTA, 'start')
     pasos = ['docker compose up -d  (PostgreSQL 17 local)', 'npm run db:init  (esquema + datos)',
+             'docker run mongo:8 --replSet rs0  (MongoDB local)', 'npm run mongo:migrar  (PostgreSQL → MongoDB)',
              'npm run dev  (API en :3000)', 'npm run dev  (web en :5173, /api → :3000)']
     for i, t in enumerate(pasos):
         l.texto(54 + (i % 2) * 780, 790 + (i // 2) * 32, t, 15, 500, TINTA, 'start', familia=MONO)
