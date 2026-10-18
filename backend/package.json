@@ -1,0 +1,28 @@
+{
+  "name": "grupo13-plumb-backend",
+  "version": "2.0.0",
+  "description": "API REST de Plumb, marketplace de oficios. Grupo 13 · ICI324 Bases de Datos y Programación Web · Universidad de Valparaíso",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:init": "node scripts/db-init.js",
+    "test": "node --test --test-concurrency=1 \"tests/*.test.js\"",
+    "mongo:migrar": "node scripts/migrar-a-mongo.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongodb": "^6.21.0",
+    "pg": "^8.16.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.0"
+  }
+}

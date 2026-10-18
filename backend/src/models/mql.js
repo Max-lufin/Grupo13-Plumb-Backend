@@ -1,0 +1,136 @@
+// Las 13 consultas de la Etapa I traducidas a MQL (mongosh), sobre el modelo
+// de documentos de nosql/. El laboratorio las muestra junto a su SQL y
+// nosql/consultas.mongodb.js las ejecuta tal cual (una prueba lo verifica).
+
+export const MQL = {
+  1: `
+// additionalProperties: false rechaza campos desconocidos, así que agregar uno
+// exige ampliar el validador: ese collMod es el equivalente real del ADD COLUMN.
+const v1 = db.getCollectionInfos({ name: 'solicitudes' })[0].options.validator;
+v1.$jsonSchema.properties.fecha_respuesta = { bsonType: ['date', 'null'] };
+db.runCommand({ collMod: 'solicitudes', validator: v1 })`,
+
+  2: `
+const v2 = db.getCollectionInfos({ name: 'maestros' })[0].options.validator;
+v2.$jsonSchema.properties.tarifa_hora.maximum = 150000;
+db.runCommand({ collMod: 'maestros', validator: v2, validationLevel: 'strict' })`,
+
+  3: `
+const gasfiter = db.oficios.findOne({ nombre: 'Gasfíter' });
+db.maestros.find(
+  { 'region._id': 6, 'oficio._id': gasfiter._id, tarifa_hora: { $lte: 25000 },
+    'reputacion.promedio': { $gte: 4 }, disponible: true, experiencia_anios: { $gte: 3 } },
+  { nombre: 1, 'oficio.nombre': 1, 'region.nombre': 1, tarifa_hora: 1,
+    experiencia_anios: 1, disponible: 1, reputacion: 1 }
+).sort({ 'reputacion.promedio': -1, tarifa_hora: 1 })`,
+
+  4: `
+// Sin JOIN: el nombre del maestro y la nota viajan dentro de la solicitud.
+db.solicitudes.find(
+  { 'cliente._id': '12588772-4' },
+  { folio: 1, fecha_solicitud: 1, fecha_servicio: 1, estado: 1, descripcion: 1,
+    direccion: 1, cliente: 1, maestro: 1, 'calificacion.puntuacion': 1 }
+).sort({ fecha_solicitud: -1 }).limit(200)`,
+
+  5: `
+db.solicitudes.find(
+  { 'maestro._id': '7765180-2', estado: 'Pendiente' },
+  { folio: 1, descripcion: 1, direccion: 1, fecha_servicio: 1, fecha_solicitud: 1 }
+).sort({ fecha_solicitud: 1 })`,
+
+  6: `
+db.solicitudes.updateOne(
+  { folio: 2, estado: 'Pendiente' },
+  { $set: { estado: 'Aceptada' } }
+)`,
+
+  7: `
+// $set cambia solo los campos que se envían: no hace falta el COALESCE de SQL.
+db.maestros.updateOne(
+  { _id: '7559934-K' },
+  { $set: { disponible: true, tarifa_hora: 21000 } }
+)`,
+
+  8: `
+// Un menor de 18 años lo rechazaría el $expr del validador (prueba N1).
+db.clientes.insertOne({
+  _id: '20345678-6',
+  nombre: 'Tomás Henríquez Salas',
+  email: 'tomas.henriquez@ejemplo.cl',
+  telefono: '+56987654321',
+  fecha_nacimiento: ISODate('2001-04-22'),
+  fecha_registro: new Date()
+})`,
+
+  9: `
+const pintor = db.oficios.findOne({ nombre: 'Pintor' });
+db.maestros.insertOne({
+  _id: '16234567-2',
+  nombre: 'Gabriel Morales Iturra',
+  email: 'gabriel.morales@ejemplo.cl',
+  telefono: '+56912345678',
+  fecha_nacimiento: ISODate('1990-09-03'),
+  oficio: { _id: pintor._id, nombre: pintor.nombre },
+  region: { _id: 6, nombre: 'Valparaíso' },
+  tarifa_hora: 15000,
+  experiencia_anios: 7,
+  disponible: true,
+  descripcion: 'Pintura de interiores y fachadas en Viña y Valparaíso.',
+  fecha_registro: new Date(),
+  reputacion: { promedio: 0, total: 0, suma: 0 },
+  resenas_recientes: []
+})`,
+
+  10: `
+// Sin SERIAL ni DEFAULT: el folio sale de contadores y el estado lo pone la app.
+const juan = db.clientes.findOne({ _id: '13345441-1' }, { nombre: 1 });
+const claudia = db.maestros.findOne({ _id: '16178972-0', disponible: true }, { nombre: 1 });
+const { seq } = db.contadores.findOneAndUpdate(
+  { _id: 'solicitudes' }, { $inc: { seq: 1 } }, { returnDocument: 'after' }
+);
+db.solicitudes.insertOne({
+  folio: seq,
+  cliente: { _id: juan._id, nombre: juan.nombre },
+  maestro: { _id: claudia._id, nombre: claudia.nombre },
+  descripcion: 'El estanque del WC se queda corriendo y sube la cuenta del agua.',
+  direccion: 'Av. Libertad 1180, Viña del Mar',
+  fecha_servicio: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
+  estado: 'Pendiente',
+  fecha_solicitud: new Date(),
+  calificacion: null
+})`,
+
+  11: `
+// La calificación vive dentro de la solicitud y se borra con ella (el CASCADE
+// sale gratis). Lo que hay que hacer a mano: sacarla de la reputación del maestro.
+const borrada = db.solicitudes.findOneAndDelete({ folio: 6 });
+const recientes = db.solicitudes
+  .find({ 'maestro._id': borrada.maestro._id, calificacion: { $ne: null } })
+  .sort({ 'calificacion.fecha': -1 }).limit(5).toArray()
+  .map((s) => ({ solicitud_id: s._id, ...s.calificacion, cliente: s.cliente.nombre.split(' ')[0] }));
+db.maestros.updateOne({ _id: borrada.maestro._id }, [
+  { $set: {
+      'reputacion.total': { $subtract: ['$reputacion.total', 1] },
+      'reputacion.suma': { $subtract: ['$reputacion.suma', borrada.calificacion.puntuacion] },
+      resenas_recientes: { $literal: recientes } } },
+  { $set: { 'reputacion.promedio': { $cond: [{ $eq: ['$reputacion.total', 0] }, 0,
+      { $divide: [{ $floor: { $add: [{ $divide: [{ $multiply: ['$reputacion.suma', 10] }, '$reputacion.total'] }, 0.5] } }, 10] }] } } }
+])`,
+
+  12: `
+// MongoDB no tiene ON DELETE RESTRICT: la regla la cumple quien borra (prueba N7).
+const vidriero = db.oficios.findOne({ nombre: 'Vidriero' });
+if (db.maestros.countDocuments({ 'oficio._id': vidriero._id }) === 0) {
+  db.oficios.deleteOne({ _id: vidriero._id });
+}`,
+
+  13: `
+// La colección nace con el primer insert; drop() la elimina con sus índices.
+db.carga_maestros.insertMany([
+  { rut: '11111111-1', nombre: 'Ejemplo Uno', oficio: 'Gasfíter', region: 'Valparaíso' },
+  { rut: '22222222-2', nombre: 'Ejemplo Dos', oficio: 'Pintor', region: 'Biobío' }
+]);
+db.carga_maestros.drop()`,
+};
+
+for (const n of Object.keys(MQL)) MQL[n] = MQL[n].trim();

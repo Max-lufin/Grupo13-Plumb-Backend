@@ -1,0 +1,11 @@
+# PostgreSQL local para desarrollo: docker compose up -d
+services:
+  bd:
+    image: postgres:17-alpine
+    container_name: plumb-pg
+    environment:
+      POSTGRES_USER: plumb
+      POSTGRES_PASSWORD: plumb
+      POSTGRES_DB: plumb
+    ports:
+      - "54329:5432"
