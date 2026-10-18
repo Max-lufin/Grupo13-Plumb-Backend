@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760">
+<title>Modelo entidad-relación (versión para proyectar)</title>
+<defs>
+  <marker id="flecha" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+  <marker id="flecha-llena" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+    <path d="M0 0 L12 6 L0 12 z" fill="#1C2470"/>
+  </marker>
+  <marker id="generalizacion" viewBox="0 0 20 20" refX="19" refY="10" markerWidth="20" markerHeight="20" orient="auto-start-reverse">
+    <path d="M1 1 L19 10 L1 19 z" fill="#FFFFFF" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<line x1="285.0" y1="110.0" x2="375.0" y2="110.0" stroke="#1C2470" stroke-width="3"/>
+<line x1="675.0" y1="105.0" x2="585.0" y2="105.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="675.0" y1="115.0" x2="585.0" y2="115.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1315.0" y1="110.0" x2="1225.0" y2="110.0" stroke="#1C2470" stroke-width="3"/>
+<line x1="925.0" y1="115.0" x2="1015.0" y2="115.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="925.0" y1="105.0" x2="1015.0" y2="105.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="800.0" y1="162.0" x2="800.0" y2="277.0" stroke="#1C2470" stroke-width="3"/>
+<line x1="805.0" y1="508.0" x2="805.0" y2="393.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="795.0" y1="508.0" x2="795.0" y2="393.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="285.0" y1="560.0" x2="375.0" y2="560.0" stroke="#1C2470" stroke-width="3"/>
+<line x1="675.0" y1="555.0" x2="585.0" y2="555.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="675.0" y1="565.0" x2="585.0" y2="565.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="925.0" y1="560.0" x2="1015.0" y2="560.0" stroke="#1C2470" stroke-width="3"/>
+<line x1="1315.0" y1="555.0" x2="1225.0" y2="555.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1315.0" y1="565.0" x2="1225.0" y2="565.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="40.0" y1="726.0" x2="110.0" y2="726.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="40.0" y1="736.0" x2="110.0" y2="736.0" stroke="#1C2470" stroke-width="2.6"/>
+<rect x="35.0" y="58.0" width="250" height="104" fill="#1C2470"/>
+<rect x="675.0" y="58.0" width="250" height="104" fill="#1C2470"/>
+<rect x="1315.0" y="58.0" width="250" height="104" fill="#1C2470"/>
+<rect x="35.0" y="508.0" width="250" height="104" fill="#1C2470"/>
+<rect x="675.0" y="508.0" width="250" height="104" fill="#1C2470"/>
+<rect x="1315.0" y="508.0" width="250" height="104" fill="#1C2470"/>
+<polygon points="480,52.0 585.0,110 480,168.0 375.0,110" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<polygon points="1120,52.0 1225.0,110 1120,168.0 1015.0,110" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<polygon points="800,277.0 905.0,335 800,393.0 695.0,335" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<polygon points="480,502.0 585.0,560 480,618.0 375.0,560" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<polygon points="1120,502.0 1225.0,560 1120,618.0 1015.0,560" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<text x="160.0" y="96.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">OFICIO</text>
+<text x="160.0" y="134.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">id_oficio</text>
+<text x="800.0" y="96.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">MAESTRO</text>
+<text x="800.0" y="134.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">rut_maestro</text>
+<text x="1440.0" y="96.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">REGION</text>
+<text x="1440.0" y="134.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">id_region</text>
+<text x="160.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">CLIENTE</text>
+<text x="160.0" y="584.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">rut_cliente</text>
+<text x="800.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">SOLICITUD</text>
+<text x="800.0" y="584.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">id_solicitud</text>
+<text x="1440.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="29" font-weight="800" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">CALIFICACIÓN</text>
+<text x="1440.0" y="584.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="600" fill="#FFE14D" text-anchor="middle" dominant-baseline="middle" text-decoration="underline">id_calificacion</text>
+<text x="480.0" y="111.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="24" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Clasifica</text>
+<text x="1120.0" y="111.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="24" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Opera en</text>
+<text x="800.0" y="336.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="24" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Recibe</text>
+<text x="480.0" y="561.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="24" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Emite</text>
+<text x="1120.0" y="561.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="24" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Evalúa</text>
+<text x="316.5" y="82.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="643.5" y="82.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">N</text>
+<text x="1283.5" y="82.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="956.5" y="82.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">N</text>
+<text x="830.0" y="202.2" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="830.0" y="467.8" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">N</text>
+<text x="316.5" y="532.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="643.5" y="532.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">N</text>
+<text x="956.5" y="532.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="1270.0" y="532.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="34" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">0..1</text>
+<text x="126.0" y="731.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="21" font-weight="600" fill="#1C2470" text-anchor="start" dominant-baseline="middle">Doble línea: participación total (la FK es NOT NULL)</text>
+</svg>

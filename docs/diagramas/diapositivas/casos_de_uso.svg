@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940">
+<title>Casos de uso (versión para proyectar)</title>
+<defs>
+  <marker id="flecha" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+  <marker id="flecha-llena" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+    <path d="M0 0 L12 6 L0 12 z" fill="#1C2470"/>
+  </marker>
+  <marker id="generalizacion" viewBox="0 0 20 20" refX="19" refY="10" markerWidth="20" markerHeight="20" orient="auto-start-reverse">
+    <path d="M1 1 L19 10 L1 19 z" fill="#FFFFFF" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<rect x="230" y="14" width="1140" height="912" rx="14" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<line x1="105.0" y1="535.0" x2="105.0" y2="325.0" stroke="#1C2470" stroke-width="2.6" marker-end="url(#generalizacion)"/>
+<line x1="148.0" y1="200.0" x2="312.4" y2="139.6" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="148.0" y1="200.0" x2="267.4" y2="211.0" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="148.0" y1="200.0" x2="336.8" y2="304.1" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="148.0" y1="595.0" x2="634.6" y2="564.7" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="148.0" y1="612.0" x2="316.9" y2="679.1" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1448.0" y1="398.0" x2="919.6" y2="524.1" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1448.0" y1="716.0" x2="1254.2" y2="640.6" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1448.0" y1="716.0" x2="1307.9" y2="717.9" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="1448.0" y1="716.0" x2="1250.3" y2="798.3" stroke="#1C2470" stroke-width="2.6"/>
+<line x1="578.0" y1="350.0" x2="640.0" y2="350.0" stroke="#1C2470" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#flecha)"/>
+<line x1="858.7" y1="506.4" x2="1081.3" y2="348.6" stroke="#1C2470" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#flecha)"/>
+<line x1="516.1" y1="677.1" x2="693.9" y2="597.9" stroke="#1C2470" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#flecha)"/>
+<line x1="790.0" y1="744.0" x2="790.0" y2="609.0" stroke="#1C2470" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#flecha)"/>
+<ellipse cx="420" cy="100" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="420" cy="225" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="420" cy="350" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="790" cy="350" rx="150" ry="50" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="790" cy="555" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="420" cy="720" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="790" cy="790" rx="150" ry="46" fill="#FFFFFF" stroke="#1C2470" stroke-width="2.6" stroke-dasharray="10 7"/>
+<ellipse cx="1150" cy="300" rx="158" ry="54" fill="#FFFFFF" stroke="#1C2470" stroke-width="2.6" stroke-dasharray="10 7"/>
+<ellipse cx="1150" cy="600" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="1150" cy="720" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<ellipse cx="1150" cy="840" rx="158" ry="54" fill="#FFF4B8" stroke="#1C2470" stroke-width="2.6"/>
+<circle cx="105" cy="165" r="19" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<path d="M105 184 V229 M73 201 H137 M105 229 L80 267 M105 229 L130 267" fill="none" stroke="#1C2470" stroke-width="3" stroke-linecap="round"/>
+<circle cx="105" cy="550" r="19" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<path d="M105 569 V614 M73 586 H137 M105 614 L80 652 M105 614 L130 652" fill="none" stroke="#1C2470" stroke-width="3" stroke-linecap="round"/>
+<circle cx="1490" cy="350" r="19" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<path d="M1490 369 V414 M1458 386 H1522 M1490 414 L1465 452 M1490 414 L1515 452" fill="none" stroke="#1C2470" stroke-width="3" stroke-linecap="round"/>
+<circle cx="1490" cy="670" r="19" fill="#FFE14D" stroke="#1C2470" stroke-width="3"/>
+<path d="M1490 689 V734 M1458 706 H1522 M1490 734 L1465 772 M1490 734 L1515 772" fill="none" stroke="#1C2470" stroke-width="3" stroke-linecap="round"/>
+<rect x="560.1" y="315.8" width="97.7" height="28.5" fill="#FFFFFF"/>
+<rect x="901.1" y="399.2" width="97.7" height="28.5" fill="#FFFFFF"/>
+<rect x="522.1" y="615.2" width="93.7" height="28.5" fill="#FFFFFF"/>
+<rect x="801.1" y="662.2" width="93.7" height="28.5" fill="#FFFFFF"/>
+<text x="420.0" y="87.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-01</text>
+<text x="420.0" y="113.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Consultar catálogo</text>
+<text x="420.0" y="212.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-07</text>
+<text x="420.0" y="238.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Ver destacados</text>
+<text x="420.0" y="337.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-05</text>
+<text x="420.0" y="363.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Registrar cuenta</text>
+<text x="790.0" y="337.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Validar mayoría</text>
+<text x="790.0" y="363.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">de edad</text>
+<text x="790.0" y="542.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-02</text>
+<text x="790.0" y="568.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Gestionar solicitud</text>
+<text x="420.0" y="707.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-06</text>
+<text x="420.0" y="733.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Calificar servicio</text>
+<text x="790.0" y="790.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Coordinar por chat</text>
+<text x="1150.0" y="287.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-09</text>
+<text x="1150.0" y="313.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Iniciar sesión</text>
+<text x="1150.0" y="587.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-08</text>
+<text x="1150.0" y="613.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Moderar</text>
+<text x="1150.0" y="707.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-03</text>
+<text x="1150.0" y="733.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Gestionar maestros</text>
+<text x="1150.0" y="827.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="800" fill="#D0202E" text-anchor="middle" dominant-baseline="middle">CU-04</text>
+<text x="1150.0" y="853.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="600" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Gestionar oficios</text>
+<text x="105.0" y="295.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="25" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Visitante</text>
+<text x="105.0" y="680.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="25" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Cliente</text>
+<text x="1490.0" y="480.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="25" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Maestro</text>
+<text x="1490.0" y="800.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="25" font-weight="800" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">Admin.</text>
+<text x="609.0" y="330.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="19" font-weight="700" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">«include»</text>
+<text x="950.0" y="413.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="19" font-weight="700" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">«include»</text>
+<text x="569.0" y="629.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="19" font-weight="700" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">«extend»</text>
+<text x="848.0" y="676.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="19" font-weight="700" fill="#1C2470" text-anchor="middle" dominant-baseline="middle">«extend»</text>
+<text x="255.0" y="905.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="18" font-weight="700" fill="#4A5394" text-anchor="start" dominant-baseline="middle">Punteado: Etapa II</text>
+</svg>

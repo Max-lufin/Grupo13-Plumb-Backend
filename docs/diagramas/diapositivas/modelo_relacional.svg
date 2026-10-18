@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="864" viewBox="0 0 1600 864">
+<title>Modelo relacional (versión para proyectar)</title>
+<defs>
+  <marker id="flecha" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+  <marker id="flecha-llena" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+    <path d="M0 0 L12 6 L0 12 z" fill="#1C2470"/>
+  </marker>
+  <marker id="generalizacion" viewBox="0 0 20 20" refX="19" refY="10" markerWidth="20" markerHeight="20" orient="auto-start-reverse">
+    <path d="M1 1 L19 10 L1 19 z" fill="#FFFFFF" stroke="#1C2470" stroke-width="1.6"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<path d="M470 216.5 H527.5 V284.5 H585" fill="none" stroke="#1C2470" stroke-width="3"/>
+<path d="M482 202.5 V230.5 M492 202.5 V230.5" stroke="#1C2470" stroke-width="3"/>
+<path d="M585 284.5 L563 270.5 M585 284.5 L563 298.5" stroke="#1C2470" stroke-width="3" fill="none"/>
+<path d="M1015 251.5 H1072.5 V216.5 H1130" fill="none" stroke="#1C2470" stroke-width="3"/>
+<path d="M1015 251.5 L1037 237.5 M1015 251.5 L1037 265.5" stroke="#1C2470" stroke-width="3" fill="none"/>
+<path d="M1118 202.5 V230.5 M1108 202.5 V230.5" stroke="#1C2470" stroke-width="3"/>
+<path d="M470 586.5 H527.5 V619.5 H585" fill="none" stroke="#1C2470" stroke-width="3"/>
+<path d="M482 572.5 V600.5 M492 572.5 V600.5" stroke="#1C2470" stroke-width="3"/>
+<path d="M585 619.5 L563 605.5 M585 619.5 L563 633.5" stroke="#1C2470" stroke-width="3" fill="none"/>
+<path d="M800.0 466 V520" stroke="#1C2470" stroke-width="3"/>
+<path d="M786.0 478 H814.0 M786.0 488 H814.0" stroke="#1C2470" stroke-width="3"/>
+<path d="M800.0 520 L786.0 498 M800.0 520 L814.0 498" stroke="#1C2470" stroke-width="3" fill="none"/>
+<path d="M1015 586.5 H1072.5 V619.5 H1130" fill="none" stroke="#1C2470" stroke-width="3"/>
+<path d="M1027 572.5 V600.5 M1037 572.5 V600.5" stroke="#1C2470" stroke-width="3"/>
+<path d="M1118 605.5 V633.5" stroke="#1C2470" stroke-width="3"/>
+<rect x="40" y="150" width="430" height="149" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="40" y="150" width="430" height="50" fill="#1C2470"/>
+<rect x="43" y="200" width="424" height="33" fill="#FFF4B8"/>
+<rect x="1130" y="150" width="430" height="149" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="1130" y="150" width="430" height="50" fill="#1C2470"/>
+<rect x="1133" y="200" width="424" height="33" fill="#FFF4B8"/>
+<rect x="585" y="20" width="430" height="446" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="585" y="20" width="430" height="50" fill="#1C2470"/>
+<rect x="588" y="70" width="424" height="33" fill="#FFF4B8"/>
+<rect x="40" y="520" width="430" height="248" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="40" y="520" width="430" height="50" fill="#1C2470"/>
+<rect x="43" y="570" width="424" height="33" fill="#FFF4B8"/>
+<rect x="585" y="520" width="430" height="314" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="585" y="520" width="430" height="50" fill="#1C2470"/>
+<rect x="588" y="570" width="424" height="33" fill="#FFF4B8"/>
+<rect x="1130" y="520" width="430" height="215" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<rect x="1130" y="520" width="430" height="50" fill="#1C2470"/>
+<rect x="1133" y="570" width="424" height="33" fill="#FFF4B8"/>
+<circle cx="1106" cy="619.5" r="7" fill="#FFFFFF" stroke="#1C2470" stroke-width="3"/>
+<text x="58.0" y="176.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">region</text>
+<text x="56.0" y="217.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="132.0" y="217.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">id_region</text>
+<text x="56.0" y="250.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">UQ</text>
+<text x="132.0" y="250.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">codigo</text>
+<text x="56.0" y="283.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">UQ</text>
+<text x="132.0" y="283.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">nombre</text>
+<text x="1148.0" y="176.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">oficio</text>
+<text x="1146.0" y="217.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="1222.0" y="217.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">id_oficio</text>
+<text x="1146.0" y="250.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">UQ</text>
+<text x="1222.0" y="250.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">nombre</text>
+<text x="1146.0" y="283.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="1222.0" y="283.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">descripcion</text>
+<text x="603.0" y="46.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">maestro</text>
+<text x="601.0" y="87.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="677.0" y="87.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">rut_maestro</text>
+<text x="601.0" y="120.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="120.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">nombre</text>
+<text x="601.0" y="153.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">UQ</text>
+<text x="677.0" y="153.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">email</text>
+<text x="601.0" y="186.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="186.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">telefono</text>
+<text x="601.0" y="219.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="219.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_nacimiento</text>
+<text x="601.0" y="252.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#D0202E" text-anchor="start" dominant-baseline="middle">FK</text>
+<text x="677.0" y="252.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">id_oficio</text>
+<text x="601.0" y="285.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#D0202E" text-anchor="start" dominant-baseline="middle">FK</text>
+<text x="677.0" y="285.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">id_region</text>
+<text x="601.0" y="318.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="318.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">tarifa_hora</text>
+<text x="601.0" y="351.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="351.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">experiencia_anios</text>
+<text x="601.0" y="384.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="384.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">disponible</text>
+<text x="601.0" y="417.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="417.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">descripcion</text>
+<text x="601.0" y="450.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="450.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_registro</text>
+<text x="58.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">cliente</text>
+<text x="56.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="132.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">rut_cliente</text>
+<text x="56.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="132.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">nombre</text>
+<text x="56.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">UQ</text>
+<text x="132.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">email</text>
+<text x="56.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="132.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">telefono</text>
+<text x="56.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="132.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_nacimiento</text>
+<text x="56.0" y="752.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="132.0" y="752.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_registro</text>
+<text x="603.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">solicitud</text>
+<text x="601.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="677.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">id_solicitud</text>
+<text x="601.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#D0202E" text-anchor="start" dominant-baseline="middle">FK</text>
+<text x="677.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">rut_cliente</text>
+<text x="601.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#D0202E" text-anchor="start" dominant-baseline="middle">FK</text>
+<text x="677.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">rut_maestro</text>
+<text x="601.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">descripcion</text>
+<text x="601.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">direccion</text>
+<text x="601.0" y="752.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="752.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_servicio</text>
+<text x="601.0" y="785.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="785.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">estado</text>
+<text x="601.0" y="818.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="677.0" y="818.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha_solicitud</text>
+<text x="1148.0" y="546.0" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="start" dominant-baseline="middle">calificacion</text>
+<text x="1146.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle">PK</text>
+<text x="1222.0" y="587.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle" text-decoration="underline">id_calificacion</text>
+<text x="1146.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#D0202E" text-anchor="start" dominant-baseline="middle">FK UQ</text>
+<text x="1222.0" y="620.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="700" fill="#1C2470" text-anchor="start" dominant-baseline="middle">id_solicitud</text>
+<text x="1146.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="1222.0" y="653.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">puntuacion</text>
+<text x="1146.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="1222.0" y="686.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">comentario</text>
+<text x="1146.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="16" font-weight="800" fill="#1C2470" text-anchor="start" dominant-baseline="middle"></text>
+<text x="1222.0" y="719.5" font-family="Archivo, 'Archivo Variable', sans-serif" font-size="22" font-weight="500" fill="#1C2470" text-anchor="start" dominant-baseline="middle">fecha</text>
+</svg>

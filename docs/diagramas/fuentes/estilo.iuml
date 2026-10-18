@@ -1,0 +1,59 @@
+' Estilo común de los diagramas de Plumb (paleta del talonario)
+skinparam dpi 150
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Archivo
+skinparam defaultFontSize 14
+skinparam defaultFontColor #1C2470
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam ArrowColor #1C2470
+skinparam ArrowThickness 1.3
+skinparam ArrowFontSize 12
+skinparam ArrowFontColor #4A5394
+skinparam actor {
+  BorderColor #1C2470
+  BackgroundColor #FFE14D
+  FontStyle bold
+  FontSize 15
+}
+skinparam usecase {
+  BorderColor #1C2470
+  BackgroundColor #FFF4B8
+  BorderThickness 1.5
+}
+skinparam rectangle {
+  BorderColor #1C2470
+  BorderThickness 1.5
+  FontSize 16
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FDE8EC
+  BorderColor #D0202E
+  FontSize 12
+}
+skinparam legend {
+  BackgroundColor #FFFFFF
+  BorderColor #CDD5EE
+  FontSize 12
+}
+skinparam sequence {
+  LifeLineBorderColor #9FABD6
+  LifeLineBackgroundColor #FFF4B8
+  ParticipantBorderColor #1C2470
+  ParticipantBackgroundColor #FFFFFF
+  ParticipantFontStyle bold
+  ParticipantFontSize 14
+  ActorBorderColor #1C2470
+  ActorBackgroundColor #FFE14D
+  DatabaseBorderColor #1C2470
+  DatabaseBackgroundColor #DFE5FB
+  GroupBorderColor #1C2470
+  GroupBackgroundColor #FFE14D
+  GroupHeaderFontColor #1C2470
+  DividerBackgroundColor #EEF1F8
+  DividerBorderColor #CDD5EE
+  MessageAlign left
+}
+skinparam boxPadding 10
+skinparam ParticipantPadding 14

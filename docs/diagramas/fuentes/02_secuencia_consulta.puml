@@ -1,0 +1,43 @@
+@startuml secuencia_consulta
+!include estilo.iuml
+autonumber "<b>0"
+hide footbox
+
+actor Cliente as U
+participant "Frontend\nCatalogo.jsx" as F
+participant "API Express\nrutas → maestros.controller" as C
+participant "Validador\nesquemas.filtrosCatalogo" as V
+participant "Modelo\nMaestro.catalogo()" as M
+database "PostgreSQL\nmaestro, oficio, region,\nv_reputacion_maestro" as BD
+
+U -> F : Elige región y oficio (obligatorios)\ny, si quiere, tarifa, nota,\ndisponibilidad y experiencia
+F -> C : GET /api/v1/catalogo?region=6&oficio=1\n&tarifaMax=25000&calificacionMin=4\n&disponible=true&experienciaMin=3
+activate C
+C -> V : validar(req.query)
+activate V
+
+alt falta región u oficio
+  V --> C : ErrorHttp 400 VALIDACION
+  C --> F : 400 { ok: false, error: { detalles: [región, oficio] } }
+  F --> U : Marca los filtros obligatorios que faltan
+else filtros válidos
+  V --> C : filtros con tipos correctos
+  deactivate V
+  C -> M : catalogo(filtros)
+  activate M
+  M -> BD : Consulta 3 (SELECT con JOIN)\nparámetros $1..$6, opcionales en NULL si no se usan
+  activate BD
+  BD --> M : filas ordenadas por promedio DESC
+  deactivate BD
+  M --> C : maestros[]
+  deactivate M
+  alt sin resultados
+    C --> F : 200 { ok: true, data: [] }
+    F --> U : "Ningún maestro cumple todos los filtros"\ny sugiere quitar opcionales
+  else hay maestros
+    C --> F : 200 { ok: true, data: [...], meta: { ms, consulta: 3 } }
+    deactivate C
+    F --> U : Lista de fichas: nota, tarifa,\nexperiencia y disponibilidad
+  end
+end
+@enduml

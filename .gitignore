@@ -1,3 +1,9 @@
 node_modules/
+dist/
 .env
+.env.*
+!.env.example
+.vercel/
+despliegue/grupo13-plumb/
+*.log
 .DS_Store

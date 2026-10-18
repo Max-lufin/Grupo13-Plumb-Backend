@@ -1,0 +1,49 @@
+@startuml secuencia_respuesta
+!include estilo.iuml
+autonumber "<b>0"
+hide footbox
+
+actor Maestro as MA
+participant "Frontend\nMisSolicitudes.jsx" as F
+participant "API Express\nmaestros / solicitudes" as C
+participant "Modelo\nSolicitud.cambiarEstado()" as S
+database "PostgreSQL\nsolicitud" as BD
+actor Cliente as CL
+
+MA -> F : Abre "Mis solicitudes, como maestro"
+F -> C : GET /api/v1/maestros/{rut}/solicitudes?estado=Pendiente
+activate C
+C -> BD : Consulta 5 (SELECT simple, bandeja)
+BD --> C : solicitudes pendientes
+C --> F : 200 { data: [...] }
+deactivate C
+F --> MA : Bandeja "Por responder"
+
+MA -> F : Presiona "Aceptar" en la solicitud {id}
+F -> C : PATCH /api/v1/solicitudes/{id} { estado: 'Aceptada' }
+activate C
+C -> S : cambiarEstado(id, 'Aceptada')
+activate S
+S -> BD : SELECT estado FROM solicitud WHERE id_solicitud = $1
+BD --> S : 'Pendiente'
+alt transición no permitida (ej. Finalizada → Pendiente)
+  S --> C : ErrorHttp 422
+  C --> F : 422 "Una solicitud finalizada no puede pasar a pendiente"
+else Pendiente → Aceptada
+  S -> BD : Consulta 6 (UPDATE ... WHERE id_solicitud = $1 AND estado = $3)
+  alt otra persona la cambió antes (0 filas)
+    S --> C : ErrorHttp 409 CONFLICTO
+    C --> F : 409 "La solicitud cambió mientras tanto"
+  else 1 fila actualizada
+    BD --> S : { id_solicitud, estado: 'Aceptada' }
+    deactivate S
+    C --> F : 200 { data }
+    deactivate C
+    F --> MA : La solicitud pasa a "En curso"
+  end
+end
+... cuando el trabajo termina ...
+MA -> C : PATCH { estado: 'Finalizada' }
+CL -> C : POST /api/v1/solicitudes/{id}/calificacion { puntuacion, comentario }
+C -> BD : INSERT INTO calificacion (UNIQUE id_solicitud: una nota por trabajo)
+@enduml
