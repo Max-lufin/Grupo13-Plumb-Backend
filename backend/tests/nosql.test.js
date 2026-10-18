@@ -4,8 +4,10 @@
 // Sin MONGODB_URI estas pruebas se omiten.
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import { after, before, describe, test } from 'node:test';
+import { BSON } from 'mongodb';
 import request from 'supertest';
 
 process.env.NODE_ENV = 'test';
@@ -98,6 +100,25 @@ describe('laboratorio NoSQL (MongoDB)', { skip: !env.mongodbUri && 'sin MONGODB_
     }
     const oficios = (await api.get('/api/v1/nosql').expect(200)).body.data.colecciones.find((c) => c.nombre === 'oficios');
     assert.equal(oficios.total, 10, 'N7 se abortó: el oficio sigue existiendo');
+  });
+
+  test('cada documento de nosql/ejemplos es Extended JSON válido y lo acepta su validador', async () => {
+    const { mongo } = await import('../src/config/mongo.js');
+    const { cliente } = await mongo();
+    const db = cliente.db('plumb_prueba_ejemplos');
+    const { crearColecciones } = createRequire(import.meta.url)('../../nosql/esquema.cjs');
+    try {
+      await crearColecciones(db, { borrar: true });
+      const carpeta = new URL('../../nosql/ejemplos/', import.meta.url);
+      const archivos = await readdir(carpeta);
+      assert.equal(archivos.length, 6);
+      for (const archivo of archivos) {
+        const doc = BSON.EJSON.parse(await readFile(new URL(archivo, carpeta), 'utf8'));
+        await db.collection(archivo.replace('.json', '')).insertOne(doc);
+      }
+    } finally {
+      await db.dropDatabase();
+    }
   });
 
   test('una consulta que no existe responde 404', async () => {

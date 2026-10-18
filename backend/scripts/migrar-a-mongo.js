@@ -134,11 +134,21 @@ const ejemplos = process.argv.includes('--sin-ejemplos') ? {} : {
   solicitudes: { folio: 1 },
   contadores: { _id: 'solicitudes' },
 };
+// Dos ajustes de legibilidad que siguen siendo Extended JSON válido: toda fecha
+// como texto ISO (el modo relajado escribe $numberLong antes de 1970) y un double
+// entero como {"$numberDouble": "5.0"} para que no parezca un int.
+function legible(v) {
+  if (v instanceof Date) return { $date: v.toISOString() };
+  if (v?._bsontype === 'Double') return Number.isInteger(v.value) ? { $numberDouble: v.value.toFixed(1) } : v.value;
+  if (Array.isArray(v)) return v.map(legible);
+  if (v && typeof v === 'object' && !v._bsontype) return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, legible(x)]));
+  return v;
+}
 const carpeta = path.resolve(aqui, '../../nosql/ejemplos');
 await mkdir(carpeta, { recursive: true });
 for (const [nombre, filtro] of Object.entries(ejemplos)) {
-  const doc = await db.collection(nombre).findOne(filtro);
-  await writeFile(path.join(carpeta, `${nombre}.json`), `${EJSON.stringify(doc, null, 2, { relaxed: true })}\n`);
+  const doc = await db.collection(nombre).findOne(filtro, { promoteValues: false });
+  await writeFile(path.join(carpeta, `${nombre}.json`), `${EJSON.stringify(legible(doc), null, 2, { relaxed: true })}\n`);
 }
 if (Object.keys(ejemplos).length) console.log('Ejemplos exportados en nosql/ejemplos/');
 
