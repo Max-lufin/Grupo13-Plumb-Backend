@@ -1,0 +1,246 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--mesa);
+  color: var(--tinta);
+  font-family: var(--familia);
+  font-size: var(--t-m);
+  line-height: 1.55;
+  font-stretch: 100%;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--t-2xl);
+  font-stretch: 112%;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: var(--t-xl);
+  font-stretch: 108%;
+}
+
+h3 {
+  font-size: var(--t-l);
+  font-stretch: 104%;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  max-width: 68ch;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+code,
+pre {
+  font-family: var(--familia-codigo);
+  font-variant-numeric: normal;
+}
+
+:focus-visible {
+  outline: 3px solid var(--canario);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--tinta);
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--canario);
+  color: var(--tinta);
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--margen);
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 44px;
+  padding: 0.55em 1.15em;
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio-boton);
+  background: var(--tinta);
+  color: var(--papel);
+  font: inherit;
+  font-weight: 700;
+  font-stretch: 104%;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.boton:hover {
+  background: #121a5c;
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.boton--secundario {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.boton--secundario:hover {
+  background: var(--canario-claro);
+}
+
+.boton--peligro {
+  background: var(--papel);
+  border-color: var(--folio);
+  color: var(--folio);
+}
+
+.boton--peligro:hover {
+  background: var(--rosa-claro);
+}
+
+.boton--chico {
+  min-height: 36px;
+  padding: 0.3em 0.8em;
+  font-size: var(--t-s);
+}
+
+.boton--texto {
+  border-color: transparent;
+  background: transparent;
+  color: var(--tinta);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.boton--texto:hover {
+  background: var(--canario-claro);
+}
+
+/* Campos de formulario */
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo__etiqueta {
+  font-size: var(--t-s);
+  font-weight: 700;
+}
+
+.campo__requerido {
+  color: var(--folio);
+  font-weight: 800;
+  margin-left: 2px;
+}
+
+.campo__ayuda {
+  font-size: var(--t-xs);
+  color: var(--tinta-suave);
+}
+
+.campo__error {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  color: var(--folio);
+}
+
+.entrada {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5em 0.75em;
+  border: 1.5px solid var(--pauta-fuerte);
+  border-radius: var(--radio-campo);
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+}
+
+.entrada:hover {
+  border-color: var(--tinta-suave);
+}
+
+.entrada:focus-visible {
+  border-color: var(--tinta);
+  box-shadow: none;
+  outline-offset: 0;
+}
+
+.entrada[aria-invalid='true'] {
+  border-color: var(--folio);
+  background: var(--rosa-claro);
+}
+
+textarea.entrada {
+  min-height: 7.5em;
+  resize: vertical;
+}
+
+select.entrada {
+  appearance: none;
+  padding-right: 2.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231c2470' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+}
+
+/* Hoja: superficie blanca sobre la mesa */
+.hoja {
+  background: var(--papel);
+  border: 1px solid var(--pauta);
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
