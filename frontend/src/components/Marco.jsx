@@ -68,7 +68,7 @@ function EstadoBaseDeDatos() {
   return (
     <p className="pie__bd">
       <span className="pie__luz" aria-hidden="true" />
-      Conectado a {salud.bd.motor}, respuesta en {Math.max(1, Math.round(salud.bd.latenciaMs))} ms.
+      Conectado a {salud.bd.motor}{salud.mongo?.conectada ? ` y ${salud.mongo.motor}` : ''}, respuesta en {Math.max(1, Math.round(salud.bd.latenciaMs))} ms.
       {' '}{salud.tablas.maestro} maestros y {salud.tablas.solicitud} solicitudes registradas.
     </p>
   );

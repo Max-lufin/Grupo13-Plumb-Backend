@@ -242,17 +242,21 @@ function DetalleConsulta({ c, resultado, ejecutando, alEjecutar }) {
         ))}
       </ol>
 
-      <h3 className="lab__motor">SQL <span>PostgreSQL, la consulta equivalente</span></h3>
-      {c.sql.map((s, i) => (
-        <div key={i} className="pasos-sql">
-          <BloqueSQL sql={s.texto} />
-          {s.valores.length > 0 && (
-            <p className="pasos-sql__valores">
-              Parámetros: {s.valores.map((v, j) => <code key={j}>${j + 1} = {v === null ? 'NULL' : String(v)}</code>)}
-            </p>
-          )}
-        </div>
-      ))}
+      <details className="equivalente-sql">
+        <summary>
+          <span className="lab__motor">SQL <span>PostgreSQL, {c.sql.length > 1 ? `${c.sql.length} sentencias equivalentes` : 'la consulta equivalente'}</span></span>
+        </summary>
+        {c.sql.map((s, i) => (
+          <div key={i} className="pasos-sql">
+            <BloqueSQL sql={s.texto} />
+            {s.valores.length > 0 && (
+              <p className="pasos-sql__valores">
+                Parámetros: {s.valores.map((v, j) => <code key={j}>${j + 1} = {v === null ? 'NULL' : String(v)}</code>)}
+              </p>
+            )}
+          </div>
+        ))}
+      </details>
 
       <button type="button" className="boton lab__ejecutar" onClick={alEjecutar} disabled={ejecutando}>
         {ejecutando ? 'Ejecutando…' : 'Ejecutar en los dos motores'}
