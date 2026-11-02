@@ -1,63 +1,29 @@
 import { ErrorHttp } from '../utils/http.js';
 
-// Traduce las restricciones de la BD a mensajes que una persona entiende.
-// La clave es el nombre de la restricción definido en 01_esquema.sql.
-const MENSAJES = {
-  ck_cliente_mayor_edad: 'El cliente debe ser mayor de 18 años.',
-  ck_maestro_mayor_edad: 'El maestro debe ser mayor de 18 años.',
-  ck_cliente_rut: 'El RUT debe tener el formato 12345678-5.',
-  ck_maestro_rut: 'El RUT debe tener el formato 12345678-5.',
-  ck_cliente_email: 'El correo no tiene un formato válido.',
-  ck_maestro_email: 'El correo no tiene un formato válido.',
-  ck_maestro_tarifa: 'La tarifa debe ser mayor que cero.',
-  ck_maestro_tarifa_max: 'La tarifa no puede superar $150.000 por hora.',
-  ck_maestro_experiencia: 'Los años de experiencia deben estar entre 0 y 60.',
-  ck_solicitud_estado: 'Ese estado de solicitud no existe.',
-  ck_solicitud_descripcion: 'Describe el trabajo con al menos 15 caracteres.',
-  ck_calificacion_puntuacion: 'La puntuación debe estar entre 1 y 5.',
-  uq_calificacion_solicitud: 'Esta solicitud ya fue calificada.',
-  cliente_pkey: 'Ya existe un cliente con ese RUT.',
-  cliente_email_key: 'Ese correo ya está registrado.',
-  maestro_pkey: 'Ya existe un maestro con ese RUT.',
-  maestro_email_key: 'Ese correo ya está registrado por otro maestro.',
-  oficio_nombre_key: 'Ya existe un oficio con ese nombre.',
+// Traduce los errores de MongoDB a mensajes que una persona entiende.
+// Índice único violado: la clave es el campo del índice.
+const DUPLICADO = {
+  email: ['email', 'Ese correo ya está registrado.'],
+  _id: ['rut', 'Ya existe una cuenta con ese RUT.'],
+  nombre: ['nombre', 'Ya existe un oficio con ese nombre.'],
+  folio: [null, 'El folio ya fue usado. Inténtalo de nuevo.'],
 };
 
-const AL_BORRAR = {
-  fk_maestro_oficio: 'No se puede eliminar: hay maestros que ejercen este oficio.',
-  fk_maestro_region: 'No se puede eliminar: hay maestros en esta región.',
-  fk_solicitud_cliente: 'No se puede eliminar: el cliente tiene solicitudes en su historial.',
-  fk_solicitud_maestro: 'No se puede eliminar: el maestro tiene solicitudes en su historial.',
-};
-
-const AL_INSERTAR = {
-  fk_maestro_oficio: 'El oficio indicado no existe.',
-  fk_maestro_region: 'La región indicada no existe.',
-  fk_solicitud_cliente: 'El cliente indicado no existe.',
-  fk_solicitud_maestro: 'El maestro indicado no existe.',
-  fk_calificacion_solicitud: 'La solicitud indicada no existe.',
-};
-
-function desdePostgres(error) {
-  const restriccion = error.constraint;
-  switch (error.code) {
-    case '23505': // unique_violation
-    case '23514': // check_violation
-      return new ErrorHttp(422, 'REGLA_DE_NEGOCIO', MENSAJES[restriccion] ?? 'Los datos no cumplen una regla del sistema.',
-        [{ campo: null, mensaje: `Restricción ${restriccion}` }]);
-    case '23503': // foreign_key_violation
-      if (/still referenced/.test(error.detail ?? '')) {
-        return new ErrorHttp(409, 'CONFLICTO', AL_BORRAR[restriccion] ?? 'El registro está en uso y no se puede eliminar.');
-      }
-      return new ErrorHttp(422, 'REGLA_DE_NEGOCIO', AL_INSERTAR[restriccion] ?? 'Un registro relacionado no existe.');
-    case '42701': // duplicate_column (ALTER ya aplicado)
-    case '42710': // duplicate_object
-      return new ErrorHttp(409, 'CONFLICTO', 'El cambio de estructura ya estaba aplicado en esta base de datos.');
-    case '57014': // query_canceled por statement_timeout
-      return new ErrorHttp(503, 'TIEMPO_AGOTADO', 'La base de datos tardó demasiado en responder.');
-    default:
-      return null;
+function desdeMongo(error) {
+  if (error.code === 11000) {
+    const campo = Object.keys(error.keyPattern ?? {})[0];
+    const [nombre, mensaje] = DUPLICADO[campo] ?? [null, 'Ya existe un registro con esos datos.'];
+    return new ErrorHttp(409, 'CONFLICTO', mensaje, nombre ? [{ campo: nombre, mensaje }] : undefined);
   }
+  // El validador de la colección rechazó el documento. La API valida antes,
+  // así que esto solo ocurre si una regla quedó solo en la base de datos.
+  if (error.code === 121) {
+    return new ErrorHttp(422, 'REGLA_DE_NEGOCIO', 'Los datos no cumplen las reglas de la base de datos.');
+  }
+  if (/^Mongo(ServerSelection|Network|Topology)/.test(error.name ?? '')) {
+    return new ErrorHttp(503, 'BD_NO_DISPONIBLE', 'No hay conexión con la base de datos en este momento. Intenta de nuevo en unos segundos.');
+  }
+  return null;
 }
 
 export function rutaNoEncontrada(req, res) {
@@ -69,14 +35,13 @@ export function rutaNoEncontrada(req, res) {
 
 // eslint-disable-next-line no-unused-vars
 export function manejarErrores(error, req, res, next) {
-  let http = error instanceof ErrorHttp ? error : desdePostgres(error);
-
-  if (!http && /^Mongo(ServerSelection|Network)/.test(error.name)) {
-    http = new ErrorHttp(503, 'SIN_MONGODB', 'No hay conexión con MongoDB en este momento. Intenta de nuevo en unos segundos.');
-  }
+  let http = error instanceof ErrorHttp ? error : desdeMongo(error);
 
   if (!http && error.type === 'entity.parse.failed') {
     http = new ErrorHttp(400, 'JSON_INVALIDO', 'El cuerpo de la petición no es un JSON válido.');
+  }
+  if (!http && error.type === 'entity.too.large') {
+    http = new ErrorHttp(413, 'DEMASIADO_GRANDE', 'El cuerpo de la petición supera los 20 KB.');
   }
 
   if (!http) {

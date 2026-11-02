@@ -1,46 +1,49 @@
-import { query } from '../config/db.js';
-import { reglaDeNegocio } from '../utils/http.js';
-import { esMayorDeEdad } from './reglas.js';
+import { coleccion } from '../config/mongo.js';
+import { conflicto, reglaDeNegocio } from '../utils/http.js';
+import { aDia, aFecha, esMayorDeEdad } from './reglas.js';
+import { Usuario } from './usuario.model.js';
 
-export const SQL = {
-  // Consulta 8 · registro de un cliente.
-  CREAR: `
-INSERT INTO cliente (rut_cliente, nombre, email, telefono, fecha_nacimiento)
-VALUES ($1, $2, $3, $4, $5)
-RETURNING rut_cliente, nombre, fecha_registro`.trim(),
-
-  LISTAR: `
-SELECT c.rut_cliente, c.nombre, c.email,
-       COUNT(s.id_solicitud) AS total_solicitudes
-FROM cliente c
-LEFT JOIN solicitud s ON s.rut_cliente = c.rut_cliente
-GROUP BY c.rut_cliente
-ORDER BY c.nombre`.trim(),
-
-  BUSCAR: `
-SELECT rut_cliente, nombre, email, telefono, fecha_nacimiento, fecha_registro
-FROM cliente
-WHERE rut_cliente = $1`.trim(),
-};
+const ficha = (u) => ({
+  rut_cliente: u._id, nombre: u.nombre, email: u.email, telefono: u.telefono ?? null,
+  fecha_nacimiento: aDia(u.fecha_nacimiento), fecha_registro: u.fecha_registro,
+});
 
 export const Cliente = {
+  // Lista para el administrador, con cuántas solicitudes tiene cada cliente.
   async listar() {
-    return (await query(SQL.LISTAR)).rows;
+    const usuarios = await coleccion('usuarios');
+    return usuarios.aggregate([
+      { $match: { roles: 'cliente' } },
+      { $lookup: { from: 'solicitudes', localField: '_id', foreignField: 'cliente._id', as: 's', pipeline: [{ $project: { _id: 1 } }] } },
+      { $project: { _id: 0, rut_cliente: '$_id', nombre: 1, email: 1, total_solicitudes: { $size: '$s' } } },
+      { $sort: { nombre: 1 } },
+    ], { collation: { locale: 'es' } }).toArray();
   },
 
   async buscar(rut) {
-    return (await query(SQL.BUSCAR, [rut])).rows[0] ?? null;
+    const usuarios = await coleccion('usuarios');
+    const u = await usuarios.findOne({ _id: rut, roles: 'cliente' }, { projection: { contrasena: 0, maestro: 0 } });
+    return u ? ficha(u) : null;
   },
 
-  // RF-05: solo mayores de 18 años. Se valida aquí (422 con mensaje claro)
-  // y además la BD lo garantiza con ck_cliente_mayor_edad.
+  // Solo mayores de 18 años. Se valida aquí (422 con mensaje claro) y además
+  // el validador de la colección lo garantiza con $expr.
   async crear(d) {
     if (!esMayorDeEdad(d.fecha_nacimiento)) {
       throw reglaDeNegocio('Para registrarte debes ser mayor de 18 años.', [
         { campo: 'fecha_nacimiento', mensaje: 'Debes tener al menos 18 años.' },
       ]);
     }
-    const valores = [d.rut_cliente, d.nombre, d.email, d.telefono ?? null, d.fecha_nacimiento];
-    return (await query(SQL.CREAR, valores)).rows[0];
+    const usuarios = await coleccion('usuarios');
+    if (await usuarios.countDocuments({ _id: d.rut_cliente }, { limit: 1 })) {
+      throw conflicto('Ya existe una cuenta con ese RUT. Inicia sesión con tu correo.');
+    }
+    const doc = {
+      _id: d.rut_cliente, nombre: d.nombre, email: d.email, telefono: d.telefono ?? null,
+      fecha_nacimiento: aFecha(d.fecha_nacimiento), contrasena: await Usuario.hashContrasena(d.contrasena),
+      roles: ['cliente'], fecha_registro: new Date(),
+    };
+    await usuarios.insertOne(doc);
+    return { rut_cliente: doc._id, nombre: doc.nombre, fecha_registro: doc.fecha_registro };
   },
 };

@@ -44,6 +44,13 @@ const telefono = z.preprocess(
   z.string().regex(/^\+569\d{8}$/, 'Usa un celular chileno: +56 9 1234 5678.'),
 );
 
+// Las reglas se muestran en el formulario antes de escribir: 8 caracteres, una letra y un número.
+const contrasena = z.string({ required_error: 'Falta la contraseña.', invalid_type_error: 'La contraseña debe ser texto.' })
+  .min(8, 'La contraseña debe tener al menos 8 caracteres.')
+  .max(72, 'La contraseña admite hasta 72 caracteres.')
+  .regex(/[A-Za-zÁÉÍÓÚáéíóúÑñ]/, 'La contraseña debe tener al menos una letra.')
+  .regex(/\d/, 'La contraseña debe tener al menos un número.');
+
 const fecha = (campo) =>
   z.string({ required_error: falta(campo) })
     .regex(/^\d{4}-\d{2}-\d{2}$/, `${campo} debe tener el formato AAAA-MM-DD.`)
@@ -80,6 +87,12 @@ export const esquemas = {
     email,
     telefono: telefono.nullable().optional(),
     fecha_nacimiento: fecha('La fecha de nacimiento'),
+    contrasena,
+  }),
+
+  inicioSesion: z.object({
+    email,
+    contrasena: z.string({ required_error: 'Falta la contraseña.' }).min(1, 'Falta la contraseña.').max(72),
   }),
 
   maestroNuevo: z.object({
@@ -94,6 +107,8 @@ export const esquemas = {
     experiencia_anios: entero('La experiencia', 0, 60, { opcional: true }).transform((v) => v ?? 0),
     disponible: booleanoOpcional.transform((v) => v ?? true),
     descripcion: textoOpcional('La descripción', 500),
+    // Obligatoria al crear la cuenta; al editar, solo si se quiere cambiar.
+    contrasena: contrasena.optional(),
   }),
 
   maestroCambios: z.object({

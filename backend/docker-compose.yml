@@ -1,11 +1,13 @@
-# PostgreSQL local para desarrollo: docker compose up -d
+# MongoDB local para desarrollo: docker compose up -d
+# Se levanta como replica set de un nodo porque las transacciones lo requieren.
 services:
   bd:
-    image: postgres:17-alpine
-    container_name: plumb-pg
-    environment:
-      POSTGRES_USER: plumb
-      POSTGRES_PASSWORD: plumb
-      POSTGRES_DB: plumb
+    image: mongo:8
+    container_name: plumb-mongo
+    command: ["--replSet", "rs0", "--bind_ip_all"]
     ports:
-      - "54329:5432"
+      - "27019:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "try { rs.status().ok } catch (e) { rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'localhost:27017' }] }).ok }"]
+      interval: 5s
+      retries: 20
