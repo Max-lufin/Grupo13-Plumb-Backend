@@ -10,7 +10,7 @@
 import { enTransaccionDePrueba, mongo } from '../config/mongo.js';
 import { hashContrasena } from '../utils/credenciales.js';
 import { digitoVerificador } from '../validators/rut.js';
-import { cronometro } from '../utils/http.js';
+import { ErrorHttp, cronometro } from '../utils/http.js';
 import { aMongosh, Pendiente } from '../utils/mongosh.js';
 import { CONSULTAS_MAESTRO } from './maestro.model.js';
 import { regionPorNumero } from './region.model.js';
@@ -486,8 +486,9 @@ function etapas(plan, salida = []) {
 // Plan de ejecución de una lectura: qué índice usó y cuántos documentos revisó.
 async function explicar(db, op) {
   const col = db.collection(op.coleccion);
+  // El comando explain directo evita que el driver le agregue el writeConcern de la conexión.
   const e = op.metodo === 'aggregate'
-    ? await col.aggregate(op.pipeline).explain('executionStats')
+    ? await db.command({ explain: { aggregate: op.coleccion, pipeline: op.pipeline, cursor: {} }, verbosity: 'executionStats' })
     : await col.find(op.filtro, { projection: op.proyeccion, sort: op.orden, limit: op.limite }).explain('executionStats');
   const qp = e.queryPlanner ?? e.stages?.[0]?.$cursor?.queryPlanner;
   const es = e.executionStats ?? e.stages?.[0]?.$cursor?.executionStats;
@@ -540,6 +541,12 @@ async function ejecutarCambioDeValidador(db, e) {
   e.aplicar(nuevo.$jsonSchema ? nuevo : { $jsonSchema: nuevo });
   try {
     await db.command({ collMod: e.coleccion, validator: nuevo });
+  } catch (error) {
+    // collMod pide el rol dbAdmin; si la cuenta de la API no lo tiene, se avisa claro.
+    if (error.code === 13 || /not allowed to do action/.test(error.message)) throw new ErrorHttp(403, 'SIN_PERMISO_BD', 'La cuenta con que la API se conecta a la base de datos no tiene permiso para cambiar la estructura (collMod) en este servidor. Esta consulta se puede ejecutar en la instalación local.');
+    throw error;
+  }
+  try {
     const leido = (await db.listCollections({ name: e.coleccion }).next()).options.validator;
     return [{ texto: e.texto, nota: null, resultado: [aMongosh({ ok: 1 })], cantidad: 1 },
       { texto: `db.getCollectionInfos({ name: '${e.coleccion}' })[0].options.validator`, nota: 'Comprobación', resultado: [aMongosh(e.leer(leido))], cantidad: 1 }];
