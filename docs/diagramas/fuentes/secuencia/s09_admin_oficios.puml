@@ -1,0 +1,40 @@
+@startuml secuencia_09_admin_oficios
+!include ../estilo.iuml
+title Administración: mantenedor de oficios (CU-04)
+actor Administrador as U
+participant "Frontend\nAdmin.jsx" as F
+participant "API Express\nexigir('administrador') → oficios" as A
+participant "Modelo\nOficio" as M
+database "MongoDB\noficios, usuarios, contadores" as BD
+
+U -> F : Abre Administración → Oficios
+F -> A : GET /api/v1/oficios
+A -> BD : oficios.aggregate([$lookup usuarios por maestro.oficio._id,\n $project total_maestros: $size, $sort nombre])
+A --> F : 200 oficios con cantidad de maestros
+
+alt crear
+  F -> A : POST /api/v1/oficios { nombre, descripcion }
+  group transacción
+    M -> BD : contadores $inc "oficios" → _id
+    M -> BD : oficios.insertOne
+  end
+  A --> F : 201 / 409 "Ya existe un oficio con ese nombre."\n(índice único sin distinguir mayúsculas)
+else renombrar
+  F -> A : PUT /api/v1/oficios/3
+  group transacción
+    M -> BD : oficios.updateOne({ _id: 3 }, { $set: { nombre } })
+    M -> BD : usuarios.updateMany({ maestro.oficio._id: 3 },\n { $set: { maestro.oficio.nombre } })  copia del nombre
+  end
+  A --> F : 200
+else eliminar
+  F -> A : DELETE /api/v1/oficios/3
+  M -> BD : usuarios.countDocuments({ maestro.oficio._id: 3 })
+  alt hay maestros con ese oficio
+    A --> F : 409 CONFLICTO
+  else
+    M -> BD : oficios.findOneAndDelete
+    A --> F : 200
+  end
+end
+F --> U : Resultado y lista actualizada
+@enduml

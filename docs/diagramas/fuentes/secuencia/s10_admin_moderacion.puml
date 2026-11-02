@@ -1,0 +1,30 @@
+@startuml secuencia_10_admin_moderacion
+!include ../estilo.iuml
+title Administración: moderación de solicitudes y reseñas (CU-08)
+actor Administrador as U
+participant "Frontend\nAdmin.jsx" as F
+participant "API Express\nexigir('administrador') → solicitudes" as A
+participant "Modelo\nSolicitud.eliminar()" as M
+database "MongoDB\nsolicitudes, usuarios" as BD
+
+U -> F : Abre Administración → Moderación
+F -> A : GET /api/v1/solicitudes
+A -> BD : aggregate(pipelineHistorial sin filtro)
+A --> F : 200 solicitudes con su calificación
+U -> F : Elimina una solicitud con reseña inapropiada y confirma
+F -> A : DELETE /api/v1/solicitudes/42
+group transacción
+  M -> BD : solicitudes.findOneAndDelete({ folio: 42 })\nla calificación embebida se va con ella
+  alt tenía calificación
+    M -> BD : solicitudes.aggregate([$match maestro y calificadas,\n $group { total: $sum 1, suma: $sum puntuacion }])
+    M -> BD : find(5 calificaciones más recientes)
+    M -> BD : usuarios.updateOne({ _id: maestro },\n { $set: { reputacion, resenas_recientes } })
+  end
+end
+alt no existe
+  A --> F : 404 NO_ENCONTRADO
+else
+  A --> F : 200 { id_solicitud, rut_maestro }
+end
+F --> U : Lista actualizada; el perfil del maestro\nmuestra la reputación recalculada
+@enduml

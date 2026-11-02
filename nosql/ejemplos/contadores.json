@@ -1,4 +1,10 @@
-{
-  "_id": "solicitudes",
-  "seq": 117
-}
+[
+  {
+    "_id": "solicitudes",
+    "seq": 117
+  },
+  {
+    "_id": "oficios",
+    "seq": 10
+  }
+]

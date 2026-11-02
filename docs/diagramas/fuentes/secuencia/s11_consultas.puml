@@ -1,0 +1,36 @@
+@startuml secuencia_11_consultas
+!include ../estilo.iuml
+title Consultas: las 13 consultas de la Etapa I convertidas a MQL
+actor Visitante as U
+participant "Frontend\nConsultas.jsx" as F
+participant "API Express\nconsultas.controller" as A
+participant "Modelo\nConsulta.ejecutar()" as M
+database "MongoDB" as BD
+
+U -> F : Abre /consultas
+F -> A : GET /api/v1/consultas
+A --> F : 200 { consultas: [13 con SQL, álgebra y MQL], pruebas: [N1..N8] }
+F --> U : Índice y detalle: SQL a la izquierda, MQL a la derecha
+U -> F : Ejecutar la consulta n
+F -> A : POST /api/v1/consultas/:n/ejecuciones
+A -> M : ejecutar(n)
+alt modo lectura (find / aggregate con $lookup, $group, $lte...)
+  M -> BD : operación MQL
+  M -> BD : explain (executionStats)
+  BD --> M : documentos + plan (índice, claves y documentos revisados)
+else modo escritura (INSERT, UPDATE, DELETE)
+  group transacción que se aborta
+    M -> BD : insertOne / updateOne / deleteOne
+    BD --> M : resultado
+  end
+  note right : abortTransaction: los datos quedan igual
+else modo estructura (ALTER, CREATE/DROP)
+  M -> BD : collMod (validador) o insertMany + drop
+  M -> BD : restaura el validador original
+  alt el usuario de la base no tiene permiso
+    A --> F : 403 SIN_PERMISO_BD
+  end
+end
+A --> F : 201 { pasos: [respuesta por operación], plan, ms }
+F --> U : Respuesta de MongoDB y plan de ejecución
+@enduml

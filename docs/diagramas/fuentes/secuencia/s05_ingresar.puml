@@ -1,0 +1,33 @@
+@startuml secuencia_05_ingresar
+!include ../estilo.iuml
+title Inicio de sesión (CU-09)
+actor "Cliente, Maestro\no Administrador" as U
+participant "Frontend\nIngresar.jsx + ProveedorSesion" as F
+participant "API Express\nsesiones.controller" as A
+participant "Modelo\nUsuario.iniciarSesion()" as M
+database "MongoDB\nusuarios" as BD
+
+U -> F : Escribe correo y contraseña
+F -> A : POST /api/v1/sesiones { email, contrasena }
+A -> A : revisarLimite(ip)
+alt 10 fallos en 15 minutos
+  A --> F : 429 DEMASIADOS_INTENTOS
+  F --> U : "Espera 15 minutos"
+else
+  A -> M : iniciarSesion(email, contrasena)
+  M -> BD : usuarios.findOne({ email })
+  BD --> M : usuario con hash scrypt
+  M -> M : verificarContrasena (timingSafeEqual)
+  alt correo o contraseña incorrectos
+    M --> A : 401
+    A -> A : anotarFallo(ip)
+    A --> F : 401 "Correo o contraseña incorrectos."
+    F --> U : Mensaje sin revelar cuál dato falló
+  else correctos
+    M -> M : firmarToken({ rut, nombre, roles }, SESION_SECRETO, 8 h)\nJWT HS256
+    A --> F : 201 { token, usuario }
+    F -> F : Guarda la sesión (localStorage)\ny agrega Authorization: Bearer
+    F --> U : Menú según rol y vuelve a la página anterior
+  end
+end
+@enduml

@@ -1,0 +1,47 @@
+@startuml secuencia_08_admin_maestros
+!include ../estilo.iuml
+title Administración: mantenedor de maestros (CU-03)
+actor Administrador as U
+participant "Frontend\nAdmin.jsx" as F
+participant "API Express\nexigir('administrador') → maestros" as A
+participant "Modelo\nMaestro" as M
+database "MongoDB\nusuarios, solicitudes, oficios" as BD
+
+U -> F : Abre Administración → Maestros
+F -> A : GET /api/v1/maestros (Bearer)
+alt sin sesión / sin rol
+  A --> F : 401 SESION_INVALIDA / 403 SIN_PERMISO
+else
+  A -> BD : usuarios.find({ roles: "maestro" }).sort({ nombre: 1 })
+  A --> F : 200 lista con contacto
+end
+
+alt crear
+  U -> F : Formulario (oficio, región, tarifa, experiencia,\nfecha de nacimiento, contraseña inicial)
+  F -> A : POST /api/v1/maestros
+  A -> M : crear(d)
+  M -> BD : oficios.findOne(id_oficio); región desde el catálogo fijo
+  M -> BD : insertOne(usuario con perfil maestro embebido)\no $addToSet roles si el RUT ya es cliente
+  A --> F : 201 / 409 RUT repetido / 422 menor de edad
+else editar
+  F -> A : PUT /api/v1/maestros/:rut
+  group transacción
+    M -> BD : usuarios.updateOne({ _id: rut }, { $set: datos })
+    M -> BD : solicitudes.updateMany({ maestro._id: rut },\n { $set: { maestro.nombre } })  copia del nombre
+  end
+  A --> F : 200
+else cambiar disponibilidad
+  F -> A : PATCH /api/v1/maestros/:rut { disponible }
+  A --> F : 200
+else eliminar
+  F -> A : DELETE /api/v1/maestros/:rut
+  M -> BD : solicitudes.countDocuments({ maestro._id: rut })
+  alt tiene historial
+    A --> F : 409 "El maestro tiene solicitudes"
+  else
+    M -> BD : deleteOne / $unset perfil si también es cliente
+    A --> F : 200
+  end
+end
+F --> U : Mensaje de resultado y lista actualizada
+@enduml

@@ -1,0 +1,38 @@
+@startuml secuencia_03_perfil_solicitud
+!include ../estilo.iuml
+title Perfil del maestro y creación de una solicitud (CU-02)
+actor Cliente as U
+participant "Frontend\nPerfilMaestro.jsx" as F
+participant "API Express\nsesion → solicitudes.controller" as A
+participant "Modelo\nSolicitud.crear()" as M
+database "MongoDB\nusuarios, solicitudes, contadores" as BD
+
+U -> F : Abre /maestros/:rut
+F -> A : GET /api/v1/maestros/:rut
+A -> BD : usuarios.findOne({ _id: rut, roles: "maestro" })\nsin email, teléfono ni contraseña
+A -> BD : solicitudes.countDocuments({ maestro._id, estado: "Finalizada" })
+A --> F : 200 perfil + resenas_recientes (máx. 5)
+F --> U : Ficha, reputación y reseñas
+
+alt sin sesión de cliente
+  F --> U : Invita a iniciar sesión para pedir el servicio
+else sesión de cliente
+  U -> F : Completa descripción, dirección y fecha
+  F -> A : POST /api/v1/solicitudes\nAuthorization: Bearer <token>
+  A -> A : exigir("cliente"); rut_cliente sale del token
+  A -> M : crear(datos)
+  M -> BD : findOne cliente y maestro (disponible)
+  alt fecha pasada o maestro no disponible
+    M --> A : 422 REGLA_DE_NEGOCIO
+    A --> F : 422 { error: { mensaje, detalles } }
+    F --> U : Mensaje junto al campo
+  else datos correctos
+    group transacción (withTransaction)
+      M -> BD : contadores.findOneAndUpdate({ _id: "solicitudes" }, { $inc: { seq: 1 } })
+      M -> BD : solicitudes.insertOne({ folio, cliente{_id,nombre},\n maestro{_id,nombre}, estado: "Pendiente", calificacion: null })
+    end
+    A --> F : 201 Location: /api/v1/solicitudes/118
+    F --> U : Confirmación con el folio
+  end
+end
+@enduml

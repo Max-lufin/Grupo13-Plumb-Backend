@@ -1,27 +1,23 @@
 # nosql
 
-Modelo de documentos de Plumb en MongoDB (Etapa II). Las mismas 6 tablas de `bd/`, pasadas a colecciones según las consultas que más usa la aplicación.
+Modelo de documentos de Plumb en MongoDB (Etapa II). Las 7 tablas del modelo relacional de la Etapa I pasan a 3 colecciones de datos y 1 técnica, según las consultas que más usa la aplicación.
 
 | Archivo | Qué es |
 |---|---|
-| `esquema.cjs` | Las 6 colecciones: validador `$jsonSchema` e índices de cada una |
-| `ejemplos/*.json` | Un documento real por colección, en Extended JSON (sirve para `mongoimport`) |
-| `consultas.mongodb.js` | Las 13 consultas de la Etapa I en MQL; se ejecuta con mongosh y no deja cambios |
+| `esquema.cjs` | Las 4 colecciones: validador `$jsonSchema` (y `$expr`) e índices de cada una |
+| `datos/*.json` | Datos de prueba en Extended JSON; los carga `npm run db:init` |
+| `ejemplos/*.json` | Un documento por colección, legible (la contraseña va enmascarada) |
 
-## Ejecutar
+## Cargar la base
 
 ```bash
-# MongoDB local (replica set de un nodo: las transacciones lo necesitan)
-docker run -d --name plumb-mongo -p 27019:27017 mongo:8 --replSet rs0 --bind_ip_all
-docker exec plumb-mongo mongosh --quiet --eval "rs.initiate({_id:'rs0',members:[{_id:0,host:'localhost:27017'}]})"
-
 cd backend
-# en .env: MONGODB_URI=mongodb://localhost:27019/?directConnection=true (o la URI de Atlas)
-npm run mongo:migrar        # lee PostgreSQL, crea las colecciones y exporta ejemplos/
-mongosh "$MONGODB_URI" --file ../nosql/consultas.mongodb.js
+docker compose up -d        # MongoDB 8 local como replica set (las transacciones lo necesitan)
+cp .env.example .env        # MONGODB_URI local o la URI de Atlas
+npm run db:init             # crea colecciones, validadores e índices, e inserta los datos
 ```
 
-En la aplicación, la pantalla **Modelo NoSQL** (`/nosql`) muestra los documentos y ejecuta cada consulta en los dos motores.
+Las 13 consultas de la Etapa I, convertidas a MQL, se ejecutan desde la pantalla **Consultas** (`/consultas`) o con `POST /api/v1/consultas/:numero/ejecuciones`. Su texto está en `backend/src/models/consulta.model.js`.
 
 ## 1. Consultas que guían el modelo
 
@@ -32,49 +28,40 @@ En la aplicación, la pantalla **Modelo NoSQL** (`/nosql`) muestra los documento
 | Q3 | Bandeja del maestro (pendientes, de la más antigua) | Mis solicitudes | Varias veces al día por maestro | `ix_bandeja` |
 | Q4 | Historial del cliente | Mis solicitudes | Cada visita del cliente | `ix_historial` |
 | Q5 | Ranking de los mejor evaluados | Inicio | Cada visita a la portada | `ix_ranking` |
+| — | Inicio de sesión por correo | Ingresar | Cada sesión | `uq_usuario_email` |
 
 ## 2. Destino de cada tabla
 
-| Tabla (PostgreSQL) | Destino (MongoDB) | Decisión | Por qué |
+| Tabla | Destino | Decisión | Por qué |
 |---|---|---|---|
-| `region` | `regiones` y copia en `maestros.region` | Referencia extendida | Catálogo fijo de 16 filas; copiar el nombre evita un `$lookup` en Q1 |
-| `oficio` | `oficios` y copia en `maestros.oficio` | Referencia extendida | Tiene mantenedor; se copia solo el nombre, que casi nunca cambia |
-| `cliente` | `clientes` | Colección propia | Se registra y consulta por separado; su nombre se copia en cada solicitud |
-| `maestro` | `maestros` | Colección propia (patrones calculado y subconjunto) | Lo más leído: guarda su reputación y sus 5 reseñas recientes |
+| `cliente`, `maestro`, `administrador` | `usuarios` | Una colección (patrón polimórfico) con `roles[]` | El inicio de sesión busca por correo sin saber el rol; una persona puede ser cliente y maestro con el mismo RUT |
+| `maestro` (datos del oficio) | `usuarios.maestro` | Perfil embebido, 1:0..1 | Solo existe si tiene el rol; catálogo, perfil y ranking lo leen junto con la persona |
+| `region` | `usuarios.maestro.region` | Embebida completa | Catálogo fijo de 16 filas que no se edita; ninguna consulta la lee sola. La lista de los filtros es una constante de la API |
+| `oficio` | `oficios` y copia en `usuarios.maestro.oficio` | Colección propia y referencia extendida | Tiene mantenedor: se lista completo (también los que nadie ofrece), se crea, renombra y borra |
 | `solicitud` | `solicitudes` | Colección propia con referencias extendidas | Crece sin límite: embebida sería un arreglo sin tope |
-| `calificacion` | `solicitudes.calificacion` | Embebida | 1:0..1, se lee con su solicitud y muere con ella |
-| `v_reputacion_maestro` | `maestros.reputacion` | Patrón calculado | Q1 y Q5 filtran y ordenan por promedio: así usan índice |
-| SERIAL de `id_solicitud` | `contadores` | Colección técnica | Folio correlativo con `findOneAndUpdate` + `$inc` |
+| `calificacion` | `solicitudes.calificacion` | Embebida | 1:0..1, depende de su solicitud y muere con ella |
+| `v_reputacion_maestro` | `usuarios.maestro.reputacion` y `resenas_recientes` | Patrones calculado y subconjunto | Q1 y Q5 filtran y ordenan por promedio con índice; Q2 muestra 5 reseñas |
+| SERIAL de solicitud y oficio | `contadores` | Colección técnica | `findOneAndUpdate` con `$inc` es atómico |
 
-## 3. Embeber o referenciar, relación por relación
-
-| Relación | Cardinalidad | Decisión | La consulta que lo decide |
-|---|---|---|---|
-| Maestro → Oficio | N:1 | Referencia extendida `{ _id, nombre }` | Q1 filtra por oficio y muestra su nombre |
-| Maestro → Región | N:1 | Referencia extendida `{ _id, nombre }` | Q1 filtra por región y la muestra |
-| Solicitud → Cliente | N:1 | Referencia extendida `{ _id, nombre }` | Q3 y Q4 muestran el nombre sin JOIN |
-| Solicitud → Maestro | N:1 | Referencia extendida `{ _id, nombre }` | Q4 muestra el maestro de cada trabajo |
-| Solicitud → Calificación | 1:0..1 | Embebida | Q4 muestra la nota de cada solicitud |
-| Maestro → Calificaciones | 1:N, sin tope | Subconjunto: solo las 5 últimas en el maestro | Q2 pinta el perfil con una lectura |
-
-## 4. El costo de copiar datos
+## 3. Copias que hay que mantener
 
 | Dato copiado | Dónde | Cuándo cambia | Cómo se mantiene |
 |---|---|---|---|
-| Nombre de la región | `maestros.region.nombre` | Nunca | — |
-| Nombre del oficio | `maestros.oficio.nombre` | Al renombrar un oficio | `updateMany` en la misma transacción |
-| Nombre de cliente y maestro | `solicitudes.cliente.nombre`, `solicitudes.maestro.nombre` | Si corrigen su nombre | `updateMany` por `_id` |
-| Reputación | `maestros.reputacion` | En cada calificación | Transacción junto con la calificación |
-| Reseñas recientes | `maestros.resenas_recientes` | En cada calificación | `$slice: 5`; el validador rechaza un sexto elemento |
+| Nombre del oficio | `usuarios.maestro.oficio.nombre` | Al renombrar un oficio | `updateMany` en la misma transacción |
+| Región completa | `usuarios.maestro.region` | Nunca | No requiere mantención |
+| Nombre de cliente y maestro | `solicitudes.cliente.nombre`, `solicitudes.maestro.nombre` | Si la persona corrige su nombre | `updateMany` por `_id` en la misma transacción |
+| Nombre de pila del cliente | `usuarios.maestro.resenas_recientes[].cliente` | Si el cliente corrige su nombre | Se conserva como estaba al calificar; al moderar se rearman las 5 reseñas desde las solicitudes |
+| Reputación | `usuarios.maestro.reputacion` | En cada calificación y al moderar | Transacción con la calificación; al moderar, `$group` la recalcula |
+| Reseñas recientes | `usuarios.maestro.resenas_recientes` | En cada calificación | `$slice: 5`; el validador rechaza un sexto elemento |
 
-## 5. Integridad: lo que hacía PostgreSQL y quién lo hace ahora
+## 4. Integridad: lo que hacía el modelo relacional y quién lo hace ahora
 
 | Regla en SQL | En MongoDB |
 |---|---|
 | `CHECK` de formato, rango y estado | `$jsonSchema` (`pattern`, `minimum`, `maximum`, `enum`) |
 | `CHECK` de mayoría de edad | `$expr` con `$$NOW` en el validador |
-| `UNIQUE (email)` | Índice único |
+| `UNIQUE (email)` | Índice único `uq_usuario_email` |
 | `UNIQUE (id_solicitud)` en calificación | Por construcción: la calificación está dentro de la solicitud |
 | `ON DELETE CASCADE` | Por construcción: se borra con su solicitud |
 | `FOREIGN KEY` y `ON DELETE RESTRICT` | No existen: la API cuenta antes de borrar (`countDocuments`) |
-| Transacción SQL | Transacción multi-documento (necesita replica set; Atlas lo trae) |
+| Transacción SQL | Transacción multidocumento (replica set; Atlas lo trae) |

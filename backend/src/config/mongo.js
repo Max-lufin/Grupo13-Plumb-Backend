@@ -45,7 +45,7 @@ export async function enTransaccionDePrueba(fn) {
   }
 }
 
-// Folio siguiente de una colección (reemplaza al SERIAL de PostgreSQL).
+// Folio siguiente de una colección (reemplaza al SERIAL del modelo relacional).
 export async function siguiente(db, nombre, session) {
   const r = await db.collection('contadores').findOneAndUpdate(
     { _id: nombre }, { $inc: { seq: 1 } }, { upsert: true, returnDocument: 'after', session },
