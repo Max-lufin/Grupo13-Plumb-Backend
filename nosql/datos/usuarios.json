@@ -1,0 +1,3744 @@
+[
+ {
+  "_id": "11111111-1",
+  "nombre": "Camila Herrera Díaz",
+  "email": "admin@plumb.cl",
+  "telefono": "+56911112222",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "642643200000"
+   }
+  },
+  "contrasena": "scrypt$JNWIlcrzMG8+2vHbD7qqJg==$BTGSrvWrl1o1gEYApMVOos40jFFQX0T4H8SxGRDkC+M=",
+  "roles": [
+   "administrador"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1777723200000"
+   }
+  }
+ },
+ {
+  "_id": "12588772-4",
+  "nombre": "María González Rojas",
+  "email": "maria.gonzalez@ejemplo.cl",
+  "telefono": null,
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "316656000000"
+   }
+  },
+  "contrasena": "scrypt$/bDKUQa1xkzi67hIHQydBg==$1s5uWvMCh+Stwk4LEwCA/EhYujKUEtTBPbklbUS5dvo=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1778591520000"
+   }
+  }
+ },
+ {
+  "_id": "12987259-4",
+  "nombre": "Francisca Herrera Lobos",
+  "email": "francisca.herrera@ejemplo.cl",
+  "telefono": "+56999059952",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "735955200000"
+   }
+  },
+  "contrasena": "scrypt$GP136i25ASDTsa3+i2l3/w==$n0anjkEQXpVhIgyOKMxGXZLNWwiEUAm7F1lieqPwOM0=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783621980000"
+   }
+  }
+ },
+ {
+  "_id": "13337707-7",
+  "nombre": "Constanza Flores Vega",
+  "email": "constanza.flores@ejemplo.cl",
+  "telefono": "+56939463560",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "623808000000"
+   }
+  },
+  "contrasena": "scrypt$KO8Cz2UAIVxJPurMVyCEaA==$kghd9zw+Tu7RQpsJZgSDgAAt+row83u2lddVhxWkiA0=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780447260000"
+   }
+  }
+ },
+ {
+  "_id": "13345441-1",
+  "nombre": "Juan Pérez López",
+  "email": "juan.perez@ejemplo.cl",
+  "telefono": "+56923232218",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "343699200000"
+   }
+  },
+  "contrasena": "scrypt$44G6INYuRH2hmnDqKEokTg==$5yaoJRHGSNGm/GuBzQwl9eyVQ5DIFgFPAurQFOZFIqc=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781110320000"
+   }
+  }
+ },
+ {
+  "_id": "13512136-3",
+  "nombre": "Cristóbal Araya Cortés",
+  "email": "cristobal.araya@ejemplo.cl",
+  "telefono": null,
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "909100800000"
+   }
+  },
+  "contrasena": "scrypt$jjVv4kNwzpTzEHm2pZaW5A==$8B5NXUP8flgAG+adnZ7QMuuGox9E4rJHf2rV4muSNC0=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1778949180000"
+   }
+  }
+ },
+ {
+  "_id": "13954732-2",
+  "nombre": "Nicolás Castillo Peña",
+  "email": "nicolas.castillo@ejemplo.cl",
+  "telefono": "+56913216988",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "133488000000"
+   }
+  },
+  "contrasena": "scrypt$68ZncFOokMqciMvjO/b+SA==$ig1Zj+b7VF+KToNaJ1moe0qwhU982ebDlD4u3DGi0no=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782047880000"
+   }
+  }
+ },
+ {
+  "_id": "14317270-8",
+  "nombre": "Felipe Campos Urrutia",
+  "email": "felipe.campos@ejemplo.cl",
+  "telefono": null,
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "554947200000"
+   }
+  },
+  "contrasena": "scrypt$9/YsMFLiJvSa6d3F87NsrQ==$E7uIFEUYiFfvn7b4E5jiXFkOb5FDHupU51agGdf8tgE=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781293260000"
+   }
+  }
+ },
+ {
+  "_id": "15226236-1",
+  "nombre": "Diego Fuentes Salgado",
+  "email": "diego.fuentes@ejemplo.cl",
+  "telefono": "+56929783933",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "674697600000"
+   }
+  },
+  "contrasena": "scrypt$0k+l+FJ45aUCeVSFpdBqJA==$ElxTXjA1nIWfwACVaPflepacAOSK56HGCO6ovTtMkig=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1785183480000"
+   }
+  }
+ },
+ {
+  "_id": "16883454-3",
+  "nombre": "Javiera Palma Rebolledo",
+  "email": "javiera.palma@ejemplo.cl",
+  "telefono": "+56905527888",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "804297600000"
+   }
+  },
+  "contrasena": "scrypt$qQFDXS2ySsdNFodFdKSNxw==$CTFs+oz0PzWqiq0t834ZSY5wgfCboQ9NGW7PJqC0taE=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781569080000"
+   }
+  }
+ },
+ {
+  "_id": "16956130-3",
+  "nombre": "Martín Tapia Sanhueza",
+  "email": "martin.tapia@ejemplo.cl",
+  "telefono": "+56906822463",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "216172800000"
+   }
+  },
+  "contrasena": "scrypt$Jx6DYHfxsi8veuvaRTrABg==$EMxTT+2EH0eoxBOw2JrbhqkVmbt6awwgzdbDrVFRZ/A=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782848760000"
+   }
+  }
+ },
+ {
+  "_id": "17166905-7",
+  "nombre": "Daniela Reyes Urbina",
+  "email": "daniela.reyes@ejemplo.cl",
+  "telefono": "+56965159478",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "876787200000"
+   }
+  },
+  "contrasena": "scrypt$fLFA5EwFa6OrLdoYm7AAtA==$UjIvcGbnn8UMK8MxbBkXvgy6bTi0fyU9Y/dJrLPbq4I=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782135180000"
+   }
+  }
+ },
+ {
+  "_id": "19254047-K",
+  "nombre": "Valentina Soto Aravena",
+  "email": "valentina.soto@ejemplo.cl",
+  "telefono": "+56982432854",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "20131200000"
+   }
+  },
+  "contrasena": "scrypt$rKEgJPhGTDD9ijQaIyfHLQ==$i3pUEpAdRgZu3Ii/4YI06SR1v1o1G3Uo2uv3SQ5B/F4=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1779823620000"
+   }
+  }
+ },
+ {
+  "_id": "20478313-6",
+  "nombre": "Carlos Muñoz Díaz",
+  "email": "carlos.munoz@ejemplo.cl",
+  "telefono": "+56914762453",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "947376000000"
+   }
+  },
+  "contrasena": "scrypt$EMtwFmHbCBdbTSPU0Jzu1A==$H3O3R03rUlHUMXD8/ToJXgMIAGTMuEE++aUGPTANwJw=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783684320000"
+   }
+  }
+ },
+ {
+  "_id": "20662808-1",
+  "nombre": "Paula Navarro Godoy",
+  "email": "paula.navarro@ejemplo.cl",
+  "telefono": "+56918024164",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-168739200000"
+   }
+  },
+  "contrasena": "scrypt$Vs0Wxi9FUEAZZe58xQXGGg==$RYu0GFlkDK1uEOqNL+emaQbNW7ih/pNbhPya8WSOSzw=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780265880000"
+   }
+  }
+ },
+ {
+  "_id": "20712687-K",
+  "nombre": "José Miguel Rivas",
+  "email": "jose.miguel@ejemplo.cl",
+  "telefono": "+56964535829",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "658108800000"
+   }
+  },
+  "contrasena": "scrypt$qdLujMyH8v1/Q1h9hKEHCw==$mZ410P/3XfYId3P+nRgZB1HlzOdQZV43ijf9JGOLeiU=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781099160000"
+   }
+  }
+ },
+ {
+  "_id": "20769995-0",
+  "nombre": "Catalina Vidal Moreno",
+  "email": "catalina.vidal@ejemplo.cl",
+  "telefono": "+56976060327",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "478656000000"
+   }
+  },
+  "contrasena": "scrypt$s8yPo7j5ai0oD8cBW6szMA==$h2BeT/SieOiI9G/rLrCXkA4zZLdbc9Lw/h0MrLI4b9g=",
+  "roles": [
+   "cliente"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782077580000"
+   }
+  }
+ },
+ {
+  "_id": "10199068-0",
+  "nombre": "Iván Bustos Cáceres",
+  "email": "ivan.bustos@ejemplo.cl",
+  "telefono": "+56973696066",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "743817600000"
+   }
+  },
+  "contrasena": "scrypt$z93fFMOoLGMT/niGOCIMnw==$Es3pXVuV9+IbP3ER43EacYsogJnN/qnNQPLc6ZHx8hA=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1785676680000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "3"
+    },
+    "nombre": "Carpintero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "10"
+   },
+   "disponible": true,
+   "descripcion": "Diseño el mueble con el cliente y entrego en dos semanas.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "5"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aad64380000000000000063"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790442300000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "10391408-6",
+  "nombre": "Tomás Retamal Ibarra",
+  "email": "tomas.retamal@ejemplo.cl",
+  "telefono": "+56922202914",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "378172800000"
+   }
+  },
+  "contrasena": "scrypt$dZVmxQA/H1/+x+05vuNejA==$cd12eUPrTwb7K73z56fIfx7TMBMCItwpmMN49IXsKXw=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1788363660000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "5"
+    },
+    "codigo": "IV",
+    "nombre": "Coquimbo"
+   },
+   "tarifa_hora": {
+    "$numberInt": "24500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "16"
+   },
+   "disponible": true,
+   "descripcion": "Reviso cortes de luz y sobrecargas. Explico todo antes de cobrar.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "10595367-4",
+  "nombre": "Rodrigo Núñez Carrasco",
+  "email": "rodrigo.nunez@ejemplo.cl",
+  "telefono": "+56924920864",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "664156800000"
+   }
+  },
+  "contrasena": "scrypt$UzQrGRxtr2IFEtAtLL/dxw==$BgN/PcSDh6Lx2pUxJK0/WQ2tPoCOYaYqByqjZAE+gtk=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1785766320000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "3"
+    },
+    "nombre": "Carpintero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "25000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "1"
+   },
+   "disponible": true,
+   "descripcion": "Reparo puertas que no cierran, cajones y bisagras. Trabajos chicos también.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "3"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a8affb00000000000000044"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787871120000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "10720380-K",
+  "nombre": "Ricardo Fuentes Medina",
+  "email": "ricardo.fuentes@ejemplo.cl",
+  "telefono": "+56900789668",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "214099200000"
+   }
+  },
+  "contrasena": "scrypt$gnbZXKq0N7H9/AwsA6+jFQ==$X/p8YnEixsy5p5xxCE4R7/subZyMeHFkbxEKWqEp3j0=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780514820000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "15500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "7"
+   },
+   "disponible": false,
+   "descripcion": "Instalación de termos eléctricos y calefont. Trabajo limpio y ordenado.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "3"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a5d446c0000000000000020"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784680860000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "10786894-1",
+  "nombre": "Sergio Castro Olivares",
+  "email": "sergio.castro@ejemplo.cl",
+  "telefono": "+56958809753",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "790560000000"
+   }
+  },
+  "contrasena": "scrypt$x8qhYh7asjbOU3ckl7iBYg==$WqJKkBfxYc/Mb2e0xtedAosWUytx7XyqngfI+rX9ncU=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781983080000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "5"
+    },
+    "nombre": "Cerrajero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "22000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "2"
+   },
+   "disponible": true,
+   "descripcion": "Aperturas sin daño a la puerta, 24 horas. Cambio de chapas de seguridad.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a6268e80000000000000023"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+     "cliente": "Paula",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1785711900000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "10914881-4",
+  "nombre": "Ignacio Parra Saavedra",
+  "email": "ignacio.parra@ejemplo.cl",
+  "telefono": "+56907114706",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "772675200000"
+   }
+  },
+  "contrasena": "scrypt$tpZoqHKROmnwdLFwDD/Feg==$dTiR1aAGSuQJMQN47kWA5/aBiliMS5YxIOQCLym+y8g=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1787431920000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "5"
+    },
+    "nombre": "Cerrajero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "20000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "6"
+   },
+   "disponible": true,
+   "descripcion": "Cerrajería de autos y casas. Llego en menos de una hora dentro de la ciudad.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "12048663-2",
+  "nombre": "Marcela Díaz Espinoza",
+  "email": "marcela.diaz@ejemplo.cl",
+  "telefono": "+56945335627",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-168307200000"
+   }
+  },
+  "contrasena": "scrypt$QX/Z0YXEekieHDGmg+6Z5w==$BrDhrgfQ3rYFAeiZRJNIroF8F1gdrtTIjcmpOi52asg=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783609920000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "20000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "35"
+   },
+   "disponible": true,
+   "descripcion": "Instalaciones nuevas y regularización de casas antiguas. Visita técnica gratuita en la comuna.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a5a4640000000000000001e"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784739120000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "12787682-7",
+  "nombre": "Luis Muñoz Tapia",
+  "email": "luis.munoz@ejemplo.cl",
+  "telefono": "+56938739690",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "323481600000"
+   }
+  },
+  "contrasena": "scrypt$8XMxDtbJVtBtsIbkMZnWTw==$YMP7SjN3PPBAv8T9QBOlmBshklvo7JnRH0uUHGGaOLo=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781127180000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "4"
+   },
+   "disponible": true,
+   "descripcion": "Más de una década instalando grifería y artefactos sanitarios. Presupuesto sin costo.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "12"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aa478000000000000000056"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Cristóbal",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789249260000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a95d3680000000000000049"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Cristóbal",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789080720000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a497c0c0000000000000012"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Súper amable, trajo todos los materiales.",
+     "cliente": "Catalina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783721100000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "12854868-8",
+  "nombre": "Carlos Mendoza Ríos",
+  "email": "carlos.mendoza@ejemplo.cl",
+  "telefono": "+56992609617",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "192326400000"
+   }
+  },
+  "contrasena": "scrypt$kkl7ddujr5NvDljvaC3pxA==$IREJN9ZNiKT+xEdDG4BOCxFM79/c/+1BNVd8QITdPgo=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1785006300000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "8"
+    },
+    "nombre": "Jardinero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "9500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "24"
+   },
+   "disponible": true,
+   "descripcion": "Mantención mensual de jardines, poda y corte de pasto.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "13121234-8",
+  "nombre": "Matías Quiroz Lillo",
+  "email": "matias.quiroz@ejemplo.cl",
+  "telefono": "+56997979078",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-5875200000"
+   }
+  },
+  "contrasena": "scrypt$MWrrC3Alxhm9IOlm+RPphw==$wOKfotpyFbY/7IfmY7vthxR9QcO1VeTKCHisKJNrQjE=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1778594400000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "12"
+    },
+    "codigo": "IX",
+    "nombre": "La Araucanía"
+   },
+   "tarifa_hora": {
+    "$numberInt": "28000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "12"
+   },
+   "disponible": true,
+   "descripcion": "Electricista autorizado SEC clase D. Tableros, enchufes y certificados TE1.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "13504312-5",
+  "nombre": "Miguel Ángel Torres Díaz",
+  "email": "miguel.torres@ejemplo.cl",
+  "telefono": "+56900693752",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "881366400000"
+   }
+  },
+  "contrasena": "scrypt$XbiE+Pm9SRD7w9MPPQQzkw==$ax/HmpNkmIhCqLi10pdUhWBcusuoASi4gLLKnXMT3tI=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781306280000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "4"
+    },
+    "nombre": "Pintor"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "8"
+    },
+    "codigo": "VI",
+    "nombre": "O'Higgins"
+   },
+   "tarifa_hora": {
+    "$numberInt": "14500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "4"
+   },
+   "disponible": true,
+   "descripcion": "Fachadas y rejas. Trabajo con látex y esmalte al agua.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "13864956-3",
+  "nombre": "Héctor Pizarro Valenzuela",
+  "email": "hector.pizarro@ejemplo.cl",
+  "telefono": "+56973673090",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "321926400000"
+   }
+  },
+  "contrasena": "scrypt$ISbCIMRA4sychYnXLO4eYw==$HK+4AY8dPfgxpQ31XVF6YWW67Dt4kh7OHTFjMeUreVs=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1779313560000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "25000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "19"
+   },
+   "disponible": true,
+   "descripcion": "Iluminación LED, automáticos y diferenciales. Respondo el mismo día.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "12"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a67c07c0000000000000027"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786122300000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a54260c000000000000001b"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Paula",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784928780000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a443918000000000000000e"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783883880000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "13882887-5",
+  "nombre": "Andrés Pino Toro",
+  "email": "andres.pino@ejemplo.cl",
+  "telefono": "+56960665664",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "925171200000"
+   }
+  },
+  "contrasena": "scrypt$oAabJJ4OEsdpSxDEevAksw==$9PkqKcAWTjZxtpZQXdi2eWlUCJSatfxHLx5JOMShvvw=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783719960000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "9"
+    },
+    "nombre": "Techador"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "19000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "2"
+   },
+   "disponible": true,
+   "descripcion": "Techumbres de zinc y teja asfáltica. Trabajo en altura con equipo de seguridad.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "10"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aaeeaec0000000000000064"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790173980000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a7500980000000000000035"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Impecable. Avisó cuando venía en camino.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786567260000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "13943581-8",
+  "nombre": "Mauricio Jara Navarro",
+  "email": "mauricio.jara@ejemplo.cl",
+  "telefono": "+56961356917",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-43372800000"
+   }
+  },
+  "contrasena": "scrypt$0z4x4i3ox61ywn+mUUXQJQ==$4xR/quNei6bVar/TtCYVrXnsi4TEcyBdAAC2gtN9sM4=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781561880000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "20500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "18"
+   },
+   "disponible": false,
+   "descripcion": "Reparaciones rápidas de cañerías de cobre y PPR. Llevo mis propios materiales.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "4"
+    },
+    "suma": {
+     "$numberInt": "16"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aab209c000000000000005f"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": null,
+     "cliente": "Catalina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790547480000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a9376b80000000000000048"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Carlos",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1788640860000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a6229280000000000000024"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "Paula",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1785074700000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a3efa98000000000000000a"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783171080000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "13950768-1",
+  "nombre": "Felipe Torres Salinas",
+  "email": "felipe.torres@ejemplo.cl",
+  "telefono": "+56967901430",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "412128000000"
+   }
+  },
+  "contrasena": "scrypt$9jBK/u7D/yxR1tSVzhNT6Q==$XGF7Sga/V3Wsy9bWSyvmYmCK+QUkPtBd749XLsXAZg0=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780665480000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "22500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "15"
+   },
+   "disponible": true,
+   "descripcion": "Reviso cortes de luz y sobrecargas. Explico todo antes de cobrar.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.3"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "13"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a90b0180000000000000046"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+     "cliente": "José",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1788216060000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a870b300000000000000042"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787839500000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a4e4e080000000000000015"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+     "cliente": "Nicolás",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784309220000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "14007716-K",
+  "nombre": "Nelson Vergara Fernández",
+  "email": "nelson.vergara@ejemplo.cl",
+  "telefono": "+56911201423",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "391046400000"
+   }
+  },
+  "contrasena": "scrypt$SIc8I9P/cBle2BYb0FplRA==$4wggyx+n8K83xzJsxqGPte3dyakzF5fbApBj6S2mlkA=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783691160000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "3"
+    },
+    "nombre": "Carpintero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "17500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "23"
+   },
+   "disponible": true,
+   "descripcion": "Carpintería de terminaciones: guardapolvos, marcos y repisas.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "15"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a7e0ddc0000000000000039"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Rápido y honesto con el precio.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787402760000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a861770000000000000003f"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+     "cliente": "Francisca",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787241120000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a58e098000000000000001c"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+     "cliente": "José",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784903220000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "14297438-K",
+  "nombre": "Ana Martínez Reyes",
+  "email": "ana.martinez@ejemplo.cl",
+  "telefono": "+56952344964",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "70588800000"
+   }
+  },
+  "contrasena": "scrypt$dnQi/1dCFPX+TsCUTeiRBw==$sOPrfRSivJ8x0yi6uZYB8G9AwKo/JmvDS8Szg0jK3eI=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782509580000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "3"
+    },
+    "nombre": "Carpintero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "4"
+   },
+   "disponible": true,
+   "descripcion": "Muebles de cocina y closets a medida en melamina y madera nativa.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "3"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a6fb78c000000000000002c"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786296420000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "14395600-8",
+  "nombre": "Benjamín Salazar Ponce",
+  "email": "benjamin.salazar@ejemplo.cl",
+  "telefono": "+56920570111",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-127872000000"
+   }
+  },
+  "contrasena": "scrypt$42AN+jVutBQOb6aCt8tHeg==$mq1nu20UQkJDPIHC6cCqumffO4g+R7pcsjx3xEDdf98=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1778853600000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "14"
+    },
+    "codigo": "X",
+    "nombre": "Los Lagos"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "18"
+   },
+   "disponible": true,
+   "descripcion": "Reparaciones rápidas de cañerías de cobre y PPR. Llevo mis propios materiales.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "14518283-2",
+  "nombre": "Bastián Henríquez Orellana",
+  "email": "bastian.henriquez@ejemplo.cl",
+  "telefono": "+56989186826",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "165110400000"
+   }
+  },
+  "contrasena": "scrypt$aV3RRtL7LJlxBB8CUXFCEQ==$vYgLoWR9LsevuCargexvQF8qLGITMi+DtcyOGcb/oFA=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780063200000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "8"
+    },
+    "codigo": "VI",
+    "nombre": "O'Higgins"
+   },
+   "tarifa_hora": {
+    "$numberInt": "24500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "8"
+   },
+   "disponible": true,
+   "descripcion": "Destapes, fugas y cambio de calefont. Atiendo urgencias los fines de semana.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "14589009-8",
+  "nombre": "Fernanda Vera Escobar",
+  "email": "fernanda.vera@ejemplo.cl",
+  "telefono": "+56936074605",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "115776000000"
+   }
+  },
+  "contrasena": "scrypt$pLLBxDUxdW3BkZ0owGhTEA==$TRVrVK3HgHAKqKOMINbIB1KNVMKIXkd8Vk5SZ/6Sizg=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780964280000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "4"
+    },
+    "nombre": "Pintor"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "10000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "13"
+   },
+   "disponible": true,
+   "descripcion": "Pintura de interiores con empaste incluido. Protejo muebles y pisos.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "6"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aad3d8c0000000000000062"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Diego",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790364780000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a52dd38000000000000001a"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784154780000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "15085508-K",
+  "nombre": "Cristián Herrera Castillo",
+  "email": "cristian.herrera@ejemplo.cl",
+  "telefono": "+56992417980",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "825984000000"
+   }
+  },
+  "contrasena": "scrypt$uFDB5cwkQMO1odNUY5qXZw==$pRUubOn8uYe8el0UXD/PSPj7nSpJnWpfn9a7BTNcYrM=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1784831220000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "4"
+    },
+    "nombre": "Pintor"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "10000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "2"
+   },
+   "disponible": true,
+   "descripcion": "Pintura de interiores con empaste incluido. Protejo muebles y pisos.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "3"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a70dd74000000000000002e"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786024320000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "15740588-8",
+  "nombre": "Eduardo Sandoval Aguilera",
+  "email": "eduardo.sandoval@ejemplo.cl",
+  "telefono": "+56946434498",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "162345600000"
+   }
+  },
+  "contrasena": "scrypt$ZSTtRUXtJPPonSlrf5xO9w==$rNxYyy8k2JYx6yP96XNCe37L2I6gixfWnDRo4TJCztg=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1779410460000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "4"
+    },
+    "nombre": "Pintor"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "13500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "25"
+   },
+   "disponible": false,
+   "descripcion": "Tratamiento de humedad y hongos antes de pintar.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "5"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a3dca9c0000000000000009"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783167480000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "16173195-1",
+  "nombre": "Alejandro Reyes Figueroa",
+  "email": "alejandro.reyes@ejemplo.cl",
+  "telefono": "+56975699798",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "120268800000"
+   }
+  },
+  "contrasena": "scrypt$yHUGt+xnO6Fhi4hKx4lkQw==$GVAUxA5zTvfhzhadLTrbvj3ObXBfpUukA5S4xahVOt8=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1779455520000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "15500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "33"
+   },
+   "disponible": true,
+   "descripcion": "Más de una década instalando grifería y artefactos sanitarios. Presupuesto sin costo.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "8"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6ab68a900000000000000069"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Cristóbal",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790593500000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a3691a00000000000000006"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783026720000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "16178972-0",
+  "nombre": "Claudia Rojas Fuentes",
+  "email": "claudia.rojas@ejemplo.cl",
+  "telefono": "+56958642844",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-90374400000"
+   }
+  },
+  "contrasena": "scrypt$gd+tdhudA5NFR470Re3Jrg==$VeZvz+a6BvCEKJyX2VpxPZxEkrU/oqtZK3oaAsVjIPs=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780576860000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "19500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "9"
+   },
+   "disponible": true,
+   "descripcion": "Reparaciones rápidas de cañerías de cobre y PPR. Llevo mis propios materiales.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.5"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "9"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a9755a8000000000000004b"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Diego",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789138320000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a50e85c0000000000000018"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Rápido y honesto con el precio.",
+     "cliente": "Valentina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784654820000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "16304074-3",
+  "nombre": "Víctor Cárdenas Molina",
+  "email": "victor.cardenas@ejemplo.cl",
+  "telefono": "+56902200369",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "594864000000"
+   }
+  },
+  "contrasena": "scrypt$X53hgs2AiBopb+2Ma+5Qwg==$R2TmiXDXfHPZrzwxOcoKFyH6yTnlSCoN6lg94/Ea1cs=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782048780000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "18500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "11"
+   },
+   "disponible": true,
+   "descripcion": "Instalaciones nuevas y regularización de casas antiguas. Visita técnica gratuita en la comuna.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.7"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "11"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a9ea5600000000000000052"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+     "cliente": "Carlos",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789577160000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a6100ac0000000000000022"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784940720000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a47ba0c0000000000000011"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783690020000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "17202688-5",
+  "nombre": "Manuel Soto Bravo",
+  "email": "manuel.soto@ejemplo.cl",
+  "telefono": "+56980152752",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-71798400000"
+   }
+  },
+  "contrasena": "scrypt$SqktvEOm2bZzlprI3TrNrA==$jO6W+I4fcEXsRwHfgY13EoRT16tYy9cST5zhLK1sS/4=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781022780000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "9"
+    },
+    "nombre": "Techador"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "28"
+   },
+   "disponible": true,
+   "descripcion": "Goteras, canaletas y cambio de planchas. Reviso el techo antes del invierno.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "8"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a9c8a8c0000000000000051"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Francisca",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789409520000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a95bcac000000000000004a"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+     "cliente": "Javiera",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1788370860000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "17372448-9",
+  "nombre": "Rosa Espinoza Valdés",
+  "email": "rosa.espinoza@ejemplo.cl",
+  "telefono": "+56970177324",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "641001600000"
+   }
+  },
+  "contrasena": "scrypt$AscTLVsmZaAZODfa4z+gPw==$3A7fsJSnwvJJqw9Rf5TPU0+kCj/vCEnJDrw+4UemfT8=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782477660000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "7"
+    },
+    "nombre": "Técnico línea blanca"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "9"
+    },
+    "codigo": "VII",
+    "nombre": "Maule"
+   },
+   "tarifa_hora": {
+    "$numberInt": "19500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "10"
+   },
+   "disponible": true,
+   "descripcion": "Refrigeradores no frost y hornos eléctricos. Diagnóstico en domicilio.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "3.3"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "10"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a6fd028000000000000002d"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+     "cliente": "Paula",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786577580000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a6f2984000000000000002b"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786473180000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a66005c0000000000000026"
+     },
+     "puntuacion": {
+      "$numberInt": "2"
+     },
+     "comentario": "No dejó boleta y el cobro final subió.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786043880000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "17437647-6",
+  "nombre": "Patricio Morales Araya",
+  "email": "patricio.morales@ejemplo.cl",
+  "telefono": "+56966764227",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "378950400000"
+   }
+  },
+  "contrasena": "scrypt$85Y2aJVSMZhKgXaBNnoD8g==$63HLuieLuzAcC5Ta1qEIjozK4d8giCbUoOtqkxyTt1M=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1780515660000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "27000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "25"
+   },
+   "disponible": true,
+   "descripcion": "Gasfíter con certificación SEC para gas. Trabajo con boleta y garantía de 3 meses.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "17478277-6",
+  "nombre": "Camila Ortiz Leiva",
+  "email": "camila.ortiz@ejemplo.cl",
+  "telefono": "+56991098627",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "413164800000"
+   }
+  },
+  "contrasena": "scrypt$YHahwRcCjf/SUhkyIjyhJg==$G8KycH/S+uvPwf69wHmerfEHGS7h4fMIr+IATrOCkSY=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1783623900000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "7"
+    },
+    "nombre": "Técnico línea blanca"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "22000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "16"
+   },
+   "disponible": true,
+   "descripcion": "Reparo lavadoras y secadoras de todas las marcas. Repuestos originales.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "17724100-8",
+  "nombre": "Esteban Lagos Moya",
+  "email": "esteban.lagos@ejemplo.cl",
+  "telefono": "+56968377060",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "167529600000"
+   }
+  },
+  "contrasena": "scrypt$ReZe/rp/POl2Pvn7i8b1LQ==$knKbywq/BVAp1CnVZHoKB4rNCQWjsdQ4zax3AU9Tx4w=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781611920000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "5"
+    },
+    "codigo": "IV",
+    "nombre": "Coquimbo"
+   },
+   "tarifa_hora": {
+    "$numberInt": "15500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "4"
+   },
+   "disponible": true,
+   "descripcion": "Gasfíter con certificación SEC para gas. Trabajo con boleta y garantía de 3 meses.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "5"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a58ca90000000000000001d"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+     "cliente": "Nicolás",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784914380000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "18431243-3",
+  "nombre": "Daniela Gutiérrez Cortés",
+  "email": "daniela.gutierrez@ejemplo.cl",
+  "telefono": "+56914222910",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "534384000000"
+   }
+  },
+  "contrasena": "scrypt$zIPYC1T7YakE3r3ouJVuJQ==$MeYWcFie+1MSlCYMYquNrcU9jRWo1jNSqgNTnLrWmPs=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1779219180000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "24500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "10"
+   },
+   "disponible": true,
+   "descripcion": "Destapes, fugas y cambio de calefont. Atiendo urgencias los fines de semana.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "12"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a996d70000000000000004e"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": null,
+     "cliente": "Juan",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789067100000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a70a318000000000000002f"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Valentina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786552020000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a383c6c0000000000000007"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783010460000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "7303073-0",
+  "nombre": "Sebastián Muñoz Ahumada",
+  "email": "sebastian.munoz@ejemplo.cl",
+  "telefono": "+56966193521",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "496368000000"
+   }
+  },
+  "contrasena": "scrypt$UqiRWlUT+nYiSm9xDR0H4Q==$tj01BEV0ItnvMjbP6SMzoOSw07dnrktMyVa97pDjM2c=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1778853600000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "3"
+    },
+    "codigo": "II",
+    "nombre": "Antofagasta"
+   },
+   "tarifa_hora": {
+    "$numberInt": "16500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "12"
+   },
+   "disponible": true,
+   "descripcion": "Instalación de termos eléctricos y calefont. Trabajo limpio y ordenado.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "7341423-7",
+  "nombre": "Luis Alberto Carrasco Pinto",
+  "email": "luis.carrasco@ejemplo.cl",
+  "telefono": "+56989092653",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "735091200000"
+   }
+  },
+  "contrasena": "scrypt$skT1Y8mxD/NM51CGltYlqg==$ddkR/BC0FTQOCTrig0Z4Iiw7TKeMlY635hR6NfJH2ik=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782320700000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "9"
+    },
+    "codigo": "VII",
+    "nombre": "Maule"
+   },
+   "tarifa_hora": {
+    "$numberInt": "25000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "5"
+   },
+   "disponible": true,
+   "descripcion": "Más de una década instalando grifería y artefactos sanitarios. Presupuesto sin costo.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "10"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aa486100000000000000059"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": null,
+     "cliente": "Francisca",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789756020000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a4a8ebc0000000000000014"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+     "cliente": "Catalina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783870860000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "7559934-K",
+  "nombre": "Roberto Silva Campos",
+  "email": "roberto.silva@ejemplo.cl",
+  "telefono": "+56979960584",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "510278400000"
+   }
+  },
+  "contrasena": "scrypt$nyZk8JO6rYXdL0O2vjfJQA==$/09i/naY+MYjGJpnMQ8SfWw1EdtuAMXZApZlRlgUZNE=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1789764360000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "24000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "12"
+   },
+   "disponible": false,
+   "descripcion": "Electricista autorizado SEC clase D. Tableros, enchufes y certificados TE1.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "0.0"
+    },
+    "total": {
+     "$numberInt": "0"
+    },
+    "suma": {
+     "$numberInt": "0"
+    }
+   },
+   "resenas_recientes": []
+  }
+ },
+ {
+  "_id": "7765180-2",
+  "nombre": "Pedro González Soto",
+  "email": "pedro.gonzalez@ejemplo.cl",
+  "telefono": "+56977865048",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-160963200000"
+   }
+  },
+  "contrasena": "scrypt$1nmt9Ha8Jpz5VIxwOG8CBw==$BZrqVJJXEAySFHtNG7huTa6RD+WPoMClvbTu256ijnY=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1784136420000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "22000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "18"
+   },
+   "disponible": true,
+   "descripcion": "Gasfíter con certificación SEC para gas. Trabajo con boleta y garantía de 3 meses.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "5.0"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "15"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6ab317ac0000000000000066"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+     "cliente": "Valentina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790984460000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a9c218c0000000000000050"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+     "cliente": "Diego",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1788889260000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a8344640000000000000001"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Excelente trabajo, muy puntual y profesional.",
+     "cliente": "Juan",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787240460000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "8348655-4",
+  "nombre": "Gonzalo Alarcón Vidal",
+  "email": "gonzalo.alarcon@ejemplo.cl",
+  "telefono": "+56998077188",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "923961600000"
+   }
+  },
+  "contrasena": "scrypt$yMfEkPcIClsh3c0vdIKqmA==$vMV7hJf7yxWkGsqP3Hd0gLGr+80nXu0FtrqF0D01k9Q=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782855660000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "29500"
+   },
+   "experiencia_anios": {
+    "$numberInt": "2"
+   },
+   "disponible": true,
+   "descripcion": "Iluminación LED, automáticos y diferenciales. Respondo el mismo día.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aa407800000000000000058"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Daniela",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789513500000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "8457682-4",
+  "nombre": "Jorge Contreras Sepúlveda",
+  "email": "jorge.contreras@ejemplo.cl",
+  "telefono": "+56901841562",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "536457600000"
+   }
+  },
+  "contrasena": "scrypt$iHZnMj0wMRULkMEi3sKLYw==$/aPNHibdjG3EvL35m6XwkoLnpnIgPj6h/sxrduPGly4=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781446320000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "6"
+    },
+    "codigo": "V",
+    "nombre": "Valparaíso"
+   },
+   "tarifa_hora": {
+    "$numberInt": "18000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "12"
+   },
+   "disponible": false,
+   "descripcion": "Instalación de termos eléctricos y calefont. Trabajo limpio y ordenado.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "4"
+    },
+    "suma": {
+     "$numberInt": "16"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aa6de4c000000000000005c"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Juan",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789860780000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a8b09100000000000000045"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1788478020000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a6cea5c000000000000002a"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Llegó a la hora y dejó todo limpio. Lo vuelvo a llamar sin dudarlo.",
+     "cliente": "Francisca",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786143900000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a6615b00000000000000025"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Rápido y honesto con el precio.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1785779160000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9170232-0",
+  "nombre": "Francisco López Vera",
+  "email": "francisco.lopez@ejemplo.cl",
+  "telefono": "+56920321751",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-81216000000"
+   }
+  },
+  "contrasena": "scrypt$+Y7veT6W3h/YqHIy9MFfcQ==$NOWfcdCXhkbdPnJWez3sDUephaGtklFYHEv7uj/rLLM=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781701920000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "1"
+    },
+    "nombre": "Gasfíter"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "27000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "35"
+   },
+   "disponible": true,
+   "descripcion": "Destapes, fugas y cambio de calefont. Atiendo urgencias los fines de semana.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.2"
+    },
+    "total": {
+     "$numberInt": "5"
+    },
+    "suma": {
+     "$numberInt": "21"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aac52f00000000000000061"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790100720000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6aa28edc0000000000000054"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": null,
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789506720000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a985fac000000000000004d"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1789332060000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a7f8c98000000000000003a"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "Cristóbal",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787246820000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a451220000000000000000f"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Cristóbal",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783704780000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9216829-8",
+  "nombre": "Javier Guzmán Paredes",
+  "email": "javier.guzman@ejemplo.cl",
+  "telefono": "+56971888007",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "729820800000"
+   }
+  },
+  "contrasena": "scrypt$WfesvKyVgCoKnNUDz3otHQ==$29QipH5cQzK7xF1iSmcf5WqfNEadqshfcz0mpzeN42w=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781442300000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "6"
+    },
+    "nombre": "Albañil"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "11"
+    },
+    "codigo": "VIII",
+    "nombre": "Biobío"
+   },
+   "tarifa_hora": {
+    "$numberInt": "17000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "8"
+   },
+   "disponible": true,
+   "descripcion": "Obras menores y ampliaciones. Trabajo con ayudante.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.3"
+    },
+    "total": {
+     "$numberInt": "3"
+    },
+    "suma": {
+     "$numberInt": "13"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6ab6bad80000000000000068"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+     "cliente": "Valentina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790899500000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a779d080000000000000036"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": null,
+     "cliente": "Catalina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786561500000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a426d7c000000000000000c"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "María",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1783269180000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9335714-0",
+  "nombre": "Hugo Gallardo Zúñiga",
+  "email": "hugo.gallardo@ejemplo.cl",
+  "telefono": "+56952660555",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "-161654400000"
+   }
+  },
+  "contrasena": "scrypt$hE2D21Ez8DHAG1Sc4rRExw==$9VxYVm+R0rjl1o8GvV8zpJQ9PFFq2Lm/1+AwVw8s51E=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1785452700000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "6"
+    },
+    "nombre": "Albañil"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "14000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "9"
+   },
+   "disponible": true,
+   "descripcion": "Cerámica de baños y cocinas, radieres y estucos.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6aa5da9c000000000000005b"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "José",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1790121120000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9446075-1",
+  "nombre": "Óscar Álvarez Riquelme",
+  "email": "oscar.alvarez@ejemplo.cl",
+  "telefono": "+56984031121",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "897436800000"
+   }
+  },
+  "contrasena": "scrypt$LU1Pie58BcprBePSCraQBQ==$+SeemeH+S5PdvANbtvsbbZAm3kqCDaXyoNwG28491OI=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1781105580000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "2"
+    },
+    "nombre": "Electricista"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "23000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "4"
+   },
+   "disponible": true,
+   "descripcion": "Electricista autorizado SEC clase D. Tableros, enchufes y certificados TE1.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a52622c0000000000000019"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784373120000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9833408-4",
+  "nombre": "Pablo Yáñez Garrido",
+  "email": "pablo.yanez@ejemplo.cl",
+  "telefono": "+56993171191",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "766972800000"
+   }
+  },
+  "contrasena": "scrypt$EJwc4HuC2lpuAaXk+VEvzQ==$tiOin4wvo5hDRz3eHB6QjIkiLFPM41L3hGIg6xvbCf8=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1782687900000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "8"
+    },
+    "nombre": "Jardinero"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "5"
+    },
+    "codigo": "IV",
+    "nombre": "Coquimbo"
+   },
+   "tarifa_hora": {
+    "$numberInt": "8000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "8"
+   },
+   "disponible": true,
+   "descripcion": "Instalo riego automático y diseño jardines de bajo consumo de agua.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "1"
+    },
+    "suma": {
+     "$numberInt": "4"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a4ed79c0000000000000016"
+     },
+     "puntuacion": {
+      "$numberInt": "4"
+     },
+     "comentario": null,
+     "cliente": "Valentina",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1784200680000"
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "_id": "9989484-9",
+  "nombre": "Raúl Hernández Peña",
+  "email": "raul.hernandez@ejemplo.cl",
+  "telefono": "+56982105908",
+  "fecha_nacimiento": {
+   "$date": {
+    "$numberLong": "660182400000"
+   }
+  },
+  "contrasena": "scrypt$ZsG/0QbKzgHhjyiTSS5TCw==$G7iBB0ONq/IOS+NFSqw+Txwg+0Xikp9K8lDUILNaxXc=",
+  "roles": [
+   "maestro"
+  ],
+  "fecha_registro": {
+   "$date": {
+    "$numberLong": "1784557980000"
+   }
+  },
+  "maestro": {
+   "oficio": {
+    "_id": {
+     "$numberInt": "4"
+    },
+    "nombre": "Pintor"
+   },
+   "region": {
+    "numero": {
+     "$numberInt": "7"
+    },
+    "codigo": "RM",
+    "nombre": "Metropolitana"
+   },
+   "tarifa_hora": {
+    "$numberInt": "17000"
+   },
+   "experiencia_anios": {
+    "$numberInt": "16"
+   },
+   "disponible": true,
+   "descripcion": "Fachadas y rejas. Trabajo con látex y esmalte al agua.",
+   "reputacion": {
+    "promedio": {
+     "$numberDouble": "4.0"
+    },
+    "total": {
+     "$numberInt": "2"
+    },
+    "suma": {
+     "$numberInt": "8"
+    }
+   },
+   "resenas_recientes": [
+    {
+     "solicitud_id": {
+      "$oid": "6a81b270000000000000003c"
+     },
+     "puntuacion": {
+      "$numberInt": "5"
+     },
+     "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+     "cliente": "Constanza",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1787341920000"
+      }
+     }
+    },
+    {
+     "solicitud_id": {
+      "$oid": "6a68bd9c0000000000000028"
+     },
+     "puntuacion": {
+      "$numberInt": "3"
+     },
+     "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+     "cliente": "Juan",
+     "fecha": {
+      "$date": {
+       "$numberLong": "1786140720000"
+      }
+     }
+    }
+   ]
+  }
+ }
+]

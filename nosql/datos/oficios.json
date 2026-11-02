@@ -1,0 +1,72 @@
+[
+ {
+  "_id": {
+   "$numberInt": "1"
+  },
+  "nombre": "Gasfíter",
+  "descripcion": "Cañerías, grifería, calefont y artefactos sanitarios."
+ },
+ {
+  "_id": {
+   "$numberInt": "2"
+  },
+  "nombre": "Electricista",
+  "descripcion": "Instalaciones domiciliarias, tableros y certificación SEC."
+ },
+ {
+  "_id": {
+   "$numberInt": "3"
+  },
+  "nombre": "Carpintero",
+  "descripcion": "Muebles a medida, puertas, closets y reparaciones en madera."
+ },
+ {
+  "_id": {
+   "$numberInt": "4"
+  },
+  "nombre": "Pintor",
+  "descripcion": "Pintura interior y exterior, empaste y preparación de superficies."
+ },
+ {
+  "_id": {
+   "$numberInt": "5"
+  },
+  "nombre": "Cerrajero",
+  "descripcion": "Apertura de puertas, cambio de chapas y copias de llaves."
+ },
+ {
+  "_id": {
+   "$numberInt": "6"
+  },
+  "nombre": "Albañil",
+  "descripcion": "Obras menores: radieres, muros, cerámica y estuco."
+ },
+ {
+  "_id": {
+   "$numberInt": "7"
+  },
+  "nombre": "Técnico línea blanca",
+  "descripcion": "Reparación de lavadoras, refrigeradores, hornos y secadoras."
+ },
+ {
+  "_id": {
+   "$numberInt": "8"
+  },
+  "nombre": "Jardinero",
+  "descripcion": "Mantención de jardines, poda y sistemas de riego."
+ },
+ {
+  "_id": {
+   "$numberInt": "9"
+  },
+  "nombre": "Techador",
+  "descripcion": "Techumbres, canaletas y filtraciones."
+ },
+ {
+  "_id": {
+   "$numberInt": "10"
+  },
+  "nombre": "Vidriero",
+  "descripcion": "Cambio de vidrios, ventanas y espejos."
+ }
+]

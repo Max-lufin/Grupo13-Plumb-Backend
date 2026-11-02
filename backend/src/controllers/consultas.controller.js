@@ -11,7 +11,7 @@ export function detalle(req, res) {
   res.json(ok(consulta));
 }
 
-// POST porque crea una "ejecución"; aun así nada queda guardado (ROLLBACK).
+// POST porque crea una "ejecución"; aun así nada queda guardado (la transacción se aborta).
 export async function ejecutar(req, res) {
   const resultado = await Consulta.ejecutar(Number(req.params.numero));
   if (!resultado) throw noEncontrado(`No existe la consulta ${req.params.numero}. Van de la 1 a la 13.`);
@@ -20,6 +20,6 @@ export async function ejecutar(req, res) {
 
 export async function probarIntegridad(req, res) {
   const resultado = await Consulta.probar(String(req.params.codigo).toUpperCase());
-  if (!resultado) throw noEncontrado(`No existe la prueba ${req.params.codigo}. Van de R1 a R6.`);
+  if (!resultado) throw noEncontrado(`No existe la prueba ${req.params.codigo}. Van de N1 a N8.`);
   res.status(201).json(ok(resultado));
 }

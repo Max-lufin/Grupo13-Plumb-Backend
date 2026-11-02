@@ -1,27 +1,30 @@
-// Crea las tablas y carga los datos de ejemplo en la BD de DATABASE_URL.
-// Uso: npm run db:init            (lee ../bd)
-//      BD_DIR=/otra/ruta npm run db:init
-//
-// OJO: 01_esquema.sql borra y recrea las tablas. Úsalo para dejar la BD
-// como recién instalada (por ejemplo, antes de una presentación).
+// Deja la base MongoDB como recién instalada: recrea las colecciones con sus
+// validadores e índices y carga los datos de ejemplo de nosql/datos/.
+// Uso: npm run db:init   (lee MONGODB_URI y MONGODB_DB del .env)
 import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { pool } from '../src/config/db.js';
+import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
+import { BSON } from 'mongodb';
 
-const aqui = path.dirname(fileURLToPath(import.meta.url));
-const carpeta = process.env.BD_DIR ?? path.resolve(aqui, '../../bd');
+const require = createRequire(import.meta.url);
+const { crearColecciones } = require('../../nosql/esquema.cjs');
+const DATOS = new URL('../../nosql/datos/', import.meta.url);
 
-for (const archivo of ['01_esquema.sql', '02_datos.sql']) {
-  const sql = await readFile(path.join(carpeta, archivo), 'utf8');
-  process.stdout.write(`Ejecutando ${archivo}... `);
-  await pool.query(sql);
-  console.log('listo');
+export async function cargarDatos(db) {
+  await crearColecciones(db, { borrar: true });
+  const conteo = {};
+  for (const nombre of ['oficios', 'usuarios', 'solicitudes', 'contadores']) {
+    // Extended JSON conserva los tipos: ObjectId, fechas, enteros y decimales.
+    const docs = BSON.EJSON.parse(await readFile(new URL(`${nombre}.json`, DATOS), 'utf8'), { relaxed: false });
+    await db.collection(nombre).insertMany(docs);
+    conteo[nombre] = docs.length;
+  }
+  return conteo;
 }
 
-const { rows } = await pool.query(`
-  SELECT (SELECT COUNT(*) FROM maestro) AS maestros,
-         (SELECT COUNT(*) FROM solicitud) AS solicitudes,
-         (SELECT COUNT(*) FROM calificacion) AS calificaciones`);
-console.log('Base de datos lista:', rows[0]);
-await pool.end();
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const { mongo, cerrarMongo } = await import('../src/config/mongo.js');
+  const { db } = await mongo();
+  console.log('Base de datos lista:', await cargarDatos(db));
+  await cerrarMongo();
+}

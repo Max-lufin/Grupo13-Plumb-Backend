@@ -1,0 +1,4182 @@
+[
+ {
+  "_id": {
+   "$oid": "6a8344640000000000000001"
+  },
+  "folio": {
+   "$numberInt": "1"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "7765180-2",
+   "nombre": "Pedro González Soto"
+  },
+  "descripcion": "Reparación de cañería rota en el baño principal, se filtra hacia el pasillo.",
+  "direccion": "Av. Libertad 1180, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787011200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786987620000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Excelente trabajo, muy puntual y profesional.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787240460000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6ac6db200000000000000002"
+  },
+  "folio": {
+   "$numberInt": "2"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "14297438-K",
+   "nombre": "Ana Martínez Reyes"
+  },
+  "descripcion": "Instalación de mueble de cocina a medida, bajo mesón de 1,8 metros.",
+  "direccion": "Los Aromos 455, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791936000000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791417120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac169880000000000000003"
+  },
+  "folio": {
+   "$numberInt": "3"
+  },
+  "cliente": {
+   "_id": "20478313-6",
+   "nombre": "Carlos Muñoz Díaz"
+  },
+  "maestro": {
+   "_id": "7559934-K",
+   "nombre": "Roberto Silva Campos"
+  },
+  "descripcion": "Revisión de la instalación eléctrica del departamento, saltan los automáticos.",
+  "direccion": "Calle Valparaíso 820, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791590400000"
+   }
+  },
+  "estado": "Aceptada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791060360000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac7814c0000000000000004"
+  },
+  "folio": {
+   "$numberInt": "4"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "7765180-2",
+   "nombre": "Pedro González Soto"
+  },
+  "descripcion": "Reparación de llave de paso en la cocina, no corta el agua del todo.",
+  "direccion": "Errázuriz 2210, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791849600000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791459660000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac7e4e80000000000000005"
+  },
+  "folio": {
+   "$numberInt": "5"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "7765180-2",
+   "nombre": "Pedro González Soto"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Los Carrera 377, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791763200000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791485160000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a3691a00000000000000006"
+  },
+  "folio": {
+   "$numberInt": "6"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "16173195-1",
+   "nombre": "Alejandro Reyes Figueroa"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Pasaje Los Maitenes 197, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1782691200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1781961120000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783026720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a383c6c0000000000000007"
+  },
+  "folio": {
+   "$numberInt": "7"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "18431243-3",
+   "nombre": "Daniela Gutiérrez Cortés"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Av. Grecia 853, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1782691200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782070380000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783010460000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a3d844c0000000000000008"
+  },
+  "folio": {
+   "$numberInt": "8"
+  },
+  "cliente": {
+   "_id": "14317270-8",
+   "nombre": "Felipe Campos Urrutia"
+  },
+  "maestro": {
+   "_id": "17437647-6",
+   "nombre": "Patricio Morales Araya"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Blanco Encalada 2963, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1782518400000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782416460000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a3dca9c0000000000000009"
+  },
+  "folio": {
+   "$numberInt": "9"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "15740588-8",
+   "nombre": "Eduardo Sandoval Aguilera"
+  },
+  "descripcion": "Pintar living y comedor, aproximadamente 40 m2, colores claros.",
+  "direccion": "Av. Pedro Montt 2481, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783036800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782434460000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783167480000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a3efa98000000000000000a"
+  },
+  "folio": {
+   "$numberInt": "10"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "13943581-8",
+   "nombre": "Mauricio Jara Navarro"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Pasaje Los Olmos 2627, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783036800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782512280000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783171080000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a414cbc000000000000000b"
+  },
+  "folio": {
+   "$numberInt": "11"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "17202688-5",
+   "nombre": "Manuel Soto Bravo"
+  },
+  "descripcion": "Gotera en el dormitorio cuando llueve fuerte.",
+  "direccion": "El Roble 1563, Villa Alemana",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783209600000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782664380000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a426d7c000000000000000c"
+  },
+  "folio": {
+   "$numberInt": "12"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "9216829-8",
+   "nombre": "Javier Guzmán Paredes"
+  },
+  "descripcion": "Reparar muro de ladrillo con grietas en el patio.",
+  "direccion": "Av. Matta 1611, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783036800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782738300000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783269180000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a42c704000000000000000d"
+  },
+  "folio": {
+   "$numberInt": "13"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "10720380-K",
+   "nombre": "Ricardo Fuentes Medina"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "Av. España 690, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783036800000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782761220000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a443918000000000000000e"
+  },
+  "folio": {
+   "$numberInt": "14"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "13864956-3",
+   "nombre": "Héctor Pizarro Valenzuela"
+  },
+  "descripcion": "El automático del tablero salta varias veces al día.",
+  "direccion": "Freire 2864, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783555200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782855960000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783883880000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a451220000000000000000f"
+  },
+  "folio": {
+   "$numberInt": "15"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "Reparación de la llave de paso de la cocina, no cierra del todo.",
+  "direccion": "Errázuriz 1659, Los Ángeles",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783555200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1782911520000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783704780000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a4697300000000000000010"
+  },
+  "folio": {
+   "$numberInt": "16"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "17202688-5",
+   "nombre": "Manuel Soto Bravo"
+  },
+  "descripcion": "Gotera en el dormitorio cuando llueve fuerte.",
+  "direccion": "Freire 1252, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783468800000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783011120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a47ba0c0000000000000011"
+  },
+  "folio": {
+   "$numberInt": "17"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "16304074-3",
+   "nombre": "Víctor Cárdenas Molina"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Av. Pedro Montt 1744, La Florida",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783382400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783085580000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783690020000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a497c0c0000000000000012"
+  },
+  "folio": {
+   "$numberInt": "18"
+  },
+  "cliente": {
+   "_id": "20769995-0",
+   "nombre": "Catalina Vidal Moreno"
+  },
+  "maestro": {
+   "_id": "12787682-7",
+   "nombre": "Luis Muñoz Tapia"
+  },
+  "descripcion": "Destapar el desagüe de la ducha, el agua tarda mucho en bajar.",
+  "direccion": "O'Higgins 2526, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783641600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783200780000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Súper amable, trajo todos los materiales.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783721100000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a4ad8180000000000000013"
+  },
+  "folio": {
+   "$numberInt": "19"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "9216829-8",
+   "nombre": "Javier Guzmán Paredes"
+  },
+  "descripcion": "Radier para estacionamiento de un auto.",
+  "direccion": "Caupolicán 1732, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783382400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783289880000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a4a8ebc0000000000000014"
+  },
+  "folio": {
+   "$numberInt": "20"
+  },
+  "cliente": {
+   "_id": "20769995-0",
+   "nombre": "Catalina Vidal Moreno"
+  },
+  "maestro": {
+   "_id": "7341423-7",
+   "nombre": "Luis Alberto Carrasco Pinto"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "El Roble 2948, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783814400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783271100000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1783870860000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a4e4e080000000000000015"
+  },
+  "folio": {
+   "$numberInt": "21"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "13950768-1",
+   "nombre": "Felipe Torres Salinas"
+  },
+  "descripcion": "Instalar cuatro enchufes nuevos en el living y cambiar interruptores.",
+  "direccion": "Baquedano 410, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784073600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783516680000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784309220000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a4ed79c0000000000000016"
+  },
+  "folio": {
+   "$numberInt": "22"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "9833408-4",
+   "nombre": "Pablo Yáñez Garrido"
+  },
+  "descripcion": "Mantención de jardín: corte de pasto, poda de rosas y limpieza.",
+  "direccion": "Colón 1305, Ovalle",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1783900800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783551900000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784200680000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a512fd80000000000000017"
+  },
+  "folio": {
+   "$numberInt": "23"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "13943581-8",
+   "nombre": "Mauricio Jara Navarro"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Av. Matta 946, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784419200000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783705560000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a50e85c0000000000000018"
+  },
+  "folio": {
+   "$numberInt": "24"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "16178972-0",
+   "nombre": "Claudia Rojas Fuentes"
+  },
+  "descripcion": "Reparación de la llave de paso de la cocina, no cierra del todo.",
+  "direccion": "Colón 1248, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784332800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783687260000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Rápido y honesto con el precio.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784654820000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a52622c0000000000000019"
+  },
+  "folio": {
+   "$numberInt": "25"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "9446075-1",
+   "nombre": "Óscar Álvarez Riquelme"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "El Roble 2261, La Florida",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784246400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783783980000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784373120000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a52dd38000000000000001a"
+  },
+  "folio": {
+   "$numberInt": "26"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "14589009-8",
+   "nombre": "Fernanda Vera Escobar"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "Pasaje Los Maitenes 2606, Talcahuano",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784073600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783815480000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784154780000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a54260c000000000000001b"
+  },
+  "folio": {
+   "$numberInt": "27"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "13864956-3",
+   "nombre": "Héctor Pizarro Valenzuela"
+  },
+  "descripcion": "Instalar lámparas LED en la cocina y el pasillo.",
+  "direccion": "Pasaje Los Olmos 1959, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784592000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1783899660000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784928780000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a58e098000000000000001c"
+  },
+  "folio": {
+   "$numberInt": "28"
+  },
+  "cliente": {
+   "_id": "20712687-K",
+   "nombre": "José Miguel Rivas"
+  },
+  "maestro": {
+   "_id": "14007716-K",
+   "nombre": "Nelson Vergara Fernández"
+  },
+  "descripcion": "Mueble bajo mesón para la cocina, con puertas y dos cajones.",
+  "direccion": "Los Aromos 643, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784592000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784209560000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784903220000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a58ca90000000000000001d"
+  },
+  "folio": {
+   "$numberInt": "29"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "17724100-8",
+   "nombre": "Esteban Lagos Moya"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Av. España 1558, La Serena",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784851200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784203920000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784914380000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a5a4640000000000000001e"
+  },
+  "folio": {
+   "$numberInt": "30"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "12048663-2",
+   "nombre": "Marcela Díaz Espinoza"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Errázuriz 2145, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784505600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784301120000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784739120000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a5bac9c000000000000001f"
+  },
+  "folio": {
+   "$numberInt": "31"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "17724100-8",
+   "nombre": "Esteban Lagos Moya"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Los Aromos 1000, Coquimbo",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784678400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784392860000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a5d446c0000000000000020"
+  },
+  "folio": {
+   "$numberInt": "32"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "10720380-K",
+   "nombre": "Ricardo Fuentes Medina"
+  },
+  "descripcion": "Destapar el desagüe de la ducha, el agua tarda mucho en bajar.",
+  "direccion": "Blanco Encalada 1235, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784505600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784497260000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784680860000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a614fa80000000000000021"
+  },
+  "folio": {
+   "$numberInt": "33"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "13504312-5",
+   "nombre": "Miguel Ángel Torres Díaz"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "El Roble 250, Rancagua",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785024000000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784762280000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a6100ac0000000000000022"
+  },
+  "folio": {
+   "$numberInt": "34"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "16304074-3",
+   "nombre": "Víctor Cárdenas Molina"
+  },
+  "descripcion": "El automático del tablero salta varias veces al día.",
+  "direccion": "Prat 3300, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1784764800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784742060000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1784940720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6268e80000000000000023"
+  },
+  "folio": {
+   "$numberInt": "35"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "10786894-1",
+   "nombre": "Sergio Castro Olivares"
+  },
+  "descripcion": "Me quedé afuera de la casa, la llave quedó adentro.",
+  "direccion": "Baquedano 1121, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785456000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784834280000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1785711900000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6229280000000000000024"
+  },
+  "folio": {
+   "$numberInt": "36"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "13943581-8",
+   "nombre": "Mauricio Jara Navarro"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Los Carrera 3933, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785024000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1784817960000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1785074700000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6615b00000000000000025"
+  },
+  "folio": {
+   "$numberInt": "37"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "8457682-4",
+   "nombre": "Jorge Contreras Sepúlveda"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "Prat 3434, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785715200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785075120000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Rápido y honesto con el precio.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1785779160000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a66005c0000000000000026"
+  },
+  "folio": {
+   "$numberInt": "38"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "17372448-9",
+   "nombre": "Rosa Espinoza Valdés"
+  },
+  "descripcion": "El horno eléctrico prende pero no calienta.",
+  "direccion": "Av. Pedro Montt 1082, Talca",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785715200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785069660000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "2"
+   },
+   "comentario": "No dejó boleta y el cobro final subió.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786043880000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a67c07c0000000000000027"
+  },
+  "folio": {
+   "$numberInt": "39"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "13864956-3",
+   "nombre": "Héctor Pizarro Valenzuela"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Los Carrera 311, Quillota",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785888000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785184380000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Cumplió, aunque tuvo que volver al día siguiente por un repuesto.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786122300000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a68bd9c0000000000000028"
+  },
+  "folio": {
+   "$numberInt": "40"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "9989484-9",
+   "nombre": "Raúl Hernández Peña"
+  },
+  "descripcion": "Pintar living y comedor, aproximadamente 40 m2, colores claros.",
+  "direccion": "Av. Grecia 2899, San Miguel",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785888000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785249180000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786140720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6cc4a00000000000000029"
+  },
+  "folio": {
+   "$numberInt": "41"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "13864956-3",
+   "nombre": "Héctor Pizarro Valenzuela"
+  },
+  "descripcion": "El automático del tablero salta varias veces al día.",
+  "direccion": "Blanco Encalada 3752, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785715200000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785513120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a6cea5c000000000000002a"
+  },
+  "folio": {
+   "$numberInt": "42"
+  },
+  "cliente": {
+   "_id": "12987259-4",
+   "nombre": "Francisca Herrera Lobos"
+  },
+  "maestro": {
+   "_id": "8457682-4",
+   "nombre": "Jorge Contreras Sepúlveda"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "Los Boldos 3152, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785801600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785522780000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Llegó a la hora y dejó todo limpio. Lo vuelvo a llamar sin dudarlo.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786143900000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6f2984000000000000002b"
+  },
+  "folio": {
+   "$numberInt": "43"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "17372448-9",
+   "nombre": "Rosa Espinoza Valdés"
+  },
+  "descripcion": "El horno eléctrico prende pero no calienta.",
+  "direccion": "Caupolicán 730, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786406400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785670020000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786473180000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6fb78c000000000000002c"
+  },
+  "folio": {
+   "$numberInt": "44"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "14297438-K",
+   "nombre": "Ana Martínez Reyes"
+  },
+  "descripcion": "Reparar los cajones de la cocina que se salieron del riel.",
+  "direccion": "Pasaje Los Olmos 1120, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785974400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785706380000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786296420000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a6fd028000000000000002d"
+  },
+  "folio": {
+   "$numberInt": "45"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "17372448-9",
+   "nombre": "Rosa Espinoza Valdés"
+  },
+  "descripcion": "El horno eléctrico prende pero no calienta.",
+  "direccion": "Prat 994, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786406400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785712680000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786577580000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a70dd74000000000000002e"
+  },
+  "folio": {
+   "$numberInt": "46"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "15085508-K",
+   "nombre": "Cristián Herrera Castillo"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "Prat 1722, Villa Alemana",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1785888000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785781620000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786024320000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a70a318000000000000002f"
+  },
+  "folio": {
+   "$numberInt": "47"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "18431243-3",
+   "nombre": "Daniela Gutiérrez Cortés"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Colón 3157, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786406400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785766680000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786552020000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a7229cc0000000000000030"
+  },
+  "folio": {
+   "$numberInt": "48"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Av. Grecia 3725, Concepción",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786147200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785866700000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a71d2600000000000000031"
+  },
+  "folio": {
+   "$numberInt": "49"
+  },
+  "cliente": {
+   "_id": "20478313-6",
+   "nombre": "Carlos Muñoz Díaz"
+  },
+  "maestro": {
+   "_id": "9216829-8",
+   "nombre": "Javier Guzmán Paredes"
+  },
+  "descripcion": "Radier para estacionamiento de un auto.",
+  "direccion": "Av. Pedro Montt 551, San Pedro de la Paz",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786147200000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785844320000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a7237dc0000000000000032"
+  },
+  "folio": {
+   "$numberInt": "50"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "16304074-3",
+   "nombre": "Víctor Cárdenas Molina"
+  },
+  "descripcion": "Se corta la luz cuando prendo el horno y el hervidor al mismo tiempo.",
+  "direccion": "O'Higgins 3417, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786233600000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785870300000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a73adec0000000000000033"
+  },
+  "folio": {
+   "$numberInt": "51"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "8348655-4",
+   "nombre": "Gonzalo Alarcón Vidal"
+  },
+  "descripcion": "Instalar lámparas LED en la cocina y el pasillo.",
+  "direccion": "Los Carrera 1634, San Pedro de la Paz",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786233600000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785966060000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a73bd280000000000000034"
+  },
+  "folio": {
+   "$numberInt": "52"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "18431243-3",
+   "nombre": "Daniela Gutiérrez Cortés"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Errázuriz 570, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786665600000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1785969960000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a7500980000000000000035"
+  },
+  "folio": {
+   "$numberInt": "53"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "13882887-5",
+   "nombre": "Andrés Pino Toro"
+  },
+  "descripcion": "Gotera en el dormitorio cuando llueve fuerte.",
+  "direccion": "Errázuriz 2066, La Florida",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786233600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786052760000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Impecable. Avisó cuando venía en camino.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786567260000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a779d080000000000000036"
+  },
+  "folio": {
+   "$numberInt": "54"
+  },
+  "cliente": {
+   "_id": "20769995-0",
+   "nombre": "Catalina Vidal Moreno"
+  },
+  "maestro": {
+   "_id": "9216829-8",
+   "nombre": "Javier Guzmán Paredes"
+  },
+  "descripcion": "Cambio de cerámica del baño, son más o menos 6 m2.",
+  "direccion": "Lautaro 2118, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786406400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786223880000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1786561500000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a7787780000000000000037"
+  },
+  "folio": {
+   "$numberInt": "55"
+  },
+  "cliente": {
+   "_id": "16956130-3",
+   "nombre": "Martín Tapia Sanhueza"
+  },
+  "maestro": {
+   "_id": "13950768-1",
+   "nombre": "Felipe Torres Salinas"
+  },
+  "descripcion": "Instalar cuatro enchufes nuevos en el living y cambiar interruptores.",
+  "direccion": "O'Higgins 2502, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786406400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786218360000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a7cc0d00000000000000038"
+  },
+  "folio": {
+   "$numberInt": "56"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "16304074-3",
+   "nombre": "Víctor Cárdenas Molina"
+  },
+  "descripcion": "Se corta la luz cuando prendo el horno y el hervidor al mismo tiempo.",
+  "direccion": "Los Boldos 3962, San Miguel",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787011200000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786560720000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a7e0ddc0000000000000039"
+  },
+  "folio": {
+   "$numberInt": "57"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "14007716-K",
+   "nombre": "Nelson Vergara Fernández"
+  },
+  "descripcion": "Reparar los cajones de la cocina que se salieron del riel.",
+  "direccion": "Prat 1077, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787356800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786645980000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Rápido y honesto con el precio.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787402760000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a7f8c98000000000000003a"
+  },
+  "folio": {
+   "$numberInt": "58"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "Destapar el desagüe de la ducha, el agua tarda mucho en bajar.",
+  "direccion": "Av. Libertad 1324, Concepción",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787184000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786743960000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787246820000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a80b85c000000000000003b"
+  },
+  "folio": {
+   "$numberInt": "59"
+  },
+  "cliente": {
+   "_id": "14317270-8",
+   "nombre": "Felipe Campos Urrutia"
+  },
+  "maestro": {
+   "_id": "12854868-8",
+   "nombre": "Carlos Mendoza Ríos"
+  },
+  "descripcion": "Mantención de jardín: corte de pasto, poda de rosas y limpieza.",
+  "direccion": "Las Acacias 829, Ñuñoa",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1786924800000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786820700000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a81b270000000000000003c"
+  },
+  "folio": {
+   "$numberInt": "60"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "9989484-9",
+   "nombre": "Raúl Hernández Peña"
+  },
+  "descripcion": "Empaste y pintura de un dormitorio con manchas de humedad.",
+  "direccion": "Caupolicán 823, Puente Alto",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787184000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1786884720000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787341920000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a84c014000000000000003d"
+  },
+  "folio": {
+   "$numberInt": "61"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "14297438-K",
+   "nombre": "Ana Martínez Reyes"
+  },
+  "descripcion": "Closet a medida para dormitorio, el muro mide 2,5 metros.",
+  "direccion": "Pasaje Los Olmos 3789, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787702400000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787084820000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a84a1d8000000000000003e"
+  },
+  "folio": {
+   "$numberInt": "62"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "15740588-8",
+   "nombre": "Eduardo Sandoval Aguilera"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "Caupolicán 2418, Puente Alto",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787097600000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787077080000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a861770000000000000003f"
+  },
+  "folio": {
+   "$numberInt": "63"
+  },
+  "cliente": {
+   "_id": "12987259-4",
+   "nombre": "Francisca Herrera Lobos"
+  },
+  "maestro": {
+   "_id": "14007716-K",
+   "nombre": "Nelson Vergara Fernández"
+  },
+  "descripcion": "Mueble bajo mesón para la cocina, con puertas y dos cajones.",
+  "direccion": "Lautaro 1814, La Florida",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787184000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787172720000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Trabajo prolijo, hasta me dio consejos para que no vuelva a pasar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787241120000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a860f780000000000000040"
+  },
+  "folio": {
+   "$numberInt": "64"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "8457682-4",
+   "nombre": "Jorge Contreras Sepúlveda"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "Las Acacias 827, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787616000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787170680000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a87020c0000000000000041"
+  },
+  "folio": {
+   "$numberInt": "65"
+  },
+  "cliente": {
+   "_id": "14317270-8",
+   "nombre": "Felipe Campos Urrutia"
+  },
+  "maestro": {
+   "_id": "10720380-K",
+   "nombre": "Ricardo Fuentes Medina"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Los Aromos 391, San Pedro de la Paz",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787616000000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787232780000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a870b300000000000000042"
+  },
+  "folio": {
+   "$numberInt": "66"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "13950768-1",
+   "nombre": "Felipe Torres Salinas"
+  },
+  "descripcion": "El automático del tablero salta varias veces al día.",
+  "direccion": "Los Carrera 183, San Miguel",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787702400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787235120000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787839500000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a88a15c0000000000000043"
+  },
+  "folio": {
+   "$numberInt": "67"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "17478277-6",
+   "nombre": "Camila Ortiz Leiva"
+  },
+  "descripcion": "El refrigerador no enfría la parte de abajo.",
+  "direccion": "Lautaro 214, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787529600000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787339100000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a8affb00000000000000044"
+  },
+  "folio": {
+   "$numberInt": "68"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "10595367-4",
+   "nombre": "Rodrigo Núñez Carrasco"
+  },
+  "descripcion": "Mueble bajo mesón para la cocina, con puertas y dos cajones.",
+  "direccion": "Av. Pedro Montt 1693, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1787702400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787494320000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1787871120000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a8b09100000000000000045"
+  },
+  "folio": {
+   "$numberInt": "69"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "8457682-4",
+   "nombre": "Jorge Contreras Sepúlveda"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Colón 2556, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788220800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787496720000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1788478020000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a90b0180000000000000046"
+  },
+  "folio": {
+   "$numberInt": "70"
+  },
+  "cliente": {
+   "_id": "20712687-K",
+   "nombre": "José Miguel Rivas"
+  },
+  "maestro": {
+   "_id": "13950768-1",
+   "nombre": "Felipe Torres Salinas"
+  },
+  "descripcion": "Se corta la luz cuando prendo el horno y el hervidor al mismo tiempo.",
+  "direccion": "Av. Grecia 1689, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788134400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787867160000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1788216060000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a906fe00000000000000047"
+  },
+  "folio": {
+   "$numberInt": "71"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "17372448-9",
+   "nombre": "Rosa Espinoza Valdés"
+  },
+  "descripcion": "El horno eléctrico prende pero no calienta.",
+  "direccion": "Las Acacias 3618, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788134400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1787850720000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a9376b80000000000000048"
+  },
+  "folio": {
+   "$numberInt": "72"
+  },
+  "cliente": {
+   "_id": "20478313-6",
+   "nombre": "Carlos Muñoz Díaz"
+  },
+  "maestro": {
+   "_id": "13943581-8",
+   "nombre": "Mauricio Jara Navarro"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Las Acacias 2937, La Florida",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788307200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788049080000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1788640860000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a95d3680000000000000049"
+  },
+  "folio": {
+   "$numberInt": "73"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "12787682-7",
+   "nombre": "Luis Muñoz Tapia"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Av. Grecia 3825, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788739200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788203880000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789080720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a95bcac000000000000004a"
+  },
+  "folio": {
+   "$numberInt": "74"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "17202688-5",
+   "nombre": "Manuel Soto Bravo"
+  },
+  "descripcion": "Cambiar tres planchas de zinc que se soltaron con el viento.",
+  "direccion": "Colón 3672, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788220800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788198060000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1788370860000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a9755a8000000000000004b"
+  },
+  "folio": {
+   "$numberInt": "75"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "16178972-0",
+   "nombre": "Claudia Rojas Fuentes"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Colón 825, Valparaíso",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788825600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788302760000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789138320000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a973af0000000000000004c"
+  },
+  "folio": {
+   "$numberInt": "76"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "10914881-4",
+   "nombre": "Ignacio Parra Saavedra"
+  },
+  "descripcion": "Cambiar la chapa de la puerta principal por una de seguridad.",
+  "direccion": "Los Carrera 2332, San Miguel",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788566400000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788295920000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a985fac000000000000004d"
+  },
+  "folio": {
+   "$numberInt": "77"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Los Aromos 2072, San Pedro de la Paz",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788998400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788370860000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Buen trabajo, solo se atrasó un poco en llegar.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789332060000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a996d70000000000000004e"
+  },
+  "folio": {
+   "$numberInt": "78"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "18431243-3",
+   "nombre": "Daniela Gutiérrez Cortés"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Lautaro 2814, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788912000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788439920000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789067100000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a9ca544000000000000004f"
+  },
+  "folio": {
+   "$numberInt": "79"
+  },
+  "cliente": {
+   "_id": "12987259-4",
+   "nombre": "Francisca Herrera Lobos"
+  },
+  "maestro": {
+   "_id": "17437647-6",
+   "nombre": "Patricio Morales Araya"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Av. Matta 3554, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789344000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788650820000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6a9c218c0000000000000050"
+  },
+  "folio": {
+   "$numberInt": "80"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "7765180-2",
+   "nombre": "Pedro González Soto"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Los Aromos 1721, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788739200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788617100000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1788889260000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a9c8a8c0000000000000051"
+  },
+  "folio": {
+   "$numberInt": "81"
+  },
+  "cliente": {
+   "_id": "12987259-4",
+   "nombre": "Francisca Herrera Lobos"
+  },
+  "maestro": {
+   "_id": "17202688-5",
+   "nombre": "Manuel Soto Bravo"
+  },
+  "descripcion": "Gotera en el dormitorio cuando llueve fuerte.",
+  "direccion": "Av. Matta 1372, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789084800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788643980000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789409520000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a9ea5600000000000000052"
+  },
+  "folio": {
+   "$numberInt": "82"
+  },
+  "cliente": {
+   "_id": "20478313-6",
+   "nombre": "Carlos Muñoz Díaz"
+  },
+  "maestro": {
+   "_id": "16304074-3",
+   "nombre": "Víctor Cárdenas Molina"
+  },
+  "descripcion": "Instalar cuatro enchufes nuevos en el living y cambiar interruptores.",
+  "direccion": "Blanco Encalada 1901, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789344000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788781920000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "El trabajo está bien pero se demoró el doble de lo que dijo.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789577160000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6a9f134c0000000000000053"
+  },
+  "folio": {
+   "$numberInt": "83"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "16178972-0",
+   "nombre": "Claudia Rojas Fuentes"
+  },
+  "descripcion": "Fuga de agua bajo el lavaplatos, gotea toda la noche.",
+  "direccion": "Pasaje Los Maitenes 3794, Villa Alemana",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1788912000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1788810060000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aa28edc0000000000000054"
+  },
+  "folio": {
+   "$numberInt": "84"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "Reparación de la llave de paso de la cocina, no cierra del todo.",
+  "direccion": "O'Higgins 2714, Concepción",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789344000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789038300000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789506720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa44c680000000000000055"
+  },
+  "folio": {
+   "$numberInt": "85"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "13882887-5",
+   "nombre": "Andrés Pino Toro"
+  },
+  "descripcion": "Gotera en el dormitorio cuando llueve fuerte.",
+  "direccion": "Freire 531, Macul",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789430400000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789152360000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aa478000000000000000056"
+  },
+  "folio": {
+   "$numberInt": "86"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "12787682-7",
+   "nombre": "Luis Muñoz Tapia"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Caupolicán 3969, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789171200000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789163520000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789249260000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa4495c0000000000000057"
+  },
+  "folio": {
+   "$numberInt": "87"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "15085508-K",
+   "nombre": "Cristián Herrera Castillo"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "Errázuriz 525, Quillota",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789430400000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789151580000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aa407800000000000000058"
+  },
+  "folio": {
+   "$numberInt": "88"
+  },
+  "cliente": {
+   "_id": "17166905-7",
+   "nombre": "Daniela Reyes Urbina"
+  },
+  "maestro": {
+   "_id": "8348655-4",
+   "nombre": "Gonzalo Alarcón Vidal"
+  },
+  "descripcion": "Instalar lámparas LED en la cocina y el pasillo.",
+  "direccion": "Av. Grecia 1492, San Pedro de la Paz",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789257600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789134720000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789513500000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa486100000000000000059"
+  },
+  "folio": {
+   "$numberInt": "89"
+  },
+  "cliente": {
+   "_id": "12987259-4",
+   "nombre": "Francisca Herrera Lobos"
+  },
+  "maestro": {
+   "_id": "7341423-7",
+   "nombre": "Luis Alberto Carrasco Pinto"
+  },
+  "descripcion": "Instalar grifería nueva en el baño principal (ya la compré).",
+  "direccion": "Av. Grecia 3368, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789516800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789167120000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789756020000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa55108000000000000005a"
+  },
+  "folio": {
+   "$numberInt": "90"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "13504312-5",
+   "nombre": "Miguel Ángel Torres Díaz"
+  },
+  "descripcion": "Pintar living y comedor, aproximadamente 40 m2, colores claros.",
+  "direccion": "Caupolicán 1710, Rancagua",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789689600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789219080000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aa5da9c000000000000005b"
+  },
+  "folio": {
+   "$numberInt": "91"
+  },
+  "cliente": {
+   "_id": "20712687-K",
+   "nombre": "José Miguel Rivas"
+  },
+  "maestro": {
+   "_id": "9335714-0",
+   "nombre": "Hugo Gallardo Zúñiga"
+  },
+  "descripcion": "Cambio de cerámica del baño, son más o menos 6 m2.",
+  "direccion": "El Roble 1128, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789862400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789254300000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Quedó bien. El precio fue algo más alto de lo que esperaba.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790121120000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa6de4c000000000000005c"
+  },
+  "folio": {
+   "$numberInt": "92"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "8457682-4",
+   "nombre": "Jorge Contreras Sepúlveda"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Prat 1671, Quillota",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789776000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789320780000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1789860780000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aa6c40c000000000000005d"
+  },
+  "folio": {
+   "$numberInt": "93"
+  },
+  "cliente": {
+   "_id": "20769995-0",
+   "nombre": "Catalina Vidal Moreno"
+  },
+  "maestro": {
+   "_id": "10391408-6",
+   "nombre": "Tomás Retamal Ibarra"
+  },
+  "descripcion": "Instalar lámparas LED en la cocina y el pasillo.",
+  "direccion": "Colón 284, Ovalle",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789948800000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789314060000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aa7f408000000000000005e"
+  },
+  "folio": {
+   "$numberInt": "94"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "10199068-0",
+   "nombre": "Iván Bustos Cáceres"
+  },
+  "descripcion": "Mueble bajo mesón para la cocina, con puertas y dos cajones.",
+  "direccion": "Los Boldos 2466, Talcahuano",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789603200000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789391880000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aab209c000000000000005f"
+  },
+  "folio": {
+   "$numberInt": "95"
+  },
+  "cliente": {
+   "_id": "20769995-0",
+   "nombre": "Catalina Vidal Moreno"
+  },
+  "maestro": {
+   "_id": "13943581-8",
+   "nombre": "Mauricio Jara Navarro"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "El Roble 1243, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790294400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789599900000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": null,
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790547480000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aac181c0000000000000060"
+  },
+  "folio": {
+   "$numberInt": "96"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "10391408-6",
+   "nombre": "Tomás Retamal Ibarra"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Los Carrera 2513, Coquimbo",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790121600000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789663260000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6aac52f00000000000000061"
+  },
+  "folio": {
+   "$numberInt": "97"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "9170232-0",
+   "nombre": "Francisco López Vera"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Av. España 2359, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1789862400000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789678320000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790100720000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aad3d8c0000000000000062"
+  },
+  "folio": {
+   "$numberInt": "98"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "14589009-8",
+   "nombre": "Fernanda Vera Escobar"
+  },
+  "descripcion": "Pintar living y comedor, aproximadamente 40 m2, colores claros.",
+  "direccion": "Av. Pedro Montt 359, Chiguayante",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790208000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789738380000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790364780000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aad64380000000000000063"
+  },
+  "folio": {
+   "$numberInt": "99"
+  },
+  "cliente": {
+   "_id": "13337707-7",
+   "nombre": "Constanza Flores Vega"
+  },
+  "maestro": {
+   "_id": "10199068-0",
+   "nombre": "Iván Bustos Cáceres"
+  },
+  "descripcion": "Reparar los cajones de la cocina que se salieron del riel.",
+  "direccion": "Lautaro 2512, Los Ángeles",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790121600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789748280000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790442300000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aaeeaec0000000000000064"
+  },
+  "folio": {
+   "$numberInt": "100"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "13882887-5",
+   "nombre": "Andrés Pino Toro"
+  },
+  "descripcion": "Cambiar tres planchas de zinc que se soltaron con el viento.",
+  "direccion": "Av. Libertad 2367, Puente Alto",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790121600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789848300000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Muy ordenado, explicó lo que hizo y cobró lo conversado.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790173980000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6aafe08c0000000000000065"
+  },
+  "folio": {
+   "$numberInt": "101"
+  },
+  "cliente": {
+   "_id": "13954732-2",
+   "nombre": "Nicolás Castillo Peña"
+  },
+  "maestro": {
+   "_id": "13504312-5",
+   "nombre": "Miguel Ángel Torres Díaz"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "Blanco Encalada 3819, Rancagua",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790467200000"
+   }
+  },
+  "estado": "Cancelada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1789911180000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ab317ac0000000000000066"
+  },
+  "folio": {
+   "$numberInt": "102"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "7765180-2",
+   "nombre": "Pedro González Soto"
+  },
+  "descripcion": "El estanque del WC se queda corriendo y sube la cuenta del agua.",
+  "direccion": "Freire 3511, Viña del Mar",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790640000000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790121900000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "5"
+   },
+   "comentario": "Solucionó en una hora lo que otro no pudo en dos visitas.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790984460000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6ab50c4c0000000000000067"
+  },
+  "folio": {
+   "$numberInt": "103"
+  },
+  "cliente": {
+   "_id": "20712687-K",
+   "nombre": "José Miguel Rivas"
+  },
+  "maestro": {
+   "_id": "13864956-3",
+   "nombre": "Héctor Pizarro Valenzuela"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Av. Libertad 2057, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790640000000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790250060000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ab6bad80000000000000068"
+  },
+  "folio": {
+   "$numberInt": "104"
+  },
+  "cliente": {
+   "_id": "19254047-K",
+   "nombre": "Valentina Soto Aravena"
+  },
+  "maestro": {
+   "_id": "9216829-8",
+   "nombre": "Javier Guzmán Paredes"
+  },
+  "descripcion": "Reparar muro de ladrillo con grietas en el patio.",
+  "direccion": "Lautaro 2292, Concepción",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790812800000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790360280000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "4"
+   },
+   "comentario": "Recomendable. Le faltó limpiar un poco al final.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790899500000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6ab68a900000000000000069"
+  },
+  "folio": {
+   "$numberInt": "105"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "16173195-1",
+   "nombre": "Alejandro Reyes Figueroa"
+  },
+  "descripcion": "Cañería rota en el patio, hay una poza que no se seca hace días.",
+  "direccion": "Lautaro 1840, Providencia",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1790553600000"
+   }
+  },
+  "estado": "Finalizada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790347920000"
+   }
+  },
+  "calificacion": {
+   "puntuacion": {
+    "$numberInt": "3"
+   },
+   "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+   "fecha": {
+    "$date": {
+     "$numberLong": "1790593500000"
+    }
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6abf984c000000000000006a"
+  },
+  "folio": {
+   "$numberInt": "106"
+  },
+  "cliente": {
+   "_id": "16956130-3",
+   "nombre": "Martín Tapia Sanhueza"
+  },
+  "maestro": {
+   "_id": "17202688-5",
+   "nombre": "Manuel Soto Bravo"
+  },
+  "descripcion": "Limpiar y reparar canaletas antes de las lluvias.",
+  "direccion": "Los Boldos 2617, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791676800000"
+   }
+  },
+  "estado": "Aceptada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790941260000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac03dc4000000000000006b"
+  },
+  "folio": {
+   "$numberInt": "107"
+  },
+  "cliente": {
+   "_id": "12588772-4",
+   "nombre": "María González Rojas"
+  },
+  "maestro": {
+   "_id": "10595367-4",
+   "nombre": "Rodrigo Núñez Carrasco"
+  },
+  "descripcion": "Closet a medida para dormitorio, el muro mide 2,5 metros.",
+  "direccion": "Las Acacias 3051, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791590400000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1790983620000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac25eb0000000000000006c"
+  },
+  "folio": {
+   "$numberInt": "108"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "13504312-5",
+   "nombre": "Miguel Ángel Torres Díaz"
+  },
+  "descripcion": "Pintar reja y portón metálico, necesita anticorrosivo.",
+  "direccion": "El Roble 1135, Rancagua",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791763200000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791123120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac2acf8000000000000006d"
+  },
+  "folio": {
+   "$numberInt": "109"
+  },
+  "cliente": {
+   "_id": "15226236-1",
+   "nombre": "Diego Fuentes Salgado"
+  },
+  "maestro": {
+   "_id": "7341423-7",
+   "nombre": "Luis Alberto Carrasco Pinto"
+  },
+  "descripcion": "El calefont no enciende, es a gas licuado y tiene unos 8 años.",
+  "direccion": "Colón 1749, Talca",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791331200000"
+   }
+  },
+  "estado": "Aceptada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791143160000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac41c00000000000000006e"
+  },
+  "folio": {
+   "$numberInt": "110"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "14007716-K",
+   "nombre": "Nelson Vergara Fernández"
+  },
+  "descripcion": "Closet a medida para dormitorio, el muro mide 2,5 metros.",
+  "direccion": "O'Higgins 3195, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791936000000"
+   }
+  },
+  "estado": "Aceptada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791237120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac3ae8c000000000000006f"
+  },
+  "folio": {
+   "$numberInt": "111"
+  },
+  "cliente": {
+   "_id": "13512136-3",
+   "nombre": "Cristóbal Araya Cortés"
+  },
+  "maestro": {
+   "_id": "7559934-K",
+   "nombre": "Roberto Silva Campos"
+  },
+  "descripcion": "Necesito el certificado TE1 para regularizar la casa.",
+  "direccion": "Los Carrera 2202, Quilpué",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791936000000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791209100000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac55e080000000000000070"
+  },
+  "folio": {
+   "$numberInt": "112"
+  },
+  "cliente": {
+   "_id": "20478313-6",
+   "nombre": "Carlos Muñoz Díaz"
+  },
+  "maestro": {
+   "_id": "16173195-1",
+   "nombre": "Alejandro Reyes Figueroa"
+  },
+  "descripcion": "Destapar el desagüe de la ducha, el agua tarda mucho en bajar.",
+  "direccion": "Los Carrera 933, Maipú",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791331200000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791319560000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac6dfd00000000000000071"
+  },
+  "folio": {
+   "$numberInt": "113"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "12854868-8",
+   "nombre": "Carlos Mendoza Ríos"
+  },
+  "descripcion": "Podar un árbol grande que está topando los cables.",
+  "direccion": "Las Acacias 2107, Santiago",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791763200000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791418320000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac637100000000000000072"
+  },
+  "folio": {
+   "$numberInt": "114"
+  },
+  "cliente": {
+   "_id": "13345441-1",
+   "nombre": "Juan Pérez López"
+  },
+  "maestro": {
+   "_id": "17437647-6",
+   "nombre": "Patricio Morales Araya"
+  },
+  "descripcion": "Reparación de la llave de paso de la cocina, no cierra del todo.",
+  "direccion": "Pasaje Los Maitenes 266, Villa Alemana",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1792108800000"
+   }
+  },
+  "estado": "Rechazada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791375120000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac656b40000000000000073"
+  },
+  "folio": {
+   "$numberInt": "115"
+  },
+  "cliente": {
+   "_id": "16883454-3",
+   "nombre": "Javiera Palma Rebolledo"
+  },
+  "maestro": {
+   "_id": "17372448-9",
+   "nombre": "Rosa Espinoza Valdés"
+  },
+  "descripcion": "El horno eléctrico prende pero no calienta.",
+  "direccion": "Caupolicán 1850, Curicó",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791504000000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791383220000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac6d3280000000000000074"
+  },
+  "folio": {
+   "$numberInt": "116"
+  },
+  "cliente": {
+   "_id": "20712687-K",
+   "nombre": "José Miguel Rivas"
+  },
+  "maestro": {
+   "_id": "10786894-1",
+   "nombre": "Sergio Castro Olivares"
+  },
+  "descripcion": "Cambiar la chapa de la puerta principal por una de seguridad.",
+  "direccion": "Los Aromos 121, Concón",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791417600000"
+   }
+  },
+  "estado": "Pendiente",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791415080000"
+   }
+  },
+  "calificacion": null
+ },
+ {
+  "_id": {
+   "$oid": "6ac802700000000000000075"
+  },
+  "folio": {
+   "$numberInt": "117"
+  },
+  "cliente": {
+   "_id": "20662808-1",
+   "nombre": "Paula Navarro Godoy"
+  },
+  "maestro": {
+   "_id": "9446075-1",
+   "nombre": "Óscar Álvarez Riquelme"
+  },
+  "descripcion": "Se corta la luz cuando prendo el horno y el hervidor al mismo tiempo.",
+  "direccion": "Las Acacias 3208, Puente Alto",
+  "fecha_servicio": {
+   "$date": {
+    "$numberLong": "1791849600000"
+   }
+  },
+  "estado": "Aceptada",
+  "fecha_solicitud": {
+   "$date": {
+    "$numberLong": "1791492720000"
+   }
+  },
+  "calificacion": null
+ }
+]

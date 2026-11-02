@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import { env } from './config/env.js';
 import { manejarErrores, rutaNoEncontrada } from './middlewares/errores.js';
 import { registrarPeticiones } from './middlewares/registro.js';
+import { leerSesion } from './middlewares/sesion.js';
 import rutas from './routes/index.js';
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(helmet());
 app.use(cors({ origin: env.corsOrigins }));
 app.use(express.json({ limit: '20kb' }));
 app.use(registrarPeticiones);
+app.use(leerSesion);
 
 app.get('/', (req, res) => res.redirect('/api/v1'));
 
@@ -23,7 +25,9 @@ app.get('/api/v1', (req, res) => {
       nombre: 'Plumb API',
       version: '2.0.0',
       grupo: 'Grupo 13, ICI324, Universidad de Valparaíso',
-      recursos: ['/salud', '/regiones', '/oficios', '/catalogo', '/ranking', '/maestros',
+      baseDeDatos: 'MongoDB',
+      autenticacion: 'Bearer token (JWT) obtenido en POST /api/v1/sesiones',
+      recursos: ['/salud', '/sesiones', '/regiones', '/oficios', '/catalogo', '/ranking', '/maestros',
         '/clientes', '/solicitudes', '/consultas', '/nosql'].map((ruta) => `/api/v1${ruta}`),
     },
   });

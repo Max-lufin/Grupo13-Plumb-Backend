@@ -1,52 +1,53 @@
-import { query } from '../config/db.js';
+import { coleccion, enTransaccion, siguiente } from '../config/mongo.js';
+import { conflicto } from '../utils/http.js';
 
-export const SQL = {
-  LISTAR: `
-SELECT o.id_oficio, o.nombre, o.descripcion,
-       COUNT(m.rut_maestro) AS total_maestros
-FROM oficio o
-LEFT JOIN maestro m ON m.id_oficio = o.id_oficio
-GROUP BY o.id_oficio
-ORDER BY o.nombre`.trim(),
-
-  BUSCAR: 'SELECT id_oficio, nombre, descripcion FROM oficio WHERE id_oficio = $1',
-
-  CREAR: `
-INSERT INTO oficio (nombre, descripcion)
-VALUES ($1, $2)
-RETURNING id_oficio, nombre, descripcion`.trim(),
-
-  ACTUALIZAR: `
-UPDATE oficio
-SET nombre = $2, descripcion = $3
-WHERE id_oficio = $1
-RETURNING id_oficio, nombre, descripcion`.trim(),
-
-  // Consulta 12 · si hay maestros con este oficio, ON DELETE RESTRICT lo impide.
-  ELIMINAR: `
-DELETE FROM oficio
-WHERE id_oficio = $1
-RETURNING id_oficio, nombre`.trim(),
-};
+const ficha = (o) => ({ id_oficio: o._id, nombre: o.nombre, descripcion: o.descripcion ?? null });
 
 export const Oficio = {
+  // Mantenedor: todos los oficios, también los que nadie ofrece, con su cantidad
+  // de maestros. Es la razón para que oficios sea una colección propia.
   async listar() {
-    return (await query(SQL.LISTAR)).rows;
+    const oficios = await coleccion('oficios');
+    return oficios.aggregate([
+      { $lookup: { from: 'usuarios', localField: '_id', foreignField: 'maestro.oficio._id', as: 'm', pipeline: [{ $project: { _id: 1 } }] } },
+      { $project: { _id: 0, id_oficio: '$_id', nombre: 1, descripcion: 1, total_maestros: { $size: '$m' } } },
+      { $sort: { nombre: 1 } },
+    ], { collation: { locale: 'es' } }).toArray();
   },
 
   async buscar(id) {
-    return (await query(SQL.BUSCAR, [id])).rows[0] ?? null;
+    const oficios = await coleccion('oficios');
+    const o = await oficios.findOne({ _id: id });
+    return o ? ficha(o) : null;
   },
 
   async crear(d) {
-    return (await query(SQL.CREAR, [d.nombre, d.descripcion ?? null])).rows[0];
+    return enTransaccion(async (db, session) => {
+      const doc = { _id: await siguiente(db, 'oficios', session), nombre: d.nombre, descripcion: d.descripcion ?? null };
+      await db.collection('oficios').insertOne(doc, { session });
+      return ficha(doc);
+    });
   },
 
+  // El nombre del oficio está copiado en cada maestro que lo ejerce: renombrar
+  // actualiza el oficio y esas copias en la misma transacción.
   async actualizar(id, d) {
-    return (await query(SQL.ACTUALIZAR, [id, d.nombre, d.descripcion ?? null])).rows[0] ?? null;
+    return enTransaccion(async (db, session) => {
+      const r = await db.collection('oficios').updateOne({ _id: id }, { $set: { nombre: d.nombre, descripcion: d.descripcion ?? null } }, { session });
+      if (!r.matchedCount) return null;
+      await db.collection('usuarios').updateMany({ 'maestro.oficio._id': id }, { $set: { 'maestro.oficio.nombre': d.nombre } }, { session });
+      return { id_oficio: id, nombre: d.nombre, descripcion: d.descripcion ?? null };
+    });
   },
 
+  // MongoDB no tiene ON DELETE RESTRICT: se cuenta antes de borrar.
   async eliminar(id) {
-    return (await query(SQL.ELIMINAR, [id])).rows[0] ?? null;
+    const usuarios = await coleccion('usuarios');
+    if (await usuarios.countDocuments({ 'maestro.oficio._id': id }, { limit: 1 })) {
+      throw conflicto('No se puede eliminar: hay maestros que ejercen este oficio.');
+    }
+    const oficios = await coleccion('oficios');
+    const o = await oficios.findOneAndDelete({ _id: id });
+    return o ? { id_oficio: o._id, nombre: o.nombre } : null;
   },
 };

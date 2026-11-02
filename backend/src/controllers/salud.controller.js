@@ -1,37 +1,33 @@
-import { query } from '../config/db.js';
 import { env } from '../config/env.js';
-import { Nosql } from '../models/nosql.model.js';
+import { mongo } from '../config/mongo.js';
 import { cronometro, ok } from '../utils/http.js';
 
-const SQL_ESTADO = `
-SELECT current_setting('server_version') AS version,
-       current_database()                AS base_de_datos,
-       (SELECT COUNT(*) FROM region)       AS region,
-       (SELECT COUNT(*) FROM oficio)       AS oficio,
-       (SELECT COUNT(*) FROM cliente)      AS cliente,
-       (SELECT COUNT(*) FROM maestro)      AS maestro,
-       (SELECT COUNT(*) FROM solicitud)    AS solicitud,
-       (SELECT COUNT(*) FROM calificacion) AS calificacion`;
-
-// Demuestra que la conexión a la BD funciona: versión del motor, latencia
-// de una consulta real y cuántas filas tiene cada tabla.
+// Demuestra que la conexión a la base funciona: versión del motor, latencia
+// de una consulta real y cuántos documentos hay de cada tipo.
 export async function estado(req, res) {
+  const { db } = await mongo();
   const medir = cronometro();
-  const [{ version, base_de_datos, ...tablas }, mongo] = await Promise.all([
-    query(SQL_ESTADO).then((r) => r.rows[0]),
-    // MongoDB es opcional: si falla, la salud lo informa pero no se cae.
-    env.mongodbUri ? Nosql.estado().catch((error) => ({ conectada: false, error: error.message })) : { conectada: false, error: 'Sin MONGODB_URI' },
+  await db.command({ ping: 1 });
+  const latenciaMs = medir();
+  const usuarios = db.collection('usuarios');
+  const [info, clientes, maestros, administradores, oficios, solicitudes] = await Promise.all([
+    db.command({ buildInfo: 1 }),
+    usuarios.countDocuments({ roles: 'cliente' }),
+    usuarios.countDocuments({ roles: 'maestro' }),
+    usuarios.countDocuments({ roles: 'administrador' }),
+    db.collection('oficios').estimatedDocumentCount(),
+    db.collection('solicitudes').estimatedDocumentCount(),
   ]);
   res.set('Cache-Control', 'no-store').json(ok({
     api: 'en línea',
     bd: {
       conectada: true,
-      motor: `PostgreSQL ${version.split(' ')[0]}`,
-      baseDeDatos: base_de_datos,
-      latenciaMs: medir(),
+      motor: `MongoDB ${info.version}`,
+      alojamiento: /\.mongodb\.net/.test(env.mongodbUri) ? 'MongoDB Atlas' : 'MongoDB local',
+      baseDeDatos: db.databaseName,
+      latenciaMs,
     },
-    tablas,
-    mongo,
+    documentos: { clientes, maestros, administradores, oficios, solicitudes },
     hora: new Date().toISOString(),
   }));
 }

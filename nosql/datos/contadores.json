@@ -1,0 +1,14 @@
+[
+ {
+  "_id": "solicitudes",
+  "seq": {
+   "$numberInt": "117"
+  }
+ },
+ {
+  "_id": "oficios",
+  "seq": {
+   "$numberInt": "10"
+  }
+ }
+]

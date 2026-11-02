@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { parseEnv } from 'node:util';
 
@@ -17,15 +18,24 @@ function requerida(nombre) {
   return valor;
 }
 
+const produccion = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+
+// Secreto con que se firman los tokens de sesión. En producción es obligatorio;
+// en desarrollo, si falta, se genera uno al arrancar (las sesiones duran hasta reiniciar).
+function secretoDeSesion() {
+  if (process.env.SESION_SECRETO) return process.env.SESION_SECRETO;
+  if (produccion) requerida('SESION_SECRETO');
+  return randomBytes(32).toString('hex');
+}
+
 export const env = {
-  databaseUrl: requerida('DATABASE_URL'),
+  mongodbUri: requerida('MONGODB_URI'),
+  mongodbDb: process.env.MONGODB_DB || 'plumb',
+  sesionSecreto: secretoDeSesion(),
   port: Number(process.env.PORT) || 3000,
   corsOrigins: (process.env.CORS_ORIGINS || 'http://localhost:5173')
     .split(',')
     .map((origen) => origen.trim())
     .filter(Boolean),
-  // MongoDB es opcional: sin URI la API funciona igual y /nosql responde 503.
-  mongodbUri: process.env.MONGODB_URI || null,
-  mongodbDb: process.env.MONGODB_DB || 'plumb',
-  produccion: process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL),
+  produccion,
 };

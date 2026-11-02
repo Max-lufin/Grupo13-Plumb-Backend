@@ -1,9 +1,10 @@
 import { Maestro } from '../models/maestro.model.js';
 import { esquemas, validar } from '../validators/esquemas.js';
-import { cronometro, noEncontrado, ok } from '../utils/http.js';
+import { tieneRol } from '../middlewares/sesion.js';
+import { ErrorHttp, cronometro, noEncontrado, ok } from '../utils/http.js';
 
 // Controladores: leen la petición, llaman al modelo y eligen la respuesta.
-// No contienen SQL ni reglas de negocio.
+// No contienen consultas ni reglas de negocio.
 
 export async function catalogo(req, res) {
   const filtros = validar(esquemas.filtrosCatalogo, req.query);
@@ -26,12 +27,14 @@ export async function detalle(req, res) {
   const rut = validar(esquemas.rut, req.params.rut);
   const maestro = await Maestro.buscar(rut);
   if (!maestro) throw noEncontrado(`No existe un maestro con RUT ${rut}.`);
-  maestro.resenas = await Maestro.resenas(rut);
   res.json(ok(maestro));
 }
 
 export async function bandeja(req, res) {
   const rut = validar(esquemas.rut, req.params.rut);
+  if (req.usuario.rut !== rut && !tieneRol(req, 'administrador')) {
+    throw new ErrorHttp(403, 'SIN_PERMISO', 'Solo puedes ver tu propia bandeja.');
+  }
   const { estado = 'Pendiente' } = validar(esquemas.filtrosSolicitudes, { estado: req.query.estado });
   const medir = cronometro();
   const solicitudes = await Maestro.bandeja(rut, estado);

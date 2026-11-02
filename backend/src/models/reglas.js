@@ -1,4 +1,4 @@
-// Reglas del dominio que no dependen de una tabla en particular.
+// Reglas del dominio y conversiones que comparten los modelos.
 
 export function hoyISO() {
   // Fecha local de Chile, no la del servidor (Vercel corre en UTC).
@@ -19,3 +19,9 @@ export const TRANSICIONES = {
   Finalizada: [],
   Cancelada: [],
 };
+
+// Las fechas sin hora ('AAAA-MM-DD') se guardan como fecha UTC a medianoche.
+export const aFecha = (iso) => new Date(`${iso}T00:00:00Z`);
+export const aDia = (fecha) => (fecha ? fecha.toISOString().slice(0, 10) : null);
+
+export const primerNombre = (nombre) => nombre.split(' ')[0];
