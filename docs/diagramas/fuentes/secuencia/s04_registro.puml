@@ -1,0 +1,34 @@
+@startuml secuencia_04_registro
+!include ../estilo.iuml
+title Registro de cliente (CU-05)
+actor Visitante as U
+participant "Frontend\nRegistro.jsx" as F
+participant "API Express\nclientes.controller" as A
+participant "Modelo\nCliente.crear()" as M
+database "MongoDB\nusuarios" as BD
+
+U -> F : Completa RUT, nombre, correo, fecha\nde nacimiento y contraseña
+F -> A : POST /api/v1/clientes
+A -> A : Zod: formato de RUT, correo,\ncontraseña de 8+ caracteres
+alt datos con formato inválido
+  A --> F : 400 VALIDACION con detalles por campo
+else menor de 18 años
+  A -> M : crear(datos)
+  M --> A : 422 REGLA_DE_NEGOCIO
+  A --> F : 422 "Debe tener al menos 18 años"
+else datos correctos
+  A -> M : crear(datos)
+  M -> M : contraseña → hash scrypt con sal
+  M -> BD : usuarios.insertOne({ _id: rut, roles: ["cliente"], contrasena: "scrypt$..." })
+  alt RUT o correo repetido
+    BD --> M : E11000 duplicate key
+    A --> F : 409 CONFLICTO "Ese correo ya está registrado."
+  else insertado
+    BD --> M : ok (validador $jsonSchema + $expr de edad)
+    A --> F : 201 { data: { rut_cliente, nombre } }
+    F -> A : POST /api/v1/sesiones (inicio automático)
+    A --> F : 201 { token }
+    F --> U : Cuenta creada y sesión iniciada
+  end
+end
+@enduml

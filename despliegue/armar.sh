@@ -4,7 +4,7 @@
 # misma dirección, así el navegador llama a /api/v1 sin problemas de CORS.
 #
 # Uso:  ./armar.sh [carpeta_salida]
-# Luego: cd <carpeta_salida> && npx vercel deploy --prod -e DATABASE_URL="postgresql://..."
+# Luego: ./publicar.sh (carga MONGODB_URI y SESION_SECRETO en Vercel)
 set -euo pipefail
 
 RAIZ="$(cd "$(dirname "$0")/.." && pwd)"

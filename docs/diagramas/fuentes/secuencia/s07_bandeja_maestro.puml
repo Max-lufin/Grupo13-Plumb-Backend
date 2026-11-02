@@ -1,0 +1,36 @@
+@startuml secuencia_07_bandeja_maestro
+!include ../estilo.iuml
+title Mis solicitudes (maestro): bandeja, aceptar, rechazar y finalizar (CU-02)
+actor Maestro as U
+participant "Frontend\nMisSolicitudes.jsx" as F
+participant "API Express\nmaestros / solicitudes" as A
+participant "Modelo\nSolicitud.cambiarEstado()" as M
+database "MongoDB\nsolicitudes" as BD
+
+U -> F : Abre "Mis solicitudes"
+F -> A : GET /api/v1/maestros/<rut>/solicitudes?estado=Pendiente
+A -> BD : solicitudes.find({ maestro._id, estado: "Pendiente" })\n.sort({ fecha_solicitud: 1 })  índice ix_bandeja
+A --> F : 200 pendientes
+F -> A : GET /api/v1/solicitudes?maestro=<rut>&estado=Aceptada
+A --> F : 200 aceptadas
+F --> U : Bandeja: pendientes y trabajos en curso
+
+alt aceptar o rechazar una pendiente
+  U -> F : Aceptar / Rechazar
+  F -> A : PATCH /api/v1/solicitudes/42 { estado: "Aceptada" | "Rechazada" }
+else finalizar un trabajo aceptado
+  U -> F : Marcar como terminado
+  F -> A : PATCH /api/v1/solicitudes/42 { estado: "Finalizada" }
+end
+A -> M : cambiarEstado(42, nuevo, actor)
+alt el token no es del maestro de la solicitud
+  M --> A : 403 SIN_PERMISO
+else transición inválida (p. ej. Rechazada → Finalizada)
+  M --> A : 422 REGLA_DE_NEGOCIO
+else
+  M -> BD : updateOne({ folio: 42, estado: <actual> }, { $set: { estado: nuevo } })
+  M --> A : { estado: nuevo }
+end
+A --> F : 200 / 403 / 422
+F --> U : Actualiza la bandeja; al aceptar,\nel cliente ve el teléfono del maestro
+@enduml

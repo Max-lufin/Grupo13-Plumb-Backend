@@ -1,0 +1,89 @@
+[
+  {
+    "_id": "12787682-7",
+    "nombre": "Luis Muñoz Tapia",
+    "email": "luis.munoz@ejemplo.cl",
+    "telefono": "+56938739690",
+    "fecha_nacimiento": {
+      "$date": "1980-04-02T00:00:00Z"
+    },
+    "contrasena": "scrypt$<sal>$<hash>",
+    "roles": [
+      "maestro"
+    ],
+    "fecha_registro": {
+      "$date": "2026-06-10T21:33:00Z"
+    },
+    "maestro": {
+      "oficio": {
+        "_id": 1,
+        "nombre": "Gasfíter"
+      },
+      "region": {
+        "numero": 6,
+        "codigo": "V",
+        "nombre": "Valparaíso"
+      },
+      "tarifa_hora": 16000,
+      "experiencia_anios": 4,
+      "disponible": true,
+      "descripcion": "Más de una década instalando grifería y artefactos sanitarios. Presupuesto sin costo.",
+      "reputacion": {
+        "promedio": 4,
+        "total": 3,
+        "suma": 12
+      },
+      "resenas_recientes": [
+        {
+          "solicitud_id": {
+            "$oid": "6aa478000000000000000056"
+          },
+          "puntuacion": 3,
+          "comentario": "Correcto, nada especial. Costó coordinar el horario.",
+          "cliente": "Cristóbal",
+          "fecha": {
+            "$date": "2026-09-12T21:41:00Z"
+          }
+        },
+        {
+          "solicitud_id": {
+            "$oid": "6a95d3680000000000000049"
+          },
+          "puntuacion": 4,
+          "comentario": null,
+          "cliente": "Cristóbal",
+          "fecha": {
+            "$date": "2026-09-10T22:52:00Z"
+          }
+        },
+        {
+          "solicitud_id": {
+            "$oid": "6a497c0c0000000000000012"
+          },
+          "puntuacion": 5,
+          "comentario": "Súper amable, trajo todos los materiales.",
+          "cliente": "Catalina",
+          "fecha": {
+            "$date": "2026-07-10T22:05:00Z"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "_id": "12588772-4",
+    "nombre": "María González Rojas",
+    "email": "maria.gonzalez@ejemplo.cl",
+    "telefono": null,
+    "fecha_nacimiento": {
+      "$date": "1980-01-14T00:00:00Z"
+    },
+    "contrasena": "scrypt$<sal>$<hash>",
+    "roles": [
+      "cliente"
+    ],
+    "fecha_registro": {
+      "$date": "2026-05-12T13:12:00Z"
+    }
+  }
+]

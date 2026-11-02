@@ -1,0 +1,25 @@
+@startuml secuencia_12_nosql
+!include ../estilo.iuml
+title Modelo NoSQL: traspaso, copias y colecciones
+actor Visitante as U
+participant "Frontend\nNosql.jsx" as F
+participant "API Express\nnosql.controller" as A
+participant "Modelo\nNosql" as M
+database "MongoDB" as BD
+
+U -> F : Abre /nosql
+F -> A : GET /api/v1/nosql
+A -> M : estado()
+par
+  M -> BD : listCollections (validadores $jsonSchema)
+else
+  M -> BD : indexes() de cada colección
+else
+  M -> BD : countDocuments() de cada colección
+else
+  M -> BD : findOne de ejemplo (contraseña oculta)
+end
+M --> A : traspaso tabla → colección, copias a mantener,\ncolecciones con índices, validador y ejemplo
+A --> F : 200 { data }
+F --> U : Tablas del traspaso y de copias,\ny un documento real por colección
+@enduml

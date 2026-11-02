@@ -1,0 +1,32 @@
+@startuml secuencia_02_catalogo
+!include ../estilo.iuml
+title Catálogo: consulta con filtros (CU-01)
+actor Visitante as U
+participant "Frontend\nCatalogo.jsx" as F
+participant "API Express\nmaestros.controller" as A
+participant "Validador Zod\nfiltrosCatalogo" as V
+participant "Modelo\nMaestro.catalogo()" as M
+database "MongoDB\nusuarios" as BD
+
+U -> F : Elige región y oficio (obligatorios)\ny, si quiere, tarifa, nota, disponibilidad y experiencia
+F -> A : GET /api/v1/catalogo?region=6&oficio=1\n&tarifaMax=25000&calificacionMin=4
+A -> V : validar(req.query)
+alt falta región u oficio
+  V --> A : ErrorHttp 400 VALIDACION
+  A --> F : 400 { ok: false, error: { codigo, mensaje, detalles } }
+  F --> U : Marca los filtros obligatorios que faltan
+else filtros válidos
+  V --> A : filtros tipados
+  A -> M : catalogo(filtros)
+  M -> BD : usuarios.find({ maestro.region.numero: 6,\n maestro.oficio._id: 1, maestro.tarifa_hora: { $lte },\n maestro.reputacion.promedio: { $gte } })\n.sort({ promedio: -1, tarifa_hora: 1 })  índice ix_catalogo
+  BD --> M : documentos del perfil embebido
+  M --> A : fichas de maestros
+  alt sin resultados
+    A --> F : 200 { data: [] }
+    F --> U : "Ningún maestro cumple los filtros"\ny sugiere quitar opcionales
+  else hay maestros
+    A --> F : 200 { data: [...], meta: { consulta: 3 } }
+    F --> U : Tarjetas con nota, tarifa,\nexperiencia y disponibilidad
+  end
+end
+@enduml

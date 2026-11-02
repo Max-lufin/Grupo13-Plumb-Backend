@@ -1,0 +1,28 @@
+@startuml secuencia_01_inicio
+!include ../estilo.iuml
+title Inicio: ranking de maestros y búsqueda rápida
+actor Visitante as U
+participant "Frontend\nInicio.jsx" as F
+participant "API Express\nmaestros / oficios / regiones" as A
+database "MongoDB\nusuarios, oficios" as BD
+
+U -> F : Abre la página de inicio
+par carga en paralelo
+  F -> A : GET /api/v1/ranking?limite=6
+  A -> BD : usuarios.find({ maestro.reputacion.total: { $gte: 2 } })\n.sort(promedio -1, total -1, nombre 1).limit(6)\níndice ix_ranking
+  BD --> A : 6 documentos
+  A --> F : 200 { ok: true, data: [maestros] }
+else
+  F -> A : GET /api/v1/oficios
+  A -> BD : oficios.aggregate([$lookup usuarios, $project, $sort])
+  BD --> A : oficios con total_maestros
+  A --> F : 200 { data: [oficios] }
+else
+  F -> A : GET /api/v1/regiones
+  A --> F : 200 { data: [16 regiones] }
+  note right of A : Catálogo constante en la API:\nno consulta la base de datos
+end
+F --> U : Muestra el ranking y el buscador\n(región y oficio)
+U -> F : Elige región y oficio y pulsa Buscar
+F --> U : Navega a /catalogo?region=..&oficio=..
+@enduml

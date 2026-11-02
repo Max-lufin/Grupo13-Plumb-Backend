@@ -1,0 +1,43 @@
+@startuml secuencia_06_historial_cliente
+!include ../estilo.iuml
+title Mis solicitudes (cliente): historial, cancelar y calificar (CU-10, CU-06)
+actor Cliente as U
+participant "Frontend\nMisSolicitudes.jsx" as F
+participant "API Express\nsolicitudes.controller" as A
+participant "Modelos\nSolicitud / Calificacion" as M
+database "MongoDB\nsolicitudes, usuarios" as BD
+
+U -> F : Abre "Mis solicitudes"
+F -> A : GET /api/v1/solicitudes?cliente=<rut>  (Bearer)
+A -> A : ¿el rut del filtro es el del token?\nsi no: 403 SIN_PERMISO
+A -> M : listar({ cliente })
+M -> BD : aggregate([$match cliente._id, $sort, $limit 200,\n $lookup usuarios → telefono, $set telefono_maestro\n solo si Aceptada o Finalizada])  índice ix_historial
+A --> F : 200 { data: [solicitudes] }
+F --> U : Historial con estado y teléfono del maestro
+
+opt cancelar una solicitud Pendiente o Aceptada
+  U -> F : Cancelar
+  F -> A : PATCH /api/v1/solicitudes/42 { estado: "Cancelada" }
+  A -> M : cambiarEstado(42, "Cancelada", actor)
+  M -> BD : updateOne({ folio: 42, estado: <actual> }, { $set: { estado } })
+  alt transición no permitida
+    A --> F : 422 REGLA_DE_NEGOCIO
+  else cambió entre medio
+    A --> F : 409 CONFLICTO
+  else
+    A --> F : 200 { estado: "Cancelada" }
+  end
+end
+
+opt calificar un trabajo Finalizado
+  U -> F : Elige de 1 a 5 estrellas y comenta
+  F -> A : POST /api/v1/solicitudes/42/calificacion
+  A -> M : Calificacion.crear(42, nota, actor)
+  group transacción
+    M -> BD : solicitudes.updateOne({ folio: 42, calificacion: null },\n { $set: { calificacion } })
+    M -> BD : usuarios.updateOne({ _id: maestro }, [ total+1, suma+nota,\n resenas_recientes: $slice([nueva, ...], 5), promedio ])
+  end
+  A --> F : 201 calificación guardada
+  F --> U : Muestra la nota en la tarjeta
+end
+@enduml

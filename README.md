@@ -4,13 +4,14 @@ Marketplace que conecta a clientes con maestros de oficios (gasfíter, electrici
 
 Vicente Fernández, Maximiliano Sepúlveda y Vicente Cid.
 
+Aplicación publicada: <https://grupo13-plumb.vercel.app>
+
 | Carpeta | Contenido |
 |---|---|
-| [`bd/`](bd/) | Modelo relacional en PostgreSQL 17: esquema, datos y las 13 consultas de la Etapa I |
-| [`nosql/`](nosql/) | Etapa II: el modelo en MongoDB (validadores, índices, documentos de ejemplo y consultas MQL) |
-| [`backend/`](backend/) | API REST en Express 5 con PostgreSQL y MongoDB, y sus pruebas |
+| [`nosql/`](nosql/) | Modelo de documentos en MongoDB: colecciones, validadores, índices, datos y ejemplos |
+| [`backend/`](backend/) | API REST en Express 5 sobre MongoDB, con inicio de sesión y sus pruebas |
 | [`frontend/`](frontend/) | Aplicación en React 19 con Vite |
-| [`docs/`](docs/) | Referencia de la API, diagramas y mockups |
+| [`docs/`](docs/) | Referencia de la API, diagramas (casos de uso, secuencia, modelos) y mockups |
 | [`despliegue/`](despliegue/) | Scripts para publicar en Vercel |
 
 ## Probarlo en local
@@ -19,22 +20,22 @@ Requisitos: Node.js 20 o superior y Docker.
 
 ```bash
 cd backend
-docker compose up -d                 # PostgreSQL 17 en el puerto 54329
+docker compose up -d                 # MongoDB 8 como replica set, puerto 27019
 cp .env.example .env
-npm install && npm run db:init       # tablas y datos
+npm install && npm run db:init       # colecciones, validadores, índices y datos
 npm run dev                          # API en http://localhost:3000/api/v1
 
 cd ../frontend
 npm install && npm run dev           # aplicación en http://localhost:5173
 ```
 
-MongoDB es opcional para todo lo anterior. Para el modelo NoSQL, ver [`nosql/README.md`](nosql/README.md).
+Cuentas de prueba (contraseña `plumb2026`): `maria.gonzalez@ejemplo.cl` (cliente), `pedro.gonzalez@ejemplo.cl` (maestro) y `admin@plumb.cl` (administrador).
 
 ## Etapas
 
 - **Etapa I:** modelo relacional, 13 consultas SQL, API y frontend con dos mantenedores y los casos de uso Consulta y Transacción.
-- **Etapa II:** traspaso a MongoDB guiado por las consultas principales, documentos de ejemplo, comparación en vivo entre motores (pantalla **Modelo NoSQL**) y mockups de diseño y navegación en [`docs/mockups/`](docs/mockups/).
+- **Etapa II:** la persistencia pasa por completo a MongoDB (modelo de documentos guiado por las consultas), las 13 consultas se convierten a MQL y se ejecutan desde la pantalla **Consultas**, y se agregan el inicio de sesión con roles, el historial, la calificación y la moderación.
 
 ## Flujo de trabajo
 
-GitHub Flow: cada etapa se desarrolla en su rama (`etapa-2`) y entra a `main` con un pull request revisado por el grupo. Las credenciales viven solo en `.env` locales y en las variables de entorno de Vercel; ningún archivo con claves entra al repositorio.
+GitHub Flow: cada cambio se desarrolla en una rama propia, se integra a `etapa-2` con un merge y la etapa entra a `main` con un pull request revisado por el grupo. Las credenciales viven solo en `.env` locales y en las variables de entorno de Vercel; ningún archivo con claves entra al repositorio.

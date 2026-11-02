@@ -22,6 +22,13 @@ AZUL_CLARO = '#DFE5FB'
 FUENTE = "Archivo, 'Archivo Variable', sans-serif"
 MONO = "'IBM Plex Mono', monospace"
 
+# PLUMB_TEMA=formal: misma geometría en escala de grises y con Carlito, para el informe.
+if os.environ.get('PLUMB_TEMA') == 'formal':
+    TINTA, TINTA_SUAVE, CANARIO, CANARIO_CLARO = '#1A1A1A', '#4D4D4D', '#D9D9D9', '#F2F2F2'
+    ROSA_CLARO, FOLIO, PAUTA, MESA = '#F2F2F2', '#1A1A1A', '#BFBFBF', '#F5F5F5'
+    VERDE, VERDE_CLARO, AZUL_CLARO = '#404040', '#EDEDED', '#E6E6E6'
+    FUENTE = "Carlito, Calibri, sans-serif"
+
 # Medición de texto con las métricas reales de Archivo (si está instalada).
 _metricas = {}
 
@@ -124,9 +131,9 @@ def etiqueta_sobre_linea(l, x, y, texto, tam=14, color=TINTA_SUAVE, peso=600):
 # ---------------------------------------------------------------- Casos de uso
 
 def casos_de_uso():
-    l = Lienzo(1460, 980, 'Diagrama de casos de uso de Plumb')
+    l = Lienzo(1460, 1050, 'Diagrama de casos de uso de Plumb')
     # Límite del sistema
-    l.add('fondo', f'<rect x="255" y="30" width="985" height="915" rx="12" fill="#FFFFFF" stroke="{TINTA}" stroke-width="2"/>')
+    l.add('fondo', f'<rect x="255" y="30" width="985" height="1005" rx="12" fill="#FFFFFF" stroke="{TINTA}" stroke-width="2"/>')
     l.texto(280, 62, 'Plumb, marketplace de oficios', 21, 800, TINTA, 'start')
 
     def actor(x, y, nombre):
@@ -162,62 +169,68 @@ def casos_de_uso():
         for i, t in enumerate(texto.split('\n')):
             etiqueta_sobre_linea(l, (x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy + i * 18, t, 13)
 
-    caso('CU01', 485, 145, 'CU-01', ['Consultar catálogo', 'con filtros'])
-    caso('CU07', 485, 265, 'CU-07', ['Ver maestros', 'destacados'])
-    caso('CU05', 485, 385, 'CU-05', ['Registrar cuenta', 'de cliente'])
-    caso('VAL', 815, 385, None, ['Validar mayoría', 'de edad'], rx=110, ry=40)
-    caso('CU02', 815, 575, 'CU-02', ['Gestionar solicitud', 'de servicio'])
-    caso('CU06', 485, 735, 'CU-06', ['Calificar servicio'])
-    caso('CHAT', 815, 815, None, ['Coordinar por chat'], futuro=True, rx=112, ry=38)
-    caso('CU09', 1095, 405, 'CU-09', ['Iniciar sesión'], futuro=True, rx=112, ry=44)
-    caso('CU08', 1095, 640, 'CU-08', ['Moderar solicitudes', 'y reseñas'])
-    caso('CU03', 1095, 755, 'CU-03', ['Gestionar maestros', '(mantenedor 1)'])
-    caso('CU04', 1095, 870, 'CU-04', ['Gestionar oficios', '(mantenedor 2)'])
+    caso('CU01', 470, 125, 'CU-01', ['Consultar catálogo', 'con filtros'])
+    caso('CU07', 470, 240, 'CU-07', ['Ver maestros', 'destacados'])
+    caso('CU05', 470, 355, 'CU-05', ['Registrar cuenta', 'de cliente'])
+    caso('CU09', 470, 470, 'CU-09', ['Iniciar sesión'], rx=112, ry=44)
+    caso('VAL', 800, 355, None, ['Validar mayoría', 'de edad'], rx=110, ry=40)
+    caso('CU02', 800, 640, 'CU-02', ['Gestionar solicitud', 'de servicio'])
+    caso('CU10', 470, 765, 'CU-10', ['Consultar historial', 'de solicitudes'])
+    caso('CU06', 470, 885, 'CU-06', ['Calificar servicio'])
+    caso('CU08', 1095, 700, 'CU-08', ['Moderar solicitudes', 'y reseñas'])
+    caso('CU03', 1095, 815, 'CU-03', ['Mantener maestros', '(mantenedor 1)'])
+    caso('CU04', 1095, 930, 'CU-04', ['Mantener oficios', '(mantenedor 2)'])
 
-    actor(115, 260, 'Visitante')
-    actor(115, 610, 'Cliente')
-    actor(1355, 545, 'Maestro')
-    actor(1355, 755, 'Administrador')
+    actor(115, 270, 'Visitante')
+    actor(115, 700, 'Cliente')
+    actor(1355, 520, 'Maestro')
+    actor(1355, 815, 'Administrador')
 
     # Generalización: un Cliente es un Visitante registrado
-    linea(l, 115, 558, 115, 345, grosor=1.8, marcador='generalizacion')
+    linea(l, 115, 648, 115, 355, grosor=1.8, marcador='generalizacion')
 
-    for c in ('CU01', 'CU07', 'CU05'):
-        asociar(148, 245, c)
-    asociar(148, 600, 'CU02')
-    asociar(148, 612, 'CU06')
-    asociar(1322, 540, 'CU02')
+    for c in ('CU01', 'CU07', 'CU05', 'CU09'):
+        asociar(148, 255, c)
+    for c in ('CU02', 'CU10', 'CU06'):
+        asociar(148, 692, c)
+    asociar(1322, 515, 'CU02')
     for c in ('CU08', 'CU03', 'CU04'):
-        asociar(1322, 752, c)
+        asociar(1322, 812, c)
 
     dependencia('CU05', 'VAL', '«include»', dy=-14)
-    dependencia('CU02', 'CU09', '«include»', dx=8, dy=-14)
-    dependencia('CU06', 'CU02', '«extend»\n(solicitud finalizada)', dx=-40, dy=-6)
-    dependencia('CHAT', 'CU02', '«extend»', dx=40)
+    dependencia('CU06', 'CU02', '«extend»\n(solicitud finalizada)', dx=36, dy=12)
 
-    l.add('formas', f'<ellipse cx="300" cy="912" rx="22" ry="11" fill="#FFFFFF" stroke="{TINTA}" stroke-width="1.6" stroke-dasharray="6 4"/>')
-    l.texto(332, 912, 'Borde punteado: caso de uso de la solución general que se implementa en la Etapa II.', 14, 500, TINTA_SUAVE, 'start')
+    l.add('formas', f'<rect x="275" y="985" width="945" height="40" rx="6" fill="{MESA}"/>')
+    l.texto(295, 1005, 'Cliente, maestro y administrador entran con CU-09: los casos de uso de cada uno requieren sesión iniciada.', 15, 600, TINTA, 'start')
     return l
 
 
 # ---------------------------------------------------------------- Modelo ER (Chen)
 
 def modelo_er():
-    l = Lienzo(2000, 1080, 'Modelo entidad-relación de Plumb (notación de Chen)')
+    l = Lienzo(2000, 1290, 'Modelo entidad-relación de Plumb (notación de Chen)')
     ent = {}
     rel = {}
     EW, EH = 230, 64
     RW, RH = 190, 92
 
-    def entidad(clave, x, y, nombre):
+    def entidad(clave, x, y, nombre, debil=False):
         ent[clave] = (x, y)
         l.add('formas', f'<rect x="{x - EW / 2}" y="{y - EH / 2}" width="{EW}" height="{EH}" fill="{TINTA}" stroke="{TINTA}" stroke-width="2"/>')
+        if debil:
+            # Entidad débil: doble borde
+            l.add('formas', f'<rect x="{x - EW / 2 + 6}" y="{y - EH / 2 + 6}" width="{EW - 12}" height="{EH - 12}" fill="none" stroke="#FFFFFF" stroke-width="2"/>')
         l.texto(x, y + 1, nombre, 21, 800, '#FFFFFF')
 
-    def relacion(clave, x, y, nombre):
+    def relacion(clave, x, y, nombre, identificadora=False):
         rel[clave] = (x, y)
         pts = f'{x},{y - RH / 2} {x + RW / 2},{y} {x},{y + RH / 2} {x - RW / 2},{y}'
         l.add('formas', f'<polygon points="{pts}" fill="{CANARIO}" stroke="{TINTA}" stroke-width="2"/>')
+        if identificadora:
+            # Relación identificadora: doble rombo
+            k = 0.8
+            pts2 = f'{x},{y - RH / 2 * k} {x + RW / 2 * k},{y} {x},{y + RH / 2 * k} {x - RW / 2 * k},{y}'
+            l.add('formas', f'<polygon points="{pts2}" fill="none" stroke="{TINTA}" stroke-width="1.6"/>')
         l.texto(x, y + 1, nombre, 17, 700)
 
     def unir(e, r, card_e, card_r=None, total=False):
@@ -263,13 +276,14 @@ def modelo_er():
     entidad('REGION', 1670, 470, 'REGION')
     entidad('SOLICITUD', 1000, 800, 'SOLICITUD')
     entidad('CLIENTE', 330, 800, 'CLIENTE')
-    entidad('CALIFICACION', 1670, 800, 'CALIFICACION')
+    entidad('CALIFICACION', 1670, 800, 'CALIFICACION', debil=True)
+    entidad('ADMINISTRADOR', 1000, 1100, 'ADMINISTRADOR')
 
     relacion('CLASIFICA', 665, 470, 'Clasifica')
     relacion('OPERA', 1335, 470, 'Opera en')
     relacion('RECIBE', 1000, 635, 'Recibe')
     relacion('EMITE', 665, 800, 'Emite')
-    relacion('EVALUA', 1335, 800, 'Evalúa')
+    relacion('EVALUA', 1335, 800, 'Evalúa', identificadora=True)
 
     unir('OFICIO', 'CLASIFICA', '1')
     unir('MAESTRO', 'CLASIFICA', 'N', total=True)
@@ -284,18 +298,18 @@ def modelo_er():
 
     # MAESTRO: dos filas escalonadas; cada línea llega a su propio punto del borde
     # superior, así las líneas de la fila de arriba pasan entre los óvalos de abajo.
-    fila1 = [('rut_maestro', True, False), ('email', False, False), ('fecha_nacimiento', False, False),
+    fila1 = [('rut_maestro', True, False), ('email', False, False), ('contrasena_hash', False, False), ('fecha_nacimiento', False, False),
              ('tarifa_hora', False, False), ('disponible', False, False), ('fecha_registro', False, False)]
     fila2 = [('nombre', False, False), ('telefono', False, False), ('experiencia_anios', False, False),
-             ('descripcion', False, False), ('promedio', False, True)]
+             ('descripcion', False, False), ('promedio', False, True), ('total_resenas', False, True)]
     y1, y2, borde = 95, 255, 470 - EH / 2
-    xs1 = [1000 + (i - 2.5) * 235 for i in range(6)]
+    xs1 = [1000 + (i - 3) * 212 for i in range(7)]
     ancla = lambda x: (1000 + (x - 1000) * 0.17, borde)
     cruces = []
     for x in xs1:
         axx, ayy = ancla(x)
         cruces.append(x + (axx - x) * (y2 - y1) / (ayy - y1))
-    xs2 = [(cruces[i] + cruces[i + 1]) / 2 for i in range(5)]
+    xs2 = [(cruces[i] + cruces[i + 1]) / 2 for i in range(6)]
     for (nombre, pk, der), x in zip(fila1, xs1):
         atributo('MAESTRO', x, y1, nombre, pk=pk, anclaje=ancla(x))
     for (nombre, pk, der), x in zip(fila2, xs2):
@@ -310,12 +324,13 @@ def modelo_er():
     atributo('REGION', 1860, 580, 'nombre')
 
     # CLIENTE: abanico a la izquierda y abajo
-    atributo('CLIENTE', 130, 690, 'rut_cliente', pk=True)
+    atributo('CLIENTE', 105, 690, 'rut_cliente', pk=True)
+    atributo('CLIENTE', 275, 672, 'contrasena_hash')
+    atributo('CLIENTE', 452, 690, 'fecha_registro')
     atributo('CLIENTE', 100, 790, 'nombre')
     atributo('CLIENTE', 110, 890, 'email')
     atributo('CLIENTE', 245, 960, 'telefono')
     atributo('CLIENTE', 405, 965, 'fecha_nacimiento')
-    atributo('CLIENTE', 345, 690, 'fecha_registro')
 
     # SOLICITUD: fila inferior
     sol = [('id_solicitud', True), ('descripcion', False), ('direccion', False), ('fecha_servicio', False),
@@ -326,13 +341,20 @@ def modelo_er():
                  anclaje=(1000 + (x - 1000) * 0.22, 800 + EH / 2))
 
     # CALIFICACION: abanico a la derecha
-    atributo('CALIFICACION', 1870, 690, 'id_calificacion', pk=True)
     atributo('CALIFICACION', 1900, 800, 'puntuacion')
     atributo('CALIFICACION', 1870, 905, 'comentario')
     atributo('CALIFICACION', 1680, 950, 'fecha')
 
+    # ADMINISTRADOR: sin claves foráneas; administra y modera desde la aplicación
+    atributo('ADMINISTRADOR', 690, 1055, 'rut_administrador', pk=True)
+    atributo('ADMINISTRADOR', 660, 1140, 'nombre')
+    atributo('ADMINISTRADOR', 1300, 1055, 'email')
+    atributo('ADMINISTRADOR', 1340, 1140, 'contrasena_hash')
+    atributo('ADMINISTRADOR', 880, 1190, 'fecha_nacimiento')
+    atributo('ADMINISTRADOR', 1120, 1190, 'fecha_registro')
+
     # Leyenda (franja inferior)
-    ly = 1045
+    ly = 1260
     l.add('formas', f'<rect x="30" y="{ly - 13}" width="44" height="26" fill="{TINTA}"/>')
     l.texto(84, ly, 'Entidad', 14, 600, TINTA, 'start')
     l.add('formas', f'<polygon points="190,{ly - 15} 214,{ly} 190,{ly + 15} 166,{ly}" fill="{CANARIO}" stroke="{TINTA}" stroke-width="1.5"/>')
@@ -345,6 +367,9 @@ def modelo_er():
     linea(l, 1050, ly + 3, 1100, ly + 3, grosor=1.5)
     l.texto(1110, ly, 'Participación total (la FK es NOT NULL)', 14, 600, TINTA, 'start')
     l.texto(1430, ly, '1, N: cardinalidad', 14, 800, FOLIO, 'start')
+    # Entidad débil y relación identificadora
+    l.add('formas', f'<rect x="1600" y="{ly - 13}" width="44" height="26" fill="{TINTA}"/><rect x="1604" y="{ly - 9}" width="36" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>')
+    l.texto(1654, ly, 'Entidad débil (doble borde)', 14, 600, TINTA, 'start')
     return l
 
 
@@ -354,24 +379,29 @@ TABLAS = {
     'REGION': [('PK', 'id_region', 'SMALLINT', True), ('UQ', 'codigo', 'VARCHAR(4)', True), ('UQ', 'nombre', 'VARCHAR(60)', True)],
     'OFICIO': [('PK', 'id_oficio', 'INTEGER IDENTITY', True), ('UQ', 'nombre', 'VARCHAR(60)', True), ('', 'descripcion', 'VARCHAR(255)', False)],
     'MAESTRO': [('PK', 'rut_maestro', 'VARCHAR(10)', True), ('', 'nombre', 'VARCHAR(120)', True), ('UQ', 'email', 'VARCHAR(120)', True),
+                ('', 'contrasena_hash', 'VARCHAR(120)', True),
                 ('', 'telefono', 'VARCHAR(15)', True), ('', 'fecha_nacimiento', 'DATE', True), ('FK', 'id_oficio', 'INTEGER', True),
                 ('FK', 'id_region', 'SMALLINT', True), ('', 'tarifa_hora', 'INTEGER', True), ('', 'experiencia_anios', 'SMALLINT', True),
                 ('', 'disponible', 'BOOLEAN', True), ('', 'descripcion', 'VARCHAR(500)', False), ('', 'fecha_registro', 'TIMESTAMPTZ', True)],
     'CLIENTE': [('PK', 'rut_cliente', 'VARCHAR(10)', True), ('', 'nombre', 'VARCHAR(120)', True), ('UQ', 'email', 'VARCHAR(120)', True),
+                ('', 'contrasena_hash', 'VARCHAR(120)', True),
                 ('', 'telefono', 'VARCHAR(15)', False), ('', 'fecha_nacimiento', 'DATE', True), ('', 'fecha_registro', 'TIMESTAMPTZ', True)],
     'SOLICITUD': [('PK', 'id_solicitud', 'INTEGER IDENTITY', True), ('FK', 'rut_cliente', 'VARCHAR(10)', True), ('FK', 'rut_maestro', 'VARCHAR(10)', True),
                   ('', 'descripcion', 'VARCHAR(1000)', True), ('', 'direccion', 'VARCHAR(200)', True), ('', 'fecha_servicio', 'DATE', True),
                   ('', 'estado', 'VARCHAR(12)', True), ('', 'fecha_solicitud', 'TIMESTAMPTZ', True)],
-    'CALIFICACION': [('PK', 'id_calificacion', 'INTEGER IDENTITY', True), ('FK, UQ', 'id_solicitud', 'INTEGER', True),
+    'CALIFICACION': [('PK, FK', 'id_solicitud', 'INTEGER', True),
                      ('', 'puntuacion', 'SMALLINT', True), ('', 'comentario', 'VARCHAR(500)', False), ('', 'fecha', 'TIMESTAMPTZ', True)],
+    'ADMINISTRADOR': [('PK', 'rut_administrador', 'VARCHAR(10)', True), ('', 'nombre', 'VARCHAR(120)', True),
+                      ('UQ', 'email', 'VARCHAR(120)', True), ('', 'contrasena_hash', 'VARCHAR(120)', True),
+                      ('', 'fecha_nacimiento', 'DATE', True), ('', 'fecha_registro', 'TIMESTAMPTZ', True)],
 }
 
 
 def modelo_relacional():
-    l = Lienzo(1640, 960, 'Modelo relacional de Plumb')
+    l = Lienzo(1640, 1100, 'Modelo relacional de Plumb')
     TW, HH, RH = 452, 46, 32
     pos = {'REGION': (40, 150), 'MAESTRO': (594, 40), 'OFICIO': (1148, 150),
-           'CLIENTE': (40, 560), 'SOLICITUD': (594, 560), 'CALIFICACION': (1148, 560)}
+           'CLIENTE': (40, 590), 'SOLICITUD': (594, 590), 'CALIFICACION': (1148, 590), 'ADMINISTRADOR': (1148, 800)}
     filas = {}
 
     for nombre, cols in TABLAS.items():
@@ -389,7 +419,7 @@ def modelo_relacional():
                 l.add('formas', f'<rect x="{x + 2}" y="{fy}" width="{TW - 4}" height="{RH}" fill="{CANARIO_CLARO}"/>')
             color_marca = FOLIO if 'FK' in marca else TINTA
             l.texto(x + 14, fy + RH / 2 + 1, marca, 12, 800, color_marca, 'start')
-            l.texto(x + 78, fy + RH / 2 + 1, col, 16, 700 if 'PK' in marca else 500, TINTA, 'start', subrayado='PK' in marca)
+            l.texto(x + 84, fy + RH / 2 + 1, col, 16, 700 if 'PK' in marca else 500, TINTA, 'start', subrayado='PK' in marca)
             l.texto(x + 262, fy + RH / 2 + 1, tipo, 13, 400, TINTA_SUAVE, 'start', familia=MONO)
             l.texto(x + TW - 14, fy + RH / 2 + 1, 'NN' if nn else 'NULL', 12, 700, TINTA if nn else TINTA_SUAVE, 'end')
 
@@ -462,7 +492,7 @@ def modelo_relacional():
     uno(kx, ky, 'derecha', opcional=True)
 
     # Leyenda
-    ly = 915
+    ly = 1065
     l.texto(40, ly, 'PK clave primaria   FK clave foránea   UQ valor único   NN NOT NULL', 15, 600, TINTA, 'start')
     lx = 800
     l.add('lineas', f'<path d="M{lx} {ly} H{lx + 60}" stroke="{TINTA}" stroke-width="1.8"/>')
@@ -482,7 +512,7 @@ def modelo_relacional():
 # ---------------------------------------------------------------- Arquitectura
 
 def arquitectura():
-    l = Lienzo(1640, 910, 'Arquitectura y despliegue de Plumb')
+    l = Lienzo(1640, 880, 'Arquitectura y despliegue de Plumb')
 
     def caja(x, y, w, h, titulo, subtitulo, relleno='#FFFFFF', borde=TINTA, color_titulo=TINTA):
         l.add('formas', f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{relleno}" stroke="{borde}" stroke-width="2"/>')
@@ -494,47 +524,40 @@ def arquitectura():
         l.add('fondo', f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{MESA}" stroke="{PAUTA}" stroke-width="2" stroke-dasharray="8 6"/>')
         l.texto(x + 18, y + 26, texto, 15, 700, TINTA_SUAVE, 'start')
 
-    # Zonas
     nube(330, 40, 860, 640, 'Vercel: un proyecto, misma dirección (HTTPS automático)')
-    nube(1230, 40, 380, 300, 'Neon (PostgreSQL gestionado)')
-    nube(1230, 380, 380, 300, 'MongoDB Atlas (Etapa II)')
+    nube(1230, 200, 380, 330, 'MongoDB Atlas')
 
     # Navegador
-    caja(30, 250, 260, 180, 'Navegador', 'Cliente, maestro o administrador', CANARIO_CLARO)
+    caja(30, 250, 260, 200, 'Navegador', 'Visitante, cliente, maestro o admin.', CANARIO_CLARO)
     l.texto(50, 330, 'React 19 corriendo en', 15, 500, TINTA, 'start')
     l.texto(50, 354, 'el equipo del usuario.', 15, 500, TINTA, 'start')
-    l.texto(50, 390, 'Nunca habla con la BD.', 15, 700, FOLIO, 'start')
+    l.texto(50, 386, 'Guarda el token de sesión;', 15, 500, TINTA, 'start')
+    l.texto(50, 418, 'nunca habla con la BD.', 15, 700, FOLIO, 'start')
 
     # Frontend
     caja(370, 90, 380, 190, 'Frontend', 'frontend/ (React 19 + Vite)')
-    for i, t in enumerate(['Archivos estáticos (dist/) en la CDN', 'Rutas: /, /catalogo, /maestros/:rut, /solicitudes,', '/admin, /consultas, /nosql',
+    for i, t in enumerate(['Archivos estáticos (dist/) en la CDN', 'Rutas: /, /catalogo, /maestros/:rut, /ingresar,', '/solicitudes, /admin, /consultas, /nosql',
                            'Llama a /api/v1 en la misma dirección']):
         l.texto(390, 178 + i * 24, t, 15, 500 if i < 3 else 700, TINTA, 'start', familia=FUENTE)
 
     # API
     caja(370, 320, 780, 330, 'API REST', 'backend/ (Node 22 + Express 5), función serverless en Washington (iad1)', TINTA, TINTA, '#FFFFFF')
-    capas = [('routes/', 'mapa de la API /api/v1'), ('controllers/', 'leen la petición y eligen la respuesta'),
-             ('validators/', 'forma de los datos → 400'), ('models/', 'SQL parametrizado, MQL y reglas → 422'),
-             ('middlewares/', 'errores de la BD → 409 / 422')]
+    capas = [('middlewares/', 'sesión (JWT), registro y errores → 401 / 403 / 409'), ('routes/', 'mapa de la API /api/v1 y permisos por rol'),
+             ('controllers/', 'leen la petición y eligen la respuesta'), ('validators/', 'forma de los datos (Zod) → 400'),
+             ('models/', 'consultas MQL, transacciones y reglas → 422')]
     for i, (c, d) in enumerate(capas):
         yy = 410 + i * 46
-        l.add('formas', f'<rect x="395" y="{yy - 18}" width="730" height="38" rx="4" fill="#2A3383"/>')
+        l.add('formas', f'<rect x="395" y="{yy - 18}" width="730" height="38" rx="4" fill="{"#2A3383" if TINTA == "#1C2470" else "#333333"}"/>')
         l.texto(412, yy + 1, c, 15, 700, CANARIO, 'start', familia=MONO)
         l.texto(580, yy + 1, d, 15, 500, '#FFFFFF', 'start')
-    l.texto(395, 640, 'Variables: DATABASE_URL, MONGODB_URI, CORS_ORIGINS', 14, 700, CANARIO, 'start')
+    l.texto(395, 640, 'Variables: MONGODB_URI, SESION_SECRETO, CORS_ORIGINS', 14, 700, CANARIO, 'start')
 
-    # BD
-    caja(1260, 80, 320, 236, 'PostgreSQL 17', 'AWS us-east-2 (Ohio), TLS', AZUL_CLARO)
-    for i, t in enumerate(['6 tablas + 1 vista', 'region, oficio, cliente, maestro,', 'solicitud, calificacion',
-                           'CHECK, UNIQUE, FK RESTRICT', 'y CASCADE']):
-        l.texto(1280, 160 + i * 26, t, 15, 700 if i in (0, 3) else 500, TINTA, 'start')
+    # Base de datos
+    caja(1260, 250, 320, 250, 'MongoDB 8.0', 'AWS us-east-1 (Virginia), clúster M0, TLS', VERDE_CLARO)
+    for i, t in enumerate(['3 colecciones + 1 técnica', 'usuarios, oficios, solicitudes,', 'contadores',
+                           '$jsonSchema, índices y', 'transacciones multi-documento']):
+        l.texto(1280, 330 + i * 26, t, 15, 700 if i in (0, 3) else 500, TINTA, 'start')
 
-    caja(1260, 420, 320, 236, 'MongoDB 8.0', 'AWS us-east-1 (Virginia), clúster M0, TLS', VERDE_CLARO)
-    for i, t in enumerate(['6 colecciones', 'maestros, solicitudes, clientes,', 'oficios, regiones, contadores',
-                           '$jsonSchema, 10 índices y', 'transacciones multi-documento']):
-        l.texto(1280, 500 + i * 26, t, 15, 700 if i in (0, 3) else 500, TINTA, 'start')
-
-    # Flujos
     def flecha(x1, y1, x2, y2, num, texto, dx=0, dy=-16, doble=False):
         linea(l, x1, y1, x2, y2, grosor=2.4, marcador='flecha-llena', inicio='flecha-llena' if doble else None)
         mx, my = (x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy
@@ -543,15 +566,13 @@ def arquitectura():
         etiqueta_sobre_linea(l, mx, my, texto, 14, TINTA, 600)
 
     flecha(290, 300, 370, 185, 1, 'Descarga la app', dx=-20, dy=-30)
-    flecha(290, 380, 370, 450, 2, 'JSON por HTTPS', dx=-10, dy=-30, doble=True)
-    flecha(1150, 400, 1260, 230, 3, 'SQL por TLS', dx=10, dy=-10, doble=True)
-    flecha(1150, 560, 1260, 560, 4, 'MQL por TLS', dx=0, dy=-24, doble=True)
+    flecha(290, 400, 370, 470, 2, 'JSON + token', dx=-10, dy=-30, doble=True)
+    flecha(1150, 420, 1260, 420, 3, 'MQL por TLS', dx=0, dy=-24, doble=True)
 
     # Desarrollo local
-    l.add('fondo', f'<rect x="30" y="720" width="1580" height="160" rx="10" fill="#FFFFFF" stroke="{PAUTA}" stroke-width="2"/>')
+    l.add('fondo', f'<rect x="30" y="720" width="1580" height="130" rx="10" fill="#FFFFFF" stroke="{PAUTA}" stroke-width="2"/>')
     l.texto(54, 752, 'En desarrollo (equipo de cada integrante)', 17, 800, TINTA, 'start')
-    pasos = ['docker compose up -d  (PostgreSQL 17 local)', 'npm run db:init  (esquema + datos)',
-             'docker run mongo:8 --replSet rs0  (MongoDB local)', 'npm run mongo:migrar  (PostgreSQL → MongoDB)',
+    pasos = ['docker compose up -d  (MongoDB 8 local)', 'npm run db:init  (colecciones + datos)',
              'npm run dev  (API en :3000)', 'npm run dev  (web en :5173, /api → :3000)']
     for i, t in enumerate(pasos):
         l.texto(54 + (i % 2) * 780, 790 + (i // 2) * 32, t, 15, 500, TINTA, 'start', familia=MONO)
