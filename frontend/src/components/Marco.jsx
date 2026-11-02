@@ -1,20 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router';
 import { api, URL_API } from '../api/cliente.js';
-import { useSesion } from '../hooks/sesionDemo.jsx';
+import { useSesion } from '../hooks/sesion.jsx';
 import { nombreCorto } from '../utils/formato.js';
 import { Logo } from './Piezas.jsx';
 
-const ENLACES = [
-  { a: '/catalogo', texto: 'Buscar maestro' },
-  { a: '/solicitudes', texto: 'Mis solicitudes' },
-  { a: '/admin', texto: 'Administración' },
-  { a: '/consultas', texto: 'Consultas SQL' },
-  { a: '/nosql', texto: 'Modelo NoSQL' },
-];
+// Enlaces de la barra según quién usa la aplicación.
+function enlacesPara({ usuario, esAdmin }) {
+  return [
+    { a: '/catalogo', texto: 'Buscar maestro' },
+    usuario && (usuario.roles.includes('cliente') || usuario.roles.includes('maestro')) && { a: '/solicitudes', texto: 'Mis solicitudes' },
+    esAdmin && { a: '/admin', texto: 'Administración' },
+    { a: '/consultas', texto: 'Consultas' },
+    { a: '/nosql', texto: 'Modelo NoSQL' },
+  ].filter(Boolean);
+}
 
-function SelectorIdentidad() {
-  const { rutCliente, rutMaestro, cliente, clientes, maestros, elegirCliente, elegirMaestro } = useSesion();
+const NOMBRE_ROL = { cliente: 'Cliente', maestro: 'Maestro', administrador: 'Administrador' };
+
+function MenuCuenta() {
+  const { usuario, cerrar } = useSesion();
+  const navegar = useNavigate();
   const ref = useRef(null);
 
   useEffect(() => {
@@ -25,31 +31,29 @@ function SelectorIdentidad() {
     return () => document.removeEventListener('click', cerrarFuera);
   }, []);
 
+  if (!usuario) {
+    return (
+      <div className="cuenta-visitante">
+        <Link to="/ingresar" className="boton boton--chico">Iniciar sesión</Link>
+        <Link to="/registro" className="boton boton--texto boton--chico">Crear cuenta</Link>
+      </div>
+    );
+  }
+
   return (
     <details className="identidad" ref={ref}>
       <summary>
-        <span className="identidad__rotulo">Actúas como</span>
-        <span className="identidad__nombre">{cliente ? nombreCorto(cliente.nombre) : 'Elegir cliente'}</span>
+        <span className="identidad__rotulo">{usuario.roles.map((r) => NOMBRE_ROL[r]).join(' y ')}</span>
+        <span className="identidad__nombre">{nombreCorto(usuario.nombre)}</span>
       </summary>
       <div className="identidad__panel">
         <p className="identidad__nota">
-          Esta etapa no tiene inicio de sesión. Elige con quién quieres probar el sistema.
+          Ingresaste como <strong>{usuario.nombre}</strong> ({usuario.email}).
         </p>
-        <label className="campo">
-          <span className="campo__etiqueta">Cliente que pide servicios</span>
-          <select className="entrada" value={rutCliente} onChange={(e) => elegirCliente(e.target.value)}>
-            {clientes.map((c) => <option key={c.rut_cliente} value={c.rut_cliente}>{c.nombre}</option>)}
-          </select>
-        </label>
-        <label className="campo">
-          <span className="campo__etiqueta">Maestro que responde solicitudes</span>
-          <select className="entrada" value={rutMaestro} onChange={(e) => elegirMaestro(e.target.value)}>
-            {maestros.map((m) => <option key={m.rut_maestro} value={m.rut_maestro}>{m.nombre} ({m.oficio.toLowerCase()})</option>)}
-          </select>
-        </label>
-        <Link to="/registro" className="identidad__registro" onClick={() => { ref.current.open = false; }}>
-          Registrar un cliente nuevo
-        </Link>
+        <button type="button" className="boton boton--secundario boton--chico"
+          onClick={() => { ref.current.open = false; cerrar(); navegar('/'); }}>
+          Cerrar sesión
+        </button>
       </div>
     </details>
   );
@@ -68,8 +72,8 @@ function EstadoBaseDeDatos() {
   return (
     <p className="pie__bd">
       <span className="pie__luz" aria-hidden="true" />
-      Conectado a {salud.bd.motor}{salud.mongo?.conectada ? ` y ${salud.mongo.motor}` : ''}, respuesta en {Math.max(1, Math.round(salud.bd.latenciaMs))} ms.
-      {' '}{salud.tablas.maestro} maestros y {salud.tablas.solicitud} solicitudes registradas.
+      Conectado a {salud.bd.motor} ({salud.bd.alojamiento}), respuesta en {Math.max(1, Math.round(salud.bd.latenciaMs))} ms.
+      {' '}{salud.documentos.maestros} maestros y {salud.documentos.solicitudes} solicitudes registradas.
     </p>
   );
 }
@@ -77,6 +81,7 @@ function EstadoBaseDeDatos() {
 export default function Marco() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const { pathname } = useLocation();
+  const sesion = useSesion();
 
   const primeraCarga = useRef(true);
 
@@ -107,11 +112,11 @@ export default function Marco() {
           </button>
           <nav id="navegacion" className={`navegacion${menuAbierto ? ' navegacion--abierta' : ''}`} aria-label="Principal">
             <ul>
-              {ENLACES.map((e) => (
+              {enlacesPara(sesion).map((e) => (
                 <li key={e.a}><NavLink to={e.a}>{e.texto}</NavLink></li>
               ))}
             </ul>
-            <SelectorIdentidad />
+            <MenuCuenta />
           </nav>
         </div>
       </header>

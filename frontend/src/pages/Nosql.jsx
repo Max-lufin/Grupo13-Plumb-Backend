@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { Link } from 'react-router';
 import { api } from '../api/cliente.js';
 import BloqueSQL from '../components/BloqueSQL.jsx';
 import { CajaError, Cargando } from '../components/Piezas.jsx';
 import { usePeticion } from '../hooks/usePeticion.js';
 import { useTitulo } from '../hooks/usePagina.js';
-import { plural } from '../utils/formato.js';
 
 const ms = (n) => `${n.toLocaleString('es-CL', { maximumFractionDigits: 1 })} ms`;
-const TIPO = { lectura: 'Lectura', transaccion: 'Transacción' };
 
 function EstadoMongo({ estado }) {
   return (
@@ -34,7 +32,7 @@ function Traspaso({ filas, duplicados }) {
 
       <ol className="traspaso">
         <li className="traspaso__fila traspaso__fila--titulos" aria-hidden="true">
-          <span>PostgreSQL</span><span>MongoDB</span><span>Por qué</span>
+          <span>Modelo relacional</span><span>MongoDB</span><span>Por qué</span>
         </li>
         {filas.map((f) => (
           <li key={f.tabla} className="traspaso__fila">
@@ -113,7 +111,7 @@ function Colecciones({ colecciones }) {
             <dd>
               {c.origen.length
                 ? c.origen.map((t) => <code key={t} className="coleccion__tabla">{t}</code>)
-                : 'Ninguna tabla: reemplaza al SERIAL de PostgreSQL'}
+                : 'Ninguna tabla: reemplaza a los SERIAL del modelo relacional'}
             </dd>
           </div>
           <div>
@@ -151,284 +149,24 @@ function Colecciones({ colecciones }) {
   );
 }
 
-function Veredicto({ r }) {
-  const { equivalente, mismoOrden, mongo } = r.comparacion;
-  const n = mongo.length;
-  return (
-    <p className={`veredicto${equivalente ? '' : ' veredicto--mal'}`} role="status">
-      <strong>{equivalente ? 'Mismo resultado en los dos motores' : 'Los motores no coinciden'}</strong>
-      <span>
-        {r.tipo === 'lectura'
-          ? `${plural(n, 'elemento', 'elementos')} comparados${equivalente && mismoOrden ? ', en el mismo orden' : ''}.`
-          : 'Se comparó el efecto de la operación. Luego se abortó la transacción en MongoDB y se hizo ROLLBACK en PostgreSQL.'}
-      </span>
-    </p>
-  );
-}
-
-function Plan({ plan }) {
-  return (
-    <div className="plan">
-      <h4>Cómo la resolvió MongoDB</h4>
-      <p className="plan__etapas" aria-label={`Etapas: ${[...plan.etapas].reverse().join(', ')}`}>
-        {[...plan.etapas].reverse().map((e, i) => (
-          <span key={i} className="plan__paso">
-            {i > 0 && <span className="plan__flecha" aria-hidden="true">→</span>}
-            <span className={`plan__etapa${/IXSCAN/.test(e) ? ' plan__etapa--indice' : ''}`}>{e}</span>
-          </span>
-        ))}
-      </p>
-      <dl className="plan__cifras">
-        <div><dt>Índice</dt><dd><code>{plan.indice ?? 'ninguno'}</code></dd></div>
-        <div><dt>Claves revisadas</dt><dd>{plan.clavesExaminadas}</dd></div>
-        <div><dt>Documentos revisados</dt><dd>{plan.documentosExaminados}</dd></div>
-        <div><dt>Devueltos</dt><dd>{plan.devueltos}</dd></div>
-        <div><dt>Orden</dt><dd>{plan.ordenEnMemoria ? 'En memoria' : 'Lo da el índice'}</dd></div>
-      </dl>
-    </div>
-  );
-}
-
-function Resultado({ r }) {
-  return (
-    <section className="lab__resultado" aria-live="polite">
-      <Veredicto r={r} />
-      <div className="duelo">
-        <div className="duelo__lado">
-          <h4>MongoDB <span>{ms(r.mongo.ms)}</span></h4>
-          <ul>{r.comparacion.mongo.map((x, i) => <li key={i}>{x}</li>)}</ul>
-        </div>
-        <div className="duelo__lado">
-          <h4>PostgreSQL <span>{ms(r.sql.reduce((t, s) => t + s.ms, 0))}</span></h4>
-          <ul>{r.comparacion.sql.map((x, i) => <li key={i}>{x}</li>)}</ul>
-        </div>
-      </div>
-      {r.mongo.plan && <Plan plan={r.mongo.plan} />}
-      <details className="lab__preparacion">
-        <summary>Respuesta de MongoDB en cada paso</summary>
-        {r.mongo.pasos.map((p, i) => (
-          <div key={i} className="paso-respuesta">
-            <p>Paso {i + 1}{p.nota ? `, ${p.nota.toLowerCase()}` : ''}: {plural(p.cantidad, 'resultado', 'resultados')}{p.cantidad > p.resultado.length ? `, se muestran ${p.resultado.length}` : ''}</p>
-            <BloqueSQL sql={p.resultado.join(',\n')} lenguaje="mql" titulo={`Respuesta del paso ${i + 1}`} />
-          </div>
-        ))}
-      </details>
-    </section>
-  );
-}
-
-function DetalleConsulta({ c, resultado, ejecutando, alEjecutar }) {
-  return (
-    <article className="lab__detalle hoja" aria-labelledby="nosql-titulo">
-      <header className="lab__cabecera">
-        <p className="lab__numero">{c.codigo}</p>
-        <span className={`etiqueta-sql etiqueta-sql--${c.tipo === 'lectura' ? 'select' : 'update'}`}>{TIPO[c.tipo]}</span>
-      </header>
-      <h2 id="nosql-titulo">{c.titulo}</h2>
-      <p className="lab__descripcion">{c.porque}</p>
-
-      <dl className="trazabilidad">
-        <div><dt>Pantalla</dt><dd>{c.pantalla}</dd></div>
-        <div><dt>Índice que usa</dt><dd>{c.indice ? <code>{c.indice}</code> : 'Escritura: no aplica'}</dd></div>
-      </dl>
-
-      <h3 className="lab__motor">MQL <span>MongoDB{c.pasos.length > 1 ? `, ${c.pasos.length} pasos` : ''}</span></h3>
-      <ol className="pasos-mql">
-        {c.pasos.map((p, i) => (
-          <li key={i}>
-            {c.pasos.length > 1 && <p className="pasos-mql__rotulo">Paso {i + 1}{p.nota ? `, ${p.nota.toLowerCase()}` : ''}</p>}
-            <BloqueSQL sql={p.texto} lenguaje="mql" titulo={`Paso ${i + 1}`} />
-          </li>
-        ))}
-      </ol>
-
-      <details className="equivalente-sql">
-        <summary>
-          <span className="lab__motor">SQL <span>PostgreSQL, {c.sql.length > 1 ? `${c.sql.length} sentencias equivalentes` : 'la consulta equivalente'}</span></span>
-        </summary>
-        {c.sql.map((s, i) => (
-          <div key={i} className="pasos-sql">
-            <BloqueSQL sql={s.texto} />
-            {s.valores.length > 0 && (
-              <p className="pasos-sql__valores">
-                Parámetros: {s.valores.map((v, j) => <code key={j}>${j + 1} = {v === null ? 'NULL' : String(v)}</code>)}
-              </p>
-            )}
-          </div>
-        ))}
-      </details>
-
-      <button type="button" className="boton lab__ejecutar" onClick={alEjecutar} disabled={ejecutando}>
-        {ejecutando ? 'Ejecutando…' : 'Ejecutar en los dos motores'}
-      </button>
-
-      {resultado?.error && <CajaError error={resultado.error} />}
-      {resultado?.datos && <Resultado r={resultado.datos} />}
-    </article>
-  );
-}
-
-function Consultas({ consultas }) {
-  const [params, setParams] = useSearchParams();
-  const actual = consultas.find((c) => c.codigo === params.get('q')) ?? consultas[0];
-  const [resultados, setResultados] = useState({});
-  const [enCurso, setEnCurso] = useState(null);
-
-  const ejecutar = async (codigo) => {
-    setEnCurso(codigo);
-    try {
-      const r = await api.ejecutarNosql(codigo);
-      setResultados((x) => ({ ...x, [codigo]: { datos: r.data } }));
-    } catch (error) {
-      setResultados((x) => ({ ...x, [codigo]: { error } }));
-    } finally {
-      setEnCurso(null);
-    }
-  };
-
-  const ejecutarTodas = async () => {
-    for (const c of consultas) {
-      // Una a la vez, como en el laboratorio SQL.
-      // eslint-disable-next-line no-await-in-loop
-      await ejecutar(c.codigo);
-    }
-  };
-
-  const hechas = Object.values(resultados).filter((r) => r.datos);
-  const iguales = hechas.filter((r) => r.datos.comparacion.equivalente).length;
-
-  return (
-    <section id="consultas" className="nosql__seccion" aria-labelledby="titulo-consultas">
-      <span className="nosql__paso" aria-hidden="true">3</span>
-      <h2 id="titulo-consultas">Las consultas principales, en los dos motores</h2>
-      <p className="nosql__intro">
-        Cinco lecturas que sostienen las pantallas y tres escrituras que muestran el costo del modelo. Cada una
-        se ejecuta en MongoDB y en PostgreSQL, y la API compara los resultados. Las escrituras corren en una
-        transacción que se aborta: nada queda guardado.
-      </p>
-
-      <div className="lab__cuerpo">
-        <nav className="lab__indice" aria-label="Consultas NoSQL">
-          <button type="button" className="boton lab__todas" onClick={ejecutarTodas} disabled={enCurso !== null}>
-            {enCurso !== null ? `Ejecutando ${enCurso}…` : `Ejecutar las ${consultas.length}`}
-          </button>
-          {hechas.length > 0 && (
-            <p className="lab__marcador" role="status">
-              {iguales} de {hechas.length} con el mismo resultado en ambos motores.
-            </p>
-          )}
-          <ol>
-            {consultas.map((c) => {
-              const r = resultados[c.codigo];
-              return (
-                <li key={c.codigo}>
-                  <button type="button" aria-current={c.codigo === actual.codigo ? 'true' : undefined}
-                    onClick={() => setParams({ q: c.codigo }, { replace: true, preventScrollReset: true })}>
-                    <span className="lab__indice-num">{c.codigo}</span>
-                    <span className="lab__indice-texto">
-                      <span className={`etiqueta-sql etiqueta-sql--${c.tipo === 'lectura' ? 'select' : 'update'}`}>{TIPO[c.tipo]}</span>
-                      {c.titulo}
-                    </span>
-                    {r?.datos && (r.datos.comparacion.equivalente
-                      ? <span className="lab__ok" aria-label="Mismo resultado">✓</span>
-                      : <span className="lab__falla" aria-label="Distinto resultado">✕</span>)}
-                    {r?.error && <span className="lab__falla" aria-label="Falló">✕</span>}
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
-
-        <DetalleConsulta
-          c={actual}
-          resultado={resultados[actual.codigo]}
-          ejecutando={enCurso === actual.codigo}
-          alEjecutar={() => ejecutar(actual.codigo)}
-        />
-      </div>
-    </section>
-  );
-}
-
-function Validacion({ pruebas }) {
-  const [resultados, setResultados] = useState({});
-
-  const probar = async (codigo) => {
-    setResultados((r) => ({ ...r, [codigo]: { cargando: true } }));
-    try {
-      const r = await api.probarNosql(codigo);
-      setResultados((x) => ({ ...x, [codigo]: { datos: r.data } }));
-    } catch (error) {
-      setResultados((x) => ({ ...x, [codigo]: { error } }));
-    }
-  };
-
-  return (
-    <section id="validacion" className="nosql__seccion integridad" aria-labelledby="titulo-validacion">
-      <span className="nosql__paso" aria-hidden="true">4</span>
-      <h2 id="titulo-validacion">El validador se defiende, y lo que no protege</h2>
-      <p className="nosql__intro">
-        Las mismas trampas del laboratorio SQL, ahora contra MongoDB. El validador rechaza documentos mal
-        formados; lo que MongoDB no tiene, como las claves foráneas, pasa a ser responsabilidad de la API.
-      </p>
-      <ul className="integridad__lista">
-        {pruebas.map((p) => {
-          const r = resultados[p.codigo];
-          const leccion = p.esperado === 'aceptada';
-          return (
-            <li key={p.codigo} className={`integridad__item hoja${leccion ? ' integridad__item--leccion' : ''}`}>
-              <p className="integridad__regla">{p.codigo}, {p.regla}</p>
-              <h3>{p.titulo}</h3>
-              <p className="integridad__esperado">En SQL: {p.equivalente}</p>
-              <button type="button" className="boton boton--secundario boton--chico" onClick={() => probar(p.codigo)} disabled={r?.cargando}>
-                {r?.cargando ? 'Probando…' : 'Intentar'}
-              </button>
-              {r?.datos && (
-                <p className={`integridad__veredicto${r.datos.cumpleLoEsperado ? '' : ' integridad__veredicto--mal'}${leccion ? ' integridad__veredicto--leccion' : ''}`}>
-                  {r.datos.rechazada && <>Rechazada: {r.datos.nombreError ?? 'error'} (código {r.datos.codigoMongo}).</>}
-                  {!r.datos.rechazada && p.esperado === 'sin coincidencias' && <>No se modificó nada: el filtro <code>calificacion: null</code> no encontró la solicitud.</>}
-                  {!r.datos.rechazada && leccion && <>MongoDB lo aceptó. {p.leccion}</>}
-                  {r.datos.motivo && <span className="integridad__mensaje">{r.datos.motivo}</span>}
-                  {!r.datos.rechazada && <span className="integridad__mensaje">{r.datos.resultado.replace(/\s+/g, ' ')}</span>}
-                </p>
-              )}
-              {r?.error && <CajaError error={r.error} />}
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-}
-
 export default function Nosql() {
   useTitulo('Modelo NoSQL');
   const resumen = usePeticion((s) => api.nosql(s), []);
-  const lab = usePeticion((s) => api.nosqlConsultas(s), []);
 
-  if (resumen.cargando || lab.cargando) return <div className="contenedor"><Cargando texto="Conectando con MongoDB…" /></div>;
-  const error = resumen.error ?? lab.error;
-  if (error) {
-    return (
-      <div className="contenedor">
-        <CajaError error={error} alReintentar={() => { resumen.recargar(); lab.recargar(); }} />
-      </div>
-    );
-  }
+  if (resumen.cargando) return <div className="contenedor"><Cargando texto="Conectando con MongoDB…" /></div>;
+  if (resumen.error) return <div className="contenedor"><CajaError error={resumen.error} alReintentar={resumen.recargar} /></div>;
 
   const { estado, traspaso, duplicados, colecciones } = resumen.datos;
-  const { consultas, pruebas } = lab.datos;
 
   return (
     <div className="contenedor nosql">
       <header className="pagina__cabecera nosql__cabecera">
-        <p className="nosql__antetitulo">Etapa II, modelo NoSQL</p>
-        <h1>El mismo Plumb, en documentos</h1>
+        <p className="nosql__antetitulo">Modelo de datos en MongoDB</p>
+        <h1>Del modelo relacional a documentos</h1>
         <p>
-          Las 6 tablas de PostgreSQL pasaron a 5 colecciones de MongoDB, más una técnica para el folio. Aquí están
-          las decisiones, los documentos reales y las consultas ejecutándose en los dos motores. Las 13 consultas
-          de la Etapa I, traducidas a MQL, están en <Link to="/consultas">Consultas SQL</Link>.
+          Las 7 tablas del modelo relacional de la Etapa I pasaron a 3 colecciones de datos y una técnica. Aquí
+          están las decisiones de cada tabla, el costo de los datos copiados y un documento real por colección,
+          con sus índices y su validador. Las consultas convertidas se ejecutan en <Link to="/consultas">Consultas</Link>.
         </p>
         <EstadoMongo estado={estado} />
       </header>
@@ -436,19 +174,10 @@ export default function Nosql() {
       <nav className="nosql__indice" aria-label="En esta página">
         <a href="#traspaso"><span>1</span>Traspaso</a>
         <a href="#colecciones"><span>2</span>Colecciones</a>
-        <a href="#consultas"><span>3</span>Consultas</a>
-        <a href="#validacion"><span>4</span>Validación</a>
       </nav>
 
       <Traspaso filas={traspaso} duplicados={duplicados} />
       <Colecciones colecciones={colecciones} />
-      <Consultas consultas={consultas} />
-      <Validacion pruebas={pruebas} />
-
-      <p className="nosql__nota">
-        MongoDB se cargó desde PostgreSQL con <code>npm run mongo:migrar</code>. Lo que se cree después en la
-        aplicación queda solo en PostgreSQL hasta volver a migrar.
-      </p>
     </div>
   );
 }

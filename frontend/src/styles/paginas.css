@@ -1718,3 +1718,144 @@
     font-size: var(--t-s);
   }
 }
+
+/* Inicio de sesión y acceso por rol */
+.cuenta-visitante {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ingreso__cuerpo {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 380px);
+  gap: 28px;
+  align-items: start;
+}
+
+.ingreso__pruebas {
+  display: grid;
+  gap: 12px;
+  padding: 22px 24px;
+}
+
+.ingreso__pruebas h2 {
+  font-size: var(--t-l);
+}
+
+.ingreso__pruebas p {
+  color: var(--tinta-suave);
+  font-size: var(--t-s);
+}
+
+.ingreso__pruebas ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingreso__cuenta {
+  display: grid;
+  width: 100%;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--pauta-fuerte);
+  border-radius: var(--radio-campo);
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ingreso__cuenta:hover {
+  border-color: var(--tinta);
+  background: var(--canario-claro);
+}
+
+.ingreso__rol {
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--folio);
+}
+
+.ingreso__correo {
+  font-family: var(--familia-codigo);
+  font-size: var(--t-xs);
+  color: var(--tinta-suave);
+}
+
+.acceso {
+  padding-top: 56px;
+}
+
+.acceso__panel {
+  display: grid;
+  gap: 14px;
+  max-width: 640px;
+  padding: 32px clamp(20px, 4vw, 40px);
+}
+
+.acceso__panel p {
+  color: var(--tinta-suave);
+}
+
+.acceso__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.solicitud__contacto {
+  margin-top: 4px;
+  font-size: var(--t-s);
+  font-weight: 700;
+}
+
+/* Laboratorio: SQL de la Etapa I junto al MQL que se ejecuta */
+.conversion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  padding: 10px 14px;
+  background: var(--canario-claro);
+  border-left: 4px solid var(--canario);
+  font-weight: 600;
+}
+
+.conversion__rotulo {
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.comparacion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.comparacion__lado {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.paso-respuesta__nota {
+  font-weight: 400;
+  color: var(--tinta-suave);
+}
+
+@media (max-width: 900px) {
+  .ingreso__cuerpo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
