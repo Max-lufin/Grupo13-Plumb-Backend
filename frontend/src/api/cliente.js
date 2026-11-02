@@ -17,6 +17,15 @@ export class ErrorApi extends Error {
   }
 }
 
+// Token de la sesión actual. Lo fija el proveedor de sesión; si la API
+// responde que venció, se avisa para cerrar la sesión en la interfaz.
+let token = null;
+let alVencer = () => {};
+export function configurarSesion(nuevoToken, alVencerSesion) {
+  token = nuevoToken;
+  if (alVencerSesion) alVencer = alVencerSesion;
+}
+
 async function pedir(ruta, { metodo = 'GET', cuerpo, consulta, signal } = {}) {
   const url = new URL(BASE + ruta, window.location.origin);
   for (const [clave, valor] of Object.entries(consulta ?? {})) {
@@ -27,7 +36,10 @@ async function pedir(ruta, { metodo = 'GET', cuerpo, consulta, signal } = {}) {
   try {
     respuesta = await fetch(url, {
       method: metodo,
-      headers: cuerpo ? { 'Content-Type': 'application/json' } : undefined,
+      headers: {
+        ...(cuerpo ? { 'Content-Type': 'application/json' } : {}),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
       body: cuerpo ? JSON.stringify(cuerpo) : undefined,
       signal,
     });
@@ -37,6 +49,7 @@ async function pedir(ruta, { metodo = 'GET', cuerpo, consulta, signal } = {}) {
   }
 
   const json = await respuesta.json().catch(() => null);
+  if (respuesta.status === 401 && token && json?.error?.codigo === 'SESION_INVALIDA') alVencer();
   if (!respuesta.ok || !json?.ok) {
     throw new ErrorApi(respuesta.status, json?.error ?? { mensaje: `La API respondió ${respuesta.status}.` });
   }
@@ -45,6 +58,8 @@ async function pedir(ruta, { metodo = 'GET', cuerpo, consulta, signal } = {}) {
 
 export const api = {
   salud: (signal) => pedir('/salud', { signal }),
+  iniciarSesion: (datos) => pedir('/sesiones', { metodo: 'POST', cuerpo: datos }),
+  sesionActual: (signal) => pedir('/sesiones/actual', { signal }),
   regiones: (signal) => pedir('/regiones', { signal }),
 
   oficios: (signal) => pedir('/oficios', { signal }),
@@ -78,9 +93,6 @@ export const api = {
   probarIntegridad: (codigo) => pedir(`/pruebas-integridad/${codigo}/ejecuciones`, { metodo: 'POST' }),
 
   nosql: (signal) => pedir('/nosql', { signal }),
-  nosqlConsultas: (signal) => pedir('/nosql/consultas', { signal }),
-  ejecutarNosql: (codigo) => pedir(`/nosql/consultas/${codigo}/ejecuciones`, { metodo: 'POST' }),
-  probarNosql: (codigo) => pedir(`/nosql/pruebas/${codigo}/ejecuciones`, { metodo: 'POST' }),
 };
 
 export const URL_API = BASE.startsWith('http') ? BASE : `${window.location.origin}${BASE}`;

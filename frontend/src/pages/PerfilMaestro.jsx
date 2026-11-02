@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useLocation, useNavigate, useParams } from 'react-router';
 import { api } from '../api/cliente.js';
 import { useAvisar } from '../components/Avisos.jsx';
 import { CajaError, Campo, Cargando, Disponibilidad, Estrella, Reputacion, Timbre } from '../components/Piezas.jsx';
 import { usePeticion } from '../hooks/usePeticion.js';
 import { useTitulo } from '../hooks/usePagina.js';
-import { useSesion } from '../hooks/sesionDemo.jsx';
+import { useSesion } from '../hooks/sesion.jsx';
 import { clp, fecha, folio, hoyISO, plural, sumarDias } from '../utils/formato.js';
 
 function OrdenDeTrabajo({ maestro }) {
-  const { cliente } = useSesion();
+  const { cliente, usuario } = useSesion();
+  const { pathname } = useLocation();
   const avisar = useAvisar();
   const navegar = useNavigate();
   const [datos, setDatos] = useState({ descripcion: '', direccion: '', fecha_servicio: sumarDias(hoyISO(), 2) });
@@ -25,7 +26,7 @@ function OrdenDeTrabajo({ maestro }) {
     setEnviando(true);
     setErrores({});
     try {
-      const r = await api.crearSolicitud({ ...datos, rut_cliente: cliente.rut_cliente, rut_maestro: maestro.rut_maestro });
+      const r = await api.crearSolicitud({ ...datos, rut_maestro: maestro.rut_maestro });
       setEmitida(r.data);
       avisar(`Solicitud ${folio(r.data.id_solicitud)} enviada a ${maestro.nombre}.`);
     } catch (error) {
@@ -67,7 +68,11 @@ function OrdenDeTrabajo({ maestro }) {
       <dl className="orden__partes">
         <div>
           <dt>Cliente</dt>
-          <dd>{cliente ? cliente.nombre : 'Elige un cliente arriba, en «Actúas como»'}</dd>
+          <dd>
+            {cliente && cliente.nombre}
+            {!usuario && <Link to={`/ingresar?volver=${encodeURIComponent(pathname)}`}>Inicia sesión para pedir</Link>}
+            {usuario && !cliente && 'Tu cuenta no es de cliente'}
+          </dd>
         </div>
         <div>
           <dt>Maestro</dt>
@@ -79,7 +84,14 @@ function OrdenDeTrabajo({ maestro }) {
         <p className="orden__aviso">Este maestro no está recibiendo solicitudes por ahora. Puedes buscar otro en la misma región.</p>
       )}
 
-      <fieldset disabled={bloqueado || enviando} className="orden__campos">
+      {!usuario && (
+        <p className="orden__aviso">
+          Puedes revisar el perfil sin cuenta. Para enviar la orden, <Link to={`/ingresar?volver=${encodeURIComponent(pathname)}`}>inicia sesión</Link> o{' '}
+          <Link to="/registro">crea una cuenta</Link>.
+        </p>
+      )}
+
+      <fieldset disabled={bloqueado || enviando || !cliente} className="orden__campos">
         <Campo etiqueta="¿Qué necesitas?" requerido id="orden-descripcion" error={errores.descripcion}
           ayuda="Cuenta qué pasa y desde cuándo. Mínimo 15 caracteres.">
           <textarea id="orden-descripcion" className="entrada" value={datos.descripcion} onChange={poner('descripcion')}
@@ -133,13 +145,13 @@ export default function PerfilMaestro() {
         <p className="perfil__privacidad">El teléfono del maestro se comparte cuando acepta tu solicitud.</p>
 
         <section className="resenas" aria-labelledby="titulo-resenas">
-          <h2 id="titulo-resenas">Reseñas</h2>
+          <h2 id="titulo-resenas">Reseñas recientes</h2>
           {m.resenas.length === 0 ? (
             <p className="resenas__vacio">Aún no tiene reseñas. La primera la deja el cliente de su primer trabajo terminado.</p>
           ) : (
             <ul>
               {m.resenas.map((r) => (
-                <li key={r.id_calificacion} className="resena">
+                <li key={r.id} className="resena">
                   <p className="resena__nota" role="img" aria-label={`${r.puntuacion} de 5 estrellas`}>
                     {[1, 2, 3, 4, 5].map((i) => <Estrella key={i} llena={i <= r.puntuacion} />)}
                   </p>

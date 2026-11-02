@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { api } from '../api/cliente.js';
+import Acceso from '../components/Acceso.jsx';
 import { useAvisar } from '../components/Avisos.jsx';
 import { CajaError, Campo, Cargando, Dialogo, Estrella, Reputacion, Timbre } from '../components/Piezas.jsx';
 import { usePeticion } from '../hooks/usePeticion.js';
@@ -9,7 +10,7 @@ import { clp, fecha, folio } from '../utils/formato.js';
 
 const MAESTRO_VACIO = {
   rut_maestro: '', nombre: '', email: '', telefono: '', fecha_nacimiento: '',
-  id_oficio: '', id_region: '', tarifa_hora: '', experiencia_anios: '0', disponible: true, descripcion: '',
+  id_oficio: '', id_region: '', tarifa_hora: '', experiencia_anios: '0', disponible: true, descripcion: '', contrasena: '',
 };
 
 function FormularioMaestro({ inicial, editando, alCerrar, alGuardar }) {
@@ -31,7 +32,9 @@ function FormularioMaestro({ inicial, editando, alCerrar, alGuardar }) {
     setEnviando(true);
     setErrores({});
     try {
-      const r = editando ? await api.editarMaestro(inicial.rut_maestro, datos) : await api.crearMaestro(datos);
+      // Al editar, la contraseña solo se envía si se escribió una nueva.
+      const cuerpo = { ...datos, contrasena: datos.contrasena || undefined };
+      const r = editando ? await api.editarMaestro(inicial.rut_maestro, cuerpo) : await api.crearMaestro(cuerpo);
       alGuardar(r.data);
     } catch (error) {
       setErrores({ ...error.porCampo?.(), general: error.message });
@@ -53,6 +56,8 @@ function FormularioMaestro({ inicial, editando, alCerrar, alGuardar }) {
       {campo('email', 'Correo', { required: true, type: 'email' })}
       {campo('telefono', 'Celular', { required: true, type: 'tel' }, '+56 9 1234 5678')}
       {campo('fecha_nacimiento', 'Fecha de nacimiento', { required: true, type: 'date' })}
+      {campo('contrasena', editando ? 'Nueva contraseña' : 'Contraseña inicial', { required: !editando, type: 'password', autoComplete: 'new-password' },
+        editando ? 'Déjala vacía para no cambiarla.' : 'Mínimo 8 caracteres, con al menos una letra y un número.')}
       <Campo etiqueta="Oficio" requerido id="m-id_oficio" error={errores.id_oficio}>
         <select id="m-id_oficio" className="entrada" value={datos.id_oficio} onChange={poner('id_oficio')}>
           <option value="" disabled>Elige un oficio</option>
@@ -177,7 +182,7 @@ function MantenedorMaestros() {
                   </td>
                   <td className="tabla__acciones">
                     <button type="button" className="boton boton--secundario boton--chico"
-                      onClick={() => setFormulario({ inicial: { ...m, descripcion: m.descripcion ?? '' }, editando: true })}>Editar</button>
+                      onClick={() => setFormulario({ inicial: { ...m, descripcion: m.descripcion ?? '', contrasena: '' }, editando: true })}>Editar</button>
                     <button type="button" className="boton boton--peligro boton--chico" onClick={() => setBorrando(m)}>Eliminar</button>
                   </td>
                 </tr>
@@ -381,6 +386,10 @@ function Moderacion() {
 
 export default function Admin() {
   useTitulo('Administración');
+  return <Acceso rol="administrador" nombreRol="administradores"><Panel /></Acceso>;
+}
+
+function Panel() {
   const [params, setParams] = useSearchParams();
   const seccion = ['oficios', 'moderacion'].includes(params.get('seccion')) ? params.get('seccion') : 'maestros';
 
@@ -388,7 +397,7 @@ export default function Admin() {
     <div className="contenedor">
       <header className="pagina__cabecera">
         <h1>Administración</h1>
-        <p>Los dos mantenedores de la Etapa I (maestros y oficios) y la moderación de solicitudes.</p>
+        <p>Mantenedores de maestros y oficios, y moderación de solicitudes y reseñas.</p>
       </header>
       <div className="pestanas" role="group" aria-label="Mantenedor">
         <button type="button" aria-pressed={seccion === 'maestros'} onClick={() => setParams({}, { replace: true })}>

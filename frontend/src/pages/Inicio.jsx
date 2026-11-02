@@ -106,14 +106,15 @@ export default function Inicio() {
 
       <aside className="contenedor inicio__evaluacion">
         <div className="hoja inicio__evaluacion-hoja">
-          <h2>Revisión de la Etapa I</h2>
+          <h2>Revisión de la Etapa II</h2>
           <p>
-            Las 13 consultas exigidas (2 ALTER, 3 SELECT, 2 UPDATE, 3 INSERT, 2 DELETE y 1 DROP) se pueden
-            ejecutar contra la base de datos real, con su álgebra relacional y su trazabilidad a los requisitos.
+            La aplicación funciona sobre MongoDB. Las 13 consultas de la Etapa I (2 ALTER, 3 SELECT, 2 UPDATE,
+            3 INSERT, 2 DELETE y 1 DROP) se ejecutan convertidas a MQL, junto a su SQL original, y el modelo de
+            documentos muestra por qué cada tabla quedó donde quedó.
           </p>
           <div className="inicio__evaluacion-acciones">
-            <Link to="/consultas" className="boton">Abrir las consultas SQL</Link>
-            <Link to="/admin" className="boton boton--secundario">Ver los mantenedores</Link>
+            <Link to="/consultas" className="boton">Abrir las consultas</Link>
+            <Link to="/nosql" className="boton boton--secundario">Ver el modelo NoSQL</Link>
           </div>
         </div>
       </aside>

@@ -5,7 +5,8 @@ import { useAvisar } from '../components/Avisos.jsx';
 import { CajaError, Campo, Cargando, Dialogo, Estrella, Timbre } from '../components/Piezas.jsx';
 import { usePeticion } from '../hooks/usePeticion.js';
 import { useTitulo } from '../hooks/usePagina.js';
-import { useSesion } from '../hooks/sesionDemo.jsx';
+import Acceso from '../components/Acceso.jsx';
+import { useSesion } from '../hooks/sesion.jsx';
 import { fecha, fechaYHora, folio, nombreCorto } from '../utils/formato.js';
 
 function Calificar({ solicitud, alCerrar, alTerminar }) {
@@ -69,6 +70,9 @@ function FilaSolicitud({ s, vista, children }) {
         <p className="solicitud__meta">
           {s.direccion && <>{s.direccion}. </>}Enviada el {fechaYHora(s.fecha_solicitud)}.
         </p>
+        {vista === 'cliente' && s.telefono_maestro && (
+          <p className="solicitud__contacto">Teléfono del maestro: <a href={`tel:${s.telefono_maestro}`}>{s.telefono_maestro}</a></p>
+        )}
       </div>
       <div className="solicitud__estado">
         {s.estado && <Timbre estado={s.estado} />}
@@ -79,7 +83,8 @@ function FilaSolicitud({ s, vista, children }) {
 }
 
 function ComoCliente() {
-  const { cliente, rutCliente } = useSesion();
+  const { cliente } = useSesion();
+  const rutCliente = cliente.rut_cliente;
   const avisar = useAvisar();
   const [calificando, setCalificando] = useState(null);
   const lista = usePeticion((s) => api.solicitudes({ cliente: rutCliente }, s), [rutCliente]);
@@ -97,8 +102,8 @@ function ComoCliente() {
   return (
     <>
       <p className="pestana__intro">
-        Solicitudes de <strong>{cliente?.nombre ?? rutCliente}</strong>. Esta lista es la consulta 4: une
-        Solicitud, Cliente y Maestro{lista.meta && <> y respondió en {Math.max(1, Math.round(lista.meta.ms))} ms</>}.
+        Tus solicitudes, de la más reciente a la más antigua. Cuando un maestro acepta, aquí aparece su teléfono
+        para coordinar el trabajo.
       </p>
       {lista.cargando && <Cargando />}
       {lista.error && <CajaError error={lista.error} alReintentar={lista.recargar} />}
@@ -138,7 +143,8 @@ function ComoCliente() {
 }
 
 function ComoMaestro() {
-  const { maestro, rutMaestro } = useSesion();
+  const { maestro } = useSesion();
+  const rutMaestro = maestro.rut_maestro;
   const avisar = useAvisar();
   const pendientes = usePeticion((s) => api.bandeja(rutMaestro, 'Pendiente', s), [rutMaestro]);
   const aceptadas = usePeticion((s) => api.solicitudes({ maestro: rutMaestro, estado: 'Aceptada' }, s), [rutMaestro]);
@@ -157,8 +163,8 @@ function ComoMaestro() {
   return (
     <>
       <p className="pestana__intro">
-        Bandeja de <strong>{maestro?.nombre ?? rutMaestro}</strong>. Las pendientes salen de la consulta 5
-        {pendientes.meta && <>, que respondió en {Math.max(1, Math.round(pendientes.meta.ms))} ms</>}.
+        Las solicitudes nuevas aparecen primero en «Por responder», de la más antigua a la más reciente.
+        Al aceptar una, el cliente ve tu teléfono.
       </p>
 
       <h2 className="pestana__titulo">Por responder</h2>
@@ -196,28 +202,37 @@ function ComoMaestro() {
   );
 }
 
-export default function MisSolicitudes() {
-  useTitulo('Mis solicitudes');
+function Vistas() {
+  const { esCliente, esMaestro } = useSesion();
   const [params, setParams] = useSearchParams();
-  const vista = params.get('vista') === 'maestro' ? 'maestro' : 'cliente';
+  const pedida = params.get('vista') === 'maestro' ? 'maestro' : 'cliente';
+  // Cada persona ve las pestañas de los roles que tiene.
+  const vista = (pedida === 'maestro' && esMaestro) || !esCliente ? 'maestro' : 'cliente';
 
   return (
     <div className="contenedor">
       <header className="pagina__cabecera">
         <h1>Mis solicitudes</h1>
-        <p>El mismo trabajo visto desde los dos lados: quien lo pide y quien lo hace.</p>
+        <p>{esCliente && esMaestro ? 'El mismo trabajo visto desde los dos lados: quien lo pide y quien lo hace.' : vista === 'cliente' ? 'Los trabajos que pediste y en qué estado están.' : 'Los trabajos que te pidieron y los que tienes en curso.'}</p>
       </header>
-      <div className="pestanas" role="group" aria-label="Vista">
-        <button type="button" aria-pressed={vista === 'cliente'} onClick={() => setParams({}, { replace: true })}>
-          Como cliente
-        </button>
-        <button type="button" aria-pressed={vista === 'maestro'} onClick={() => setParams({ vista: 'maestro' }, { replace: true })}>
-          Como maestro
-        </button>
-      </div>
+      {esCliente && esMaestro && (
+        <div className="pestanas" role="group" aria-label="Vista">
+          <button type="button" aria-pressed={vista === 'cliente'} onClick={() => setParams({}, { replace: true })}>Como cliente</button>
+          <button type="button" aria-pressed={vista === 'maestro'} onClick={() => setParams({ vista: 'maestro' }, { replace: true })}>Como maestro</button>
+        </div>
+      )}
       <section className="pestana" aria-live="polite">
         {vista === 'cliente' ? <ComoCliente /> : <ComoMaestro />}
       </section>
     </div>
   );
+}
+
+export default function MisSolicitudes() {
+  useTitulo('Mis solicitudes');
+  const { usuario, esCliente, esMaestro } = useSesion();
+  if (usuario && !esCliente && !esMaestro) {
+    return <Acceso rol="cliente" nombreRol="clientes y maestros" />;
+  }
+  return <Acceso><Vistas /></Acceso>;
 }

@@ -11,10 +11,11 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { ProveedorAvisos } from './components/Avisos.jsx';
 import Marco from './components/Marco.jsx';
-import { ProveedorSesion } from './hooks/sesionDemo.jsx';
+import { ProveedorSesion } from './hooks/sesion.jsx';
 import Admin from './pages/Admin.jsx';
 import Catalogo from './pages/Catalogo.jsx';
 import Consultas from './pages/Consultas.jsx';
+import Ingresar from './pages/Ingresar.jsx';
 import Inicio from './pages/Inicio.jsx';
 import MisSolicitudes from './pages/MisSolicitudes.jsx';
 import NoEncontrada from './pages/NoEncontrada.jsx';
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: 'maestros/:rut', element: <PerfilMaestro /> },
       { path: 'solicitudes', element: <MisSolicitudes /> },
       { path: 'registro', element: <Registro /> },
+      { path: 'ingresar', element: <Ingresar /> },
       { path: 'admin', element: <Admin /> },
       { path: 'consultas', element: <Consultas /> },
       { path: 'nosql', element: <Nosql /> },

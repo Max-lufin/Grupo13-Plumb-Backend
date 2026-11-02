@@ -16,27 +16,26 @@ const TARIFAS = [
 const NOTAS = [['', 'Cualquiera'], ['3', '3 o más'], ['4', '4 o más'], ['4.5', '4,5 o más']];
 const EXPERIENCIA = [['', 'Cualquiera'], ['1', '1 año o más'], ['3', '3 años o más'], ['5', '5 años o más'], ['10', '10 años o más']];
 
-function VerSQL({ abierto, alCerrar, meta }) {
+function VerConsulta({ abierto, alCerrar, meta }) {
   const consulta = usePeticion((s) => (abierto ? api.consulta(3, s) : Promise.resolve({ data: null })), [abierto]);
   const filtros = meta?.filtros ?? {};
-  const parametros = [
-    ['$1 región', filtros.region], ['$2 oficio', filtros.oficio], ['$3 tarifa máx.', filtros.tarifaMax],
-    ['$4 calificación mín.', filtros.calificacionMin], ['$5 disponible', filtros.disponible],
-    ['$6 experiencia mín.', filtros.experienciaMin],
+  const usados = [
+    ['región', filtros.region], ['oficio', filtros.oficio], ['tarifa máx.', filtros.tarifaMax],
+    ['calificación mín.', filtros.calificacionMin], ['disponible', filtros.disponible], ['experiencia mín.', filtros.experienciaMin],
   ];
   return (
     <Dialogo abierto={abierto} alCerrar={alCerrar} titulo="Consulta 3: catálogo con filtros" ancho={820}>
       <p className="dialogo__texto">
-        Es una sola sentencia parametrizada. Cada filtro opcional que no usas viaja como NULL y la
-        condición <code>($n IS NULL OR …)</code> lo deja pasar, así nunca se arma SQL concatenando texto.
+        Es una búsqueda sobre la colección <code>usuarios</code>. Cada filtro opcional solo se agrega al documento
+        de filtro si lo usas, y el índice <code>ix_catalogo</code> resuelve región y oficio sin recorrer toda la colección.
       </p>
-      {consulta.datos && <BloqueSQL sql={consulta.datos.sql} />}
-      <h3 className="dialogo__subtitulo">Parámetros de esta búsqueda</h3>
+      {consulta.datos && <BloqueSQL sql={consulta.datos.mql} lenguaje="mql" titulo="MQL de la consulta 3" />}
+      <h3 className="dialogo__subtitulo">Filtros de esta búsqueda</h3>
       <dl className="parametros">
-        {parametros.map(([nombre, valor]) => (
+        {usados.map(([nombre, valor]) => (
           <div key={nombre}>
             <dt>{nombre}</dt>
-            <dd>{valor === undefined ? <span className="parametros__nulo">NULL</span> : String(valor)}</dd>
+            <dd>{valor === undefined ? <span className="parametros__nulo">sin usar</span> : String(valor)}</dd>
           </div>
         ))}
       </dl>
@@ -49,7 +48,7 @@ export default function Catalogo() {
   const [params, setParams] = useSearchParams();
   const [regiones, setRegiones] = useState([]);
   const [oficios, setOficios] = useState([]);
-  const [verSQL, setVerSQL] = useState(false);
+  const [verConsulta, setVerConsulta] = useState(false);
 
   const filtros = Object.fromEntries(['region', 'oficio', ...OPCIONALES].map((k) => [k, params.get(k) ?? '']));
   const listos = filtros.region && filtros.oficio;
@@ -217,8 +216,8 @@ export default function Catalogo() {
                 </h2>
                 <p className="resultados__contexto">
                   {oficioActual?.nombre} en {regionActual?.nombre}.{' '}
-                  <button type="button" className="enlace-sql" onClick={() => setVerSQL(true)}>
-                    Consulta 3, respondió en {Math.max(1, Math.round(resultado.meta.ms))} ms. Ver el SQL
+                  <button type="button" className="enlace-sql" onClick={() => setVerConsulta(true)}>
+                    Consulta 3, respondió en {Math.max(1, Math.round(resultado.meta.ms))} ms. Ver la consulta
                   </button>
                 </p>
               </div>
@@ -260,7 +259,7 @@ export default function Catalogo() {
         </section>
       </div>
 
-      <VerSQL abierto={verSQL} alCerrar={() => setVerSQL(false)} meta={resultado.meta} />
+      <VerConsulta abierto={verConsulta} alCerrar={() => setVerConsulta(false)} meta={resultado.meta} />
     </div>
   );
 }
