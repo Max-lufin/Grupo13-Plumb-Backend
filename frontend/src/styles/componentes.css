@@ -381,6 +381,24 @@ main:focus {
 
 .formulario--dos {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px 20px;
+}
+
+/* Cada campo apila etiqueta, entrada y ayuda desde arriba: así las entradas
+   de una misma fila quedan alineadas aunque una tenga texto de ayuda. */
+.formulario .campo {
+  align-content: start;
+}
+
+/* Todas las filas miden lo mismo: una línea reservada para la ayuda y entradas de igual alto. */
+.formulario--dos > .campo:not(:has(textarea)) {
+  grid-template-rows: auto 48px minmax(1.3em, auto);
+}
+
+.formulario--dos input.entrada,
+.formulario--dos select.entrada {
+  height: 48px;
 }
 
 .formulario--dos > .campo:has(textarea),
@@ -393,6 +411,11 @@ main:focus {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.formulario__acciones .boton {
+  min-width: 170px;
+  justify-content: center;
 }
 
 .interruptor {
@@ -443,9 +466,13 @@ main:focus {
 }
 
 .segmentos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.segmentos__opcion:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .segmentos__opcion input {
@@ -454,8 +481,11 @@ main:focus {
 }
 
 .segmentos__opcion span {
-  display: inline-block;
-  padding: 6px 11px;
+  display: block;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 8px 11px;
+  text-align: center;
   border: 1.5px solid var(--pauta-fuerte);
   border-radius: var(--radio-campo);
   font-size: var(--t-s);
